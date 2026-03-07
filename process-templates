@@ -4,23 +4,80 @@ from jinja2 import FileSystemLoader, Environment
 from pathlib import Path
 import os
 import sys
+import argparse
+import shutil
 
-if len(sys.argv) != 2:
-    print(f"Usage: {sys.argv[0]} <path>")
-    sys.exit(1)
+from jinja2i18n import create_i18n_environment, get_supported_languages, LANGUAGES
 
-ROOT_DIR = Path(sys.argv[1])
-TEMPLATE_PATH_LIST = [ROOT_DIR, "templates/"]
 
-loader = FileSystemLoader(searchpath=TEMPLATE_PATH_LIST)
-environment = Environment(loader=loader, autoescape=True)
+def process_templates(input_dir, output_dir=None, lang='en'):
+    ROOT_DIR = Path(input_dir)
+    
+    if output_dir:
+        OUTPUT_DIR = Path(output_dir)
+        # Create output directory if it doesn't exist
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+        
+        # Copy entire directory structure from source (not output)
+        source_dir = ROOT_DIR
+        if OUTPUT_DIR.exists() and any(OUTPUT_DIR.iterdir()):
+            pass  # Already copied
+        else:
+            # Clean and copy
+            if OUTPUT_DIR.exists():
+                shutil.rmtree(OUTPUT_DIR)
+            shutil.copytree(source_dir, OUTPUT_DIR)
+        target_dir = OUTPUT_DIR
+    else:
+        target_dir = ROOT_DIR
+    
+    TEMPLATE_PATH_LIST = [target_dir, "templates/"]
+    
+    loader = FileSystemLoader(searchpath=TEMPLATE_PATH_LIST)
+    environment = Environment(loader=loader, autoescape=True)
+    
+    # Add i18n filters and functions
+    i18n_context = create_i18n_environment(lang)
+    for name, value in i18n_context.items():
+        environment.globals[name] = value
+    
+    # Add to_filter for string translation
+    def to_translate(text):
+        return i18n_context['_'](text)
+    environment.filters['t'] = to_translate
+    
+    file_path_list = target_dir.glob("**/*.html")
+    template_file_list = [os.fspath(p.relative_to(target_dir)) for p in file_path_list]
+    
+    processed = 0
+    for template_file in template_file_list:
+        try:
+            template = environment.get_template(template_file)
+            rendered_template = template.render()
+            path = os.path.join(target_dir, template_file)
+            with open(path, mode="w", encoding='utf-8') as f:
+                f.write(rendered_template)
+            processed += 1
+        except Exception as e:
+            print(f"Error processing {template_file}: {e}")
+    
+    print(f"Processed {processed} templates for language: {lang} ({LANGUAGES.get(lang, lang)})")
+    return processed
 
-file_path_list = ROOT_DIR.glob("**/*.html")
-template_file_list = [os.fspath(p.relative_to(ROOT_DIR)) for p in file_path_list]
 
-for template_file in template_file_list:
-    template = environment.get_template(template_file)
-    rendered_template = template.render()
-    path = os.path.join(ROOT_DIR, template_file)
-    with open(path, mode="w") as f:
-        f.write(rendered_template)
+def main():
+    parser = argparse.ArgumentParser(description='Process Jinja2 templates')
+    parser.add_argument('input_dir', help='Input directory with templates')
+    parser.add_argument('--lang', '-l', default='en', 
+                       choices=get_supported_languages(),
+                       help=f'Language code (default: en). Available: {", ".join(get_supported_languages())}')
+    parser.add_argument('--output', '-o', default=None,
+                       help='Output directory (if different from input)')
+    
+    args = parser.parse_args()
+    
+    process_templates(args.input_dir, args.output, args.lang)
+
+
+if __name__ == '__main__':
+    main()

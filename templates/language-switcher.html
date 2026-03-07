@@ -1,0 +1,34 @@
+<div class="language-switcher">
+    <select onchange="switchLanguage(this.value)">
+        <option value="/{{ get_lang() }}/" {% if get_lang() == 'en' %}selected{% endif %}>🇺🇸 English</option>
+        <option value="/{{ get_lang() }}/" {% if get_lang() == 'de' %}selected{% endif %}>🇩🇪 Deutsch</option>
+        <option value="/{{ get_lang() }}/" {% if get_lang() == 'fr' %}selected{% endif %}>🇫🇷 Français</option>
+        <option value="/{{ get_lang() }}/" {% if get_lang() == 'es' %}selected{% endif %}>🇪🇸 Español</option>
+        <option value="/{{ get_lang() }}/" {% if get_lang() == 'ru' %}selected{% endif %}>🇷🇺 Русский</option>
+    </select>
+</div>
+<style>
+.language-switcher {
+    display: inline-block;
+    margin-left: 1rem;
+}
+.language-switcher select {
+    background: transparent;
+    color: inherit;
+    border: 1px solid currentColor;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+.language-switcher select:hover {
+    background: rgba(128, 128, 128, 0.2);
+}
+</style>
+<script>
+function switchLanguage(url) {
+    if (url && url !== window.location.pathname) {
+        window.location.href = url;
+    }
+}
+</script>

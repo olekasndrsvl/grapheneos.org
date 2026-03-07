@@ -1,4 +1,4 @@
-<header>
+<header style="position: relative;">
     <nav id="site-menu">
         <ul>
             <li {% if current_page == "/" %}aria-current="page"{% endif %}><a href="/"><img src="[[path|/mask-icon.svg]]" alt=""/>GrapheneOS</a></li>
@@ -15,4 +15,38 @@
             <li {% if current_page == "contact" %}aria-current="page"{% endif %}><a href="/contact">Contact</a></li>
         </ul>
     </nav>
+    <div class="language-switcher">
+        <select onchange="switchLanguage(this.value)">
+            <option value="/" {% if get_lang() == 'en' %}selected{% endif %}>EN</option>
+            <option value="/de/" {% if get_lang() == 'de' %}selected{% endif %}>DE</option>
+            <option value="/fr/" {% if get_lang() == 'fr' %}selected{% endif %}>FR</option>
+            <option value="/es/" {% if get_lang() == 'es' %}selected{% endif %}>ES</option>
+            <option value="/ru/" {% if get_lang() == 'ru' %}selected{% endif %}>RU</option>
+        </select>
+    </div>
 </header>
+<style>
+.language-switcher {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.language-switcher select {
+    background: var(--background-color, #fff);
+    color: var(--text-color, #000);
+    border: 1px solid var(--border-color, #ccc);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+</style>
+<script>
+function switchLanguage(url) {
+    if (url && url !== window.location.pathname) {
+        window.location.href = url;
+    }
+}
+</script>

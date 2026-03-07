@@ -8,16 +8,44 @@
     "source": "Исходный код",
     "faq": "FAQ",
     "donate": "Пожертвовать",
-    "contact": "Контакты"
+    "contact": "Контакты",
+    "history": "История",
+    "articles": "Статьи",
+    "build": "Сборка",
+    "releases": "Релизы"
   },
   "footer": {
     "copyright": "© GrapheneOS",
-    "privacy": "Политика конфиденциальности"
+    "privacy": "Политика конфиденциальности",
+    "forum": "Форум",
+    "discord": "Discord",
+    "matrix": "Matrix",
+    "hiring": "Наём",
+    "github": "GitHub",
+    "reddit": "Reddit",
+    "linkedin": "LinkedIn"
   },
   "common": {
     "learn_more": "Узнать больше",
     "download": "Скачать",
-    "documentation": "Документация"
+    "documentation": "Документация",
+    "more_information": "Подробнее",
+    "available": "Доступно",
+    "not_available": "Недоступно",
+    "required": "Обязательно",
+    "optional": "Необязательно",
+    "yes": "Да",
+    "no": "Нет",
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "success": "Успешно",
+    "warning": "Внимание",
+    "close": "Закрыть",
+    "back": "Назад",
+    "next": "Далее",
+    "previous": "Предыдущее",
+    "submit": "Отправить",
+    "cancel": "Отмена"
   },
   "installer": {
     "title": "Установить GrapheneOS",
@@ -32,5 +60,11 @@
     "error_installation_failed": "Ошибка установки",
     "success": "Установка завершена",
     "instructions": "Следуйте инструкциям для установки"
+  },
+  "home": {
+    "tagline": "Мобильная ОС с упором на приватность и безопасность",
+    "get_started": "Начать",
+    "download_now": "Скачать сейчас",
+    "learn_more": "Узнать больше о GrapheneOS"
   }
 }

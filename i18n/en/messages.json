@@ -8,16 +8,44 @@
     "source": "Source",
     "faq": "FAQ",
     "donate": "Donate",
-    "contact": "Contact"
+    "contact": "Contact",
+    "history": "History",
+    "articles": "Articles",
+    "build": "Build",
+    "releases": "Releases"
   },
   "footer": {
     "copyright": "© GrapheneOS",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "forum": "Forum",
+    "discord": "Discord",
+    "matrix": "Matrix",
+    "hiring": "Hiring",
+    "github": "GitHub",
+    "reddit": "Reddit",
+    "linkedin": "LinkedIn"
   },
   "common": {
     "learn_more": "Learn more",
     "download": "Download",
-    "documentation": "Documentation"
+    "documentation": "Documentation",
+    "more_information": "More information",
+    "available": "Available",
+    "not_available": "Not available",
+    "required": "Required",
+    "optional": "Optional",
+    "yes": "Yes",
+    "no": "No",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "cancel": "Cancel"
   },
   "installer": {
     "title": "Install GrapheneOS",
@@ -32,5 +60,11 @@
     "error_installation_failed": "Installation failed",
     "success": "Installation complete",
     "instructions": "Follow the instructions to install"
+  },
+  "home": {
+    "tagline": "A privacy and security focused mobile OS",
+    "get_started": "Get started",
+    "download_now": "Download now",
+    "learn_more": "Learn more about GrapheneOS"
   }
 }

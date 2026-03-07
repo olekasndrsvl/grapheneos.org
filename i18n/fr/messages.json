@@ -8,16 +8,44 @@
     "source": "Source",
     "faq": "FAQ",
     "donate": "Donner",
-    "contact": "Contact"
+    "contact": "Contact",
+    "history": "Historique",
+    "articles": "Articles",
+    "build": "Build",
+    "releases": "Versions"
   },
   "footer": {
     "copyright": "© GrapheneOS",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "forum": "Forum",
+    "discord": "Discord",
+    "matrix": "Matrix",
+    "hiring": "Recrutement",
+    "github": "GitHub",
+    "reddit": "Reddit",
+    "linkedin": "LinkedIn"
   },
   "common": {
     "learn_more": "En savoir plus",
     "download": "Télécharger",
-    "documentation": "Documentation"
+    "documentation": "Documentation",
+    "more_information": "Plus d'informations",
+    "available": "Disponible",
+    "not_available": "Non disponible",
+    "required": "Requis",
+    "optional": "Optionnel",
+    "yes": "Oui",
+    "no": "Non",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "warning": "Avertissement",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Soumettre",
+    "cancel": "Annuler"
   },
   "installer": {
     "title": "Installer GrapheneOS",
@@ -32,5 +60,11 @@
     "error_installation_failed": "Échec de l'installation",
     "success": "Installation terminée",
     "instructions": "Suivez les instructions pour installer"
+  },
+  "home": {
+    "tagline": "Un système d'exploitation mobile axé sur la confidentialité et la sécurité",
+    "get_started": "Commencer",
+    "download_now": "Télécharger maintenant",
+    "learn_more": "En savoir plus sur GrapheneOS"
   }
 }
