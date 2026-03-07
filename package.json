@@ -9,5 +9,8 @@
     "terser": "^5.45.0",
     "vnu-jar": "^26.3.5"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
 }

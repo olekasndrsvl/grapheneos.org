@@ -101,6 +101,33 @@ python process-templates static        # Только шаблоны
 - `html-minifier-terser` для minification
 - `gixy` для проверки nginx конфига
 
+## Тестирование
+
+### Функциональные тесты (Playwright)
+
+Тесты проверяют: загрузку страниц, навигацию, кнопки, формы, статические ресурсы.
+
+```powershell
+# 1. Установить Playwright (один раз)
+npm install -D @playwright/test
+npx playwright install chromium
+
+# 2. Запустить сайт (если не запущен)
+docker build -t grapheneos-website . ; docker rm -f grapheneos ; docker run -d -p 8080:80 --name grapheneos grapheneos-website
+
+# 3. Запустить тесты
+npx playwright test tests/functional.spec.cjs --reporter=list
+```
+
+Результат: `8 passed`
+
+### Валидация
+
+```bash
+# HTML валидация (внутри контейнера)
+docker exec grapheneos //bin//bash -c "source /app/venv/bin/activate && vnu-jar static-tmp"
+```
+
 ## Локальный веб-сервер
 
 Один контейнер — сборка и nginx сразу:

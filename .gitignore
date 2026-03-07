@@ -8,4 +8,6 @@
 /static-production/
 /static-staging/
 /static-tmp/
+/test-results/
+/playwright-report/
 /venv/
