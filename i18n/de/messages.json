@@ -1,0 +1,36 @@
+{
+  "app_name": "GrapheneOS",
+  "nav": {
+    "home": "Startseite",
+    "features": "Funktionen",
+    "usage": "Verwendung",
+    "install": "Installieren",
+    "source": "Quellcode",
+    "faq": "FAQ",
+    "donate": "Spenden",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "copyright": "© GrapheneOS",
+    "privacy": "Datenschutzerklärung"
+  },
+  "common": {
+    "learn_more": "Mehr erfahren",
+    "download": "Herunterladen",
+    "documentation": "Dokumentation"
+  },
+  "installer": {
+    "title": "GrapheneOS installieren",
+    "select_device": "Gerät auswählen",
+    "select_version": "Version auswählen",
+    "download": "Herunterladen",
+    "verify": "Überprüfen",
+    "install": "Installieren",
+    "error_device_not_found": "Gerät nicht gefunden",
+    "error_download_failed": "Download fehlgeschlagen",
+    "error_verification_failed": "Überprüfung fehlgeschlagen",
+    "error_installation_failed": "Installation fehlgeschlagen",
+    "success": "Installation abgeschlossen",
+    "instructions": "Folgen Sie den Anweisungen zur Installation"
+  }
+}

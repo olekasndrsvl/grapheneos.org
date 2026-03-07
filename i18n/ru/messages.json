@@ -1,0 +1,36 @@
+{
+  "app_name": "GrapheneOS",
+  "nav": {
+    "home": "Главная",
+    "features": "Возможности",
+    "usage": "Использование",
+    "install": "Установка",
+    "source": "Исходный код",
+    "faq": "FAQ",
+    "donate": "Пожертвовать",
+    "contact": "Контакты"
+  },
+  "footer": {
+    "copyright": "© GrapheneOS",
+    "privacy": "Политика конфиденциальности"
+  },
+  "common": {
+    "learn_more": "Узнать больше",
+    "download": "Скачать",
+    "documentation": "Документация"
+  },
+  "installer": {
+    "title": "Установить GrapheneOS",
+    "select_device": "Выберите устройство",
+    "select_version": "Выберите версию",
+    "download": "Скачать",
+    "verify": "Проверить",
+    "install": "Установить",
+    "error_device_not_found": "Устройство не найдено",
+    "error_download_failed": "Ошибка загрузки",
+    "error_verification_failed": "Ошибка проверки",
+    "error_installation_failed": "Ошибка установки",
+    "success": "Установка завершена",
+    "instructions": "Следуйте инструкциям для установки"
+  }
+}
