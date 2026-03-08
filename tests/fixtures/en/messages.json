@@ -1,0 +1,9 @@
+{
+    "common": {
+        "hello": "Hello",
+        "world": "World"
+    },
+    "dates": {
+        "today": "Today is {date}"
+    }
+}

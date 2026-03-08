@@ -1,0 +1,9 @@
+{
+    "common": {
+        "hello": "Привет",
+        "world": "Мир"
+    },
+    "dates": {
+        "today": "Сегодня {date}"
+    }
+}

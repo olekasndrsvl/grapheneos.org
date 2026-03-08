@@ -1,10 +1,10 @@
 <div class="language-switcher">
     <select id="lang-select" onchange="switchLanguage(this.value)">
-        <option value="en" {% if get_lang() == 'en' %}selected{% endif %}>🇺🇸 English</option>
-        <option value="de" {% if get_lang() == 'de' %}selected{% endif %}>🇩🇪 Deutsch</option>
-        <option value="fr" {% if get_lang() == 'fr' %}selected{% endif %}>🇫🇷 Français</option>
-        <option value="es" {% if get_lang() == 'es' %}selected{% endif %}>🇪🇸 Español</option>
-        <option value="ru" {% if get_lang() == 'ru' %}selected{% endif %}>🇷🇺 Русский</option>
+        <option value="en" {% if get_lang() == 'en' %}selected="selected"{% endif %}>🇺🇸 English</option>
+        <option value="de" {% if get_lang() == 'de' %}selected="selected"{% endif %}>🇩🇪 Deutsch</option>
+        <option value="fr" {% if get_lang() == 'fr' %}selected="selected"{% endif %}>🇫🇷 Français</option>
+        <option value="es" {% if get_lang() == 'es' %}selected="selected"{% endif %}>🇪🇸 Español</option>
+        <option value="ru" {% if get_lang() == 'ru' %}selected="selected"{% endif %}>🇷🇺 Русский</option>
     </select>
 </div>
 <style>
