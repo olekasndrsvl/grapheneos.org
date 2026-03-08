@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import sys
+from pathlib import Path
+
+def load_json(filepath):
+    with open(filepath, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+def flatten_dict(d, parent_key=''):
+    items = []
+    for k, v in d.items():
+        new_key = f"{parent_key}.{k}" if parent_key else k
+        if isinstance(v, dict):
+            items.extend(flatten_dict(v, new_key).items())
+        else:
+            items.append((new_key, v))
+    return dict(items)
+
+def check_translations(base_lang='en', languages=None):
+    if languages is None:
+        languages = ['de', 'fr', 'es', 'ru']
+    
+    base_file = Path('i18n') / base_lang / 'messages.json'
+    
+    print(f"Loading base translations from {base_file}")
+    base_data = load_json(base_file)
+    base_keys = flatten_dict(base_data)
+    
+    print(f"Found {len(base_keys)} translation keys in {base_lang}")
+    print()
+    
+    all_ok = True
+    
+    for lang in languages:
+        lang_file = Path('i18n') / lang / 'messages.json'
+        
+        if not lang_file.exists():
+            print(f"[WARN] {lang}: File not found ({lang_file})")
+            all_ok = False
+            continue
+        
+        lang_data = load_json(lang_file)
+        lang_keys = flatten_dict(lang_data)
+        
+        missing_keys = set(base_keys.keys()) - set(lang_keys.keys())
+        extra_keys = set(lang_keys.keys()) - set(base_keys.keys())
+        
+        print(f"=== {lang.upper()} ===")
+        print(f"  Total keys: {len(lang_keys)}")
+        
+        if missing_keys:
+            print(f"  [WARN] Missing keys: {len(missing_keys)}")
+            for key in sorted(missing_keys)[:10]:
+                print(f"    - {key}")
+            if len(missing_keys) > 10:
+                print(f"    ... and {len(missing_keys) - 10} more")
+            all_ok = False
+        else:
+            print(f"  [OK] All keys present")
+        
+        if extra_keys:
+            print(f"  [INFO] Extra keys: {len(extra_keys)}")
+            for key in sorted(extra_keys)[:5]:
+                print(f"    + {key}")
+            if len(extra_keys) > 5:
+                print(f"    ... and {len(extra_keys) - 5} more")
+        
+        print()
+    
+    if all_ok:
+        print("[OK] All translations complete!")
+        return 0
+    else:
+        print("[WARN] Some translations are incomplete")
+        return 1
+
+def generate_fallback_json():
+    base_file = Path('i18n') / 'en' / 'messages.json'
+    base_data = load_json(base_file)
+    base_keys = flatten_dict(base_data)
+    
+    print("Generating fallback markers for missing translations...")
+    
+    for lang in ['de', 'fr', 'es', 'ru']:
+        lang_file = Path('i18n') / lang / 'messages.json'
+        
+        if not lang_file.exists():
+            continue
+        
+        lang_data = load_json(lang_file)
+        lang_keys = flatten_dict(lang_data)
+        
+        missing_keys = set(base_keys.keys()) - set(lang_keys.keys())
+        
+        if missing_keys:
+            print(f"  {lang}: {len(missing_keys)} missing keys will fall back to English")
+
+if __name__ == '__main__':
+    os.chdir(Path(__file__).parent)
+    
+    result = check_translations()
+    sys.exit(result)

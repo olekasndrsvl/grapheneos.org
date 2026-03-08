@@ -1,0 +1,7 @@
+{% set page_url = "https://grapheneos.org" + request_path %}
+{% set languages = {'en': 'en', 'de': 'de', 'fr': 'fr', 'es': 'es', 'ru': 'ru'} %}
+<link rel="canonical" href="{{ page_url }}"/>
+{% for lang_code, lang_name in languages.items() %}
+<link rel="alternate" hreflang="{{ lang_code }}" href="https://grapheneos.org/{{ lang_code }}/{{ current_page }}"/>
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/{{ current_page }}"/>

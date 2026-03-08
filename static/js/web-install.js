@@ -7,6 +7,52 @@ const RELEASES_URL = "https://releases.grapheneos.org";
 const CACHE_DB_NAME = "BlobStore";
 const CACHE_DB_VERSION = 1;
 
+const lang = (() => {
+    const path = window.location.pathname;
+    const match = path.match(/^\/(de|fr|es|ru)\//);
+    return match ? match[1] : "en";
+})();
+
+const translations = {};
+
+async function loadTranslations() {
+    const langFiles = {
+        en: "/i18n/en/messages.json",
+        de: "/i18n/de/messages.json",
+        fr: "/i18n/fr/messages.json",
+        es: "/i18n/es/messages.json",
+        ru: "/i18n/ru/messages.json"
+    };
+    
+    try {
+        const response = await fetch(langFiles[lang] || langFiles.en);
+        const data = await response.json();
+        
+        function flatten(obj, prefix = "") {
+            for (const key in obj) {
+                if (typeof obj[key] === "object" && obj[key] !== null) {
+                    flatten(obj[key], prefix + key + ".");
+                } else {
+                    translations[prefix + key] = obj[key];
+                }
+            }
+        }
+        flatten(data);
+    } catch (e) {
+        console.warn("Failed to load translations, using defaults:", e);
+    }
+}
+
+function t(key, params = {}) {
+    let text = translations[key] || key;
+    for (const [param, value] of Object.entries(params)) {
+        text = text.replace(new RegExp(`\\{${param}\\}`, "g"), value);
+    }
+    return text;
+}
+
+loadTranslations();
+
 const Buttons = {
     UNLOCK_BOOTLOADER: "unlock-bootloader",
     DOWNLOAD_RELEASE: "download-release",
@@ -69,9 +115,7 @@ function fetchBlobWithProgress(url, onProgress) {
             onProgress(event.loaded / event.total);
         };
         xhr.onerror = () => {
-            // onerror is called on network errors
-            // status and statusText are populated with default values
-            reject("Network request failed");
+            reject(t("installer.network_error"));
         };
     });
 }
@@ -211,7 +255,7 @@ let buttonController = new ButtonController();
 
 async function ensureConnected(setProgress) {
     if (!device.isConnected) {
-        setProgress("Connecting to device...");
+        setProgress(t("installer.connecting"));
         await device.connect();
     }
 }
@@ -219,25 +263,22 @@ async function ensureConnected(setProgress) {
 async function unlockBootloader(setProgress) {
     await ensureConnected(setProgress);
 
-    // Trying to unlock when the bootloader is already unlocked results in a FAIL,
-    // so don't try to do it.
     if (await device.getVariable("unlocked") === "yes") {
-        return "Bootloader is already unlocked.";
+        return t("installer.bootloader_already_unlocked");
     }
 
-    setProgress("Unlocking bootloader...");
+    setProgress(t("installer.unlocking"));
     try {
         await device.runCommand("flashing unlock");
     } catch (error) {
-        // FAIL = user rejected unlock
         if (error instanceof fastboot.FastbootError && error.status === "FAIL") {
-            throw new Error("Bootloader was not unlocked, please try again!");
+            throw new Error(t("installer.unlock_rejected"));
         } else {
             throw error;
         }
     }
 
-    return "Bootloader unlocking triggered successfully.";
+    return t("installer.unlock_success");
 }
 
 const supportedDevices = ["rango", "mustang", "blazer", "frankel", "tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
@@ -253,7 +294,7 @@ function hasOptimizedFactoryImage(product) {
 async function getLatestRelease() {
     let product = await device.getVariable("product");
     if (!supportedDevices.includes(product)) {
-        throw new Error(`device model (${product}) is not supported by the GrapheneOS web installer`);
+        throw new Error(t("installer.device_not_supported", { device: product }));
     }
 
     let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
@@ -267,33 +308,30 @@ async function downloadRelease(setProgress) {
     await requestWakeLock();
     await ensureConnected(setProgress);
 
-    setProgress("Finding latest release...");
+    setProgress(t("installer.finding_release"));
     let [latestZip,] = await getLatestRelease();
 
-    // Download and cache the zip as a blob
     setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: true });
-    setProgress(`Downloading ${latestZip}...`);
+    setProgress(t("installer.downloading", { filename: latestZip }));
     await blobStore.init();
     try {
         await blobStore.download(`${RELEASES_URL}/${latestZip}`, (progress) => {
-            setProgress(`Downloading ${latestZip}...`, progress);
+            setProgress(t("installer.downloading", { filename: latestZip }), progress);
         });
     } finally {
         setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: false });
         await releaseWakeLock();
     }
-    setProgress(`Downloaded ${latestZip} release.`, 1.0);
+    setProgress(t("installer.downloaded", { filename: latestZip }), 1.0);
 }
 
 async function reconnectCallback() {
     let statusField = document.getElementById("flash-release-status");
-    statusField.textContent =
-        "To continue flashing, reconnect the device by tapping here:";
+    statusField.textContent = t("installer.reconnect_prompt");
 
     let reconnectButton = document.getElementById("flash-reconnect-button");
     let progressBar = document.getElementById("flash-release-progress");
 
-    // Hide progress bar while waiting for reconnection
     progressBar.hidden = true;
     reconnectButton.hidden = false;
 
@@ -308,18 +346,15 @@ async function flashRelease(setProgress) {
     await requestWakeLock();
     await ensureConnected(setProgress);
 
-    // Need to do this again because the user may not have clicked download if
-    // it was cached
-    setProgress("Finding latest release...");
+    setProgress(t("installer.finding_release"));
     let [latestZip, product] = await getLatestRelease();
     await blobStore.init();
     let blob = await blobStore.loadFile(latestZip);
     if (blob === null) {
-        throw new Error("You need to download a release first!");
+        throw new Error(t("installer.download_first"));
     }
 
-    setProgress("Cancelling any pending OTAs...");
-    // Cancel snapshot update if in progress on devices which support it on all bootloader versions
+    setProgress(t("installer.cancelling_ota"));
     if (day1SnapshotCancelDevices.includes(product)) {
         let snapshotStatus = await device.getVariable("snapshot-update-status");
         if (snapshotStatus !== null && snapshotStatus !== "none") {
@@ -327,7 +362,7 @@ async function flashRelease(setProgress) {
         }
     }
 
-    setProgress("Flashing release...");
+    setProgress(t("installer.flashing"));
     setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: true });
     try {
         await device.flashFactoryZip(blob, true, reconnectCallback,
@@ -338,15 +373,12 @@ async function flashRelease(setProgress) {
             }
         );
         if (legacyQualcommDevices.includes(product)) {
-            setProgress("Disabling UART...");
-            // See https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
-            // for context as to why the trailing space is needed.
+            setProgress(t("installer.disabling_uart"));
             await device.runCommand("oem uart disable ");
-            setProgress("Erasing apdp...");
-            // Both slots are wiped as even apdp on an inactive slot will modify /proc/cmdline
+            setProgress(t("installer.erasing_apdp"));
             await device.runCommand("erase:apdp_a");
             await device.runCommand("erase:apdp_b");
-            setProgress("Erasing msadp...");
+            setProgress(t("installer.erasing_msadp"));
             await device.runCommand("erase:msadp_a");
             await device.runCommand("erase:msadp_b");
         }
@@ -355,38 +387,37 @@ async function flashRelease(setProgress) {
         await releaseWakeLock();
     }
 
-    return `Flashed ${latestZip} to device.`;
+    return t("installer.flash_success", { filename: latestZip });
 }
 
 async function eraseNonStockKey(setProgress) {
     await ensureConnected(setProgress);
 
-    setProgress("Erasing key...");
+    setProgress(t("installer.erasing_key"));
     try {
         await device.runCommand("erase:avb_custom_key");
     } catch (error) {
         console.log(error);
         throw error;
     }
-    return "Key erased.";
+    return t("installer.key_erased");
 }
 
 async function lockBootloader(setProgress) {
     await ensureConnected(setProgress);
 
-    setProgress("Locking bootloader...");
+    setProgress(t("installer.locking"));
     try {
         await device.runCommand("flashing lock");
     } catch (error) {
-        // FAIL = user rejected lock
         if (error instanceof fastboot.FastbootError && error.status === "FAIL") {
-            throw new Error("Bootloader was not locked, please try again!");
+            throw new Error(t("installer.lock_rejected"));
         } else {
             throw error;
         }
     }
 
-    return "Bootloader locking triggered successfully.";
+    return t("installer.lock_success");
 }
 
 function addButtonHook(id, callback) {
@@ -418,19 +449,15 @@ function addButtonHook(id, callback) {
         } catch (error) {
             let errorMessage;
             if (error instanceof DOMException && error.name === "QuotaExceededError") {
-                // provide a more descriptive message than "Error: QuotaExceededError"
-                errorMessage = "storage quota has been exceeded, you might not have enough space on your drive, or you're using incognito mode";
+                errorMessage = t("installer.quota_warning");
             } else if (typeof(error) === "object" && error.message != null && error.message !== "") {
                 errorMessage = error.message;
             } else {
-                // sometimes non-error objects are thrown
-                // display its string representation instead of "Error: undefined"
                 errorMessage = error.toString();
             }
-            statusCallback(`Error: ${errorMessage}`);
+            statusCallback(`${t("common.error")}: ${errorMessage}`);
             statusField.className = "error-text";
             await releaseWakeLock();
-            // Rethrow the error so it shows up in the console
             throw error;
         }
     };
@@ -511,7 +538,7 @@ if ("usb" in navigator) {
             statusContainer.hidden = false;
         }
         statusField.className = "error-text";
-        statusField.innerHTML = "Unavailable, as your browser doesn't support WebUSB. Please read the <a href=\"#prerequisites\">prerequisites</a>.";
+        statusField.innerHTML = t("installer.webusb_unavailable");
     }
 }
 

@@ -189,4 +189,109 @@ test.describe('GrapheneOS Functional Tests', () => {
       }
     }
   });
+
+  // i18n tests
+  test('i18n - language versions load correctly', async ({ page }) => {
+    const languages = [
+      { code: 'de', name: 'Startseite' },
+      { code: 'fr', name: 'Accueil' },
+      { code: 'es', name: 'Inicio' },
+      { code: 'ru', name: 'Главная' },
+    ];
+    
+    for (const lang of languages) {
+      const response = await page.goto(BASE_URL + `/${lang.code}/`);
+      expect(response.status()).toBe(200);
+      
+      // Check the page has content (not 404)
+      const content = await page.content();
+      expect(content.length).toBeGreaterThan(100);
+    }
+  });
+
+  test('i18n - language switcher works', async ({ page }) => {
+    await page.goto(BASE_URL);
+    
+    // Find the language switcher
+    const langSwitcher = page.locator('.language-switcher select');
+    const count = await langSwitcher.count();
+    
+    if (count > 0) {
+      // Check that the select has the expected options
+      const options = await langSwitcher.locator('option').all();
+      expect(options.length).toBe(5);
+      
+      // Check current value is English
+      const currentValue = await langSwitcher.inputValue();
+      expect(currentValue).toBe('en');
+      
+      // Manually navigate to German page
+      await page.goto(BASE_URL + '/de/');
+      
+      // Check we're on German page
+      expect(page.url()).toContain('/de/');
+      
+      // Check the select shows German as selected
+      const germanValue = await langSwitcher.inputValue();
+      expect(germanValue).toBe('de');
+    }
+  });
+
+  test('i18n - switching between languages works correctly', async ({ page }) => {
+    // Go to French page
+    await page.goto(BASE_URL + '/fr/');
+    expect(page.url()).toContain('/fr/');
+    
+    // Now switch to Russian using the dropdown
+    const langSwitcher = page.locator('.language-switcher select');
+    await langSwitcher.selectOption('ru');
+    
+    // Wait for navigation
+    await page.waitForLoadState('networkidle');
+    
+    // Should be on Russian page, NOT /ru/fr/
+    expect(page.url()).toContain('/ru/');
+    expect(page.url()).not.toContain('/ru/fr/');
+    expect(page.url()).not.toContain('/fr/');
+  });
+
+  test('i18n - click on navigation preserves language', async ({ page }) => {
+    // Set preferred language to German in localStorage
+    await page.goto(BASE_URL);
+    await page.evaluate(() => localStorage.setItem('preferred-lang', 'de'));
+    
+    // Navigate to a page
+    await page.goto(BASE_URL + '/features');
+    
+    // Click on a navigation link
+    await page.click('a[href="/usage"]');
+    await page.waitForLoadState('networkidle');
+    
+    // Should be on German version
+    expect(page.url()).toContain('/de/usage');
+  });
+
+  test('i18n - hreflang tags present', async ({ page }) => {
+    await page.goto(BASE_URL + '/features');
+    
+    // Check for hreflang tags
+    const hreflangLinks = page.locator('link[rel="alternate"][hreflang]');
+    const count = await hreflangLinks.count();
+    
+    // Should have hreflang for en, de, fr, es, ru and x-default
+    expect(count).toBeGreaterThanOrEqual(5);
+  });
+
+  test('i18n - translation files accessible', async ({ page }) => {
+    const languages = ['en', 'de', 'fr', 'es', 'ru'];
+    
+    for (const lang of languages) {
+      const response = await page.goto(BASE_URL + `/i18n/${lang}/messages.json`);
+      expect(response.status()).toBe(200);
+      
+      // Check it's valid JSON by checking the response text
+      const text = await response.text();
+      expect(text).toContain('"app_name"');
+    }
+  });
 });

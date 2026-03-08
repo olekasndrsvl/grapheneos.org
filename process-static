@@ -36,6 +36,13 @@ cp -a nginx nginx-tmp
 rm -rf static-tmp
 cp -a static static-tmp
 
+# Copy i18n translation files to static-tmp
+mkdir -p static-tmp/i18n
+for lang in "${LANGUAGES[@]}"; do
+    mkdir -p "static-tmp/i18n/$lang"
+    cp "i18n/$lang/messages.json" "static-tmp/i18n/$lang/"
+done
+
 # Process English templates (base language)
 ./process-templates static-tmp
 

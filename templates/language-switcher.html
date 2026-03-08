@@ -1,10 +1,10 @@
 <div class="language-switcher">
-    <select onchange="switchLanguage(this.value)">
-        <option value="/{{ get_lang() }}/" {% if get_lang() == 'en' %}selected{% endif %}>🇺🇸 English</option>
-        <option value="/{{ get_lang() }}/" {% if get_lang() == 'de' %}selected{% endif %}>🇩🇪 Deutsch</option>
-        <option value="/{{ get_lang() }}/" {% if get_lang() == 'fr' %}selected{% endif %}>🇫🇷 Français</option>
-        <option value="/{{ get_lang() }}/" {% if get_lang() == 'es' %}selected{% endif %}>🇪🇸 Español</option>
-        <option value="/{{ get_lang() }}/" {% if get_lang() == 'ru' %}selected{% endif %}>🇷🇺 Русский</option>
+    <select id="lang-select" onchange="switchLanguage(this.value)">
+        <option value="en" {% if get_lang() == 'en' %}selected{% endif %}>🇺🇸 English</option>
+        <option value="de" {% if get_lang() == 'de' %}selected{% endif %}>🇩🇪 Deutsch</option>
+        <option value="fr" {% if get_lang() == 'fr' %}selected{% endif %}>🇫🇷 Français</option>
+        <option value="es" {% if get_lang() == 'es' %}selected{% endif %}>🇪🇸 Español</option>
+        <option value="ru" {% if get_lang() == 'ru' %}selected{% endif %}>🇷🇺 Русский</option>
     </select>
 </div>
 <style>
@@ -26,9 +26,45 @@
 }
 </style>
 <script>
-function switchLanguage(url) {
-    if (url && url !== window.location.pathname) {
-        window.location.href = url;
+(function() {
+    const langSelect = document.getElementById('lang-select');
+    const currentLang = (window.location.pathname.match(/^\/(de|fr|es|ru)\//) || ['en'])[1];
+    
+    if (langSelect.value !== currentLang) {
+        langSelect.value = currentLang;
     }
-}
+    
+    langSelect.addEventListener('change', function() {
+        const newLang = this.value;
+        localStorage.setItem('preferred-lang', newLang);
+        
+        let newPath = window.location.pathname;
+        // Remove any existing language prefix
+        newPath = newPath.replace(/^\/(de|fr|es|ru)\//, '/');
+        
+        if (newLang === 'en') {
+            // Go to root (remove language prefix)
+            window.location.href = newPath || '/';
+        } else {
+            // Add new language prefix
+            window.location.href = '/' + newLang + newPath;
+        }
+    });
+    
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href^="/"]');
+        if (link && !link.hasAttribute('download')) {
+            const preferredLang = localStorage.getItem('preferred-lang');
+            if (preferredLang && preferredLang !== 'en') {
+                let href = link.getAttribute('href');
+                // Remove any existing language prefix from the target href
+                href = href.replace(/^\/(de|fr|es|ru)\//, '/');
+                if (!href.match(/^\/(de|fr|es|ru)\//)) {
+                    e.preventDefault();
+                    window.location.href = '/' + preferredLang + href;
+                }
+            }
+        }
+    }, true);
+})();
 </script>

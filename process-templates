@@ -6,8 +6,35 @@ import os
 import sys
 import argparse
 import shutil
+import re
 
 from jinja2i18n import create_i18n_environment, get_supported_languages, LANGUAGES
+
+
+# SEO tags template (simple version)
+def generate_seo_tags_simple(current_page, lang):
+    """Generate SEO tags for a page (hreflang only)."""
+    base_url = "https://grapheneos.org"
+    languages = ['en', 'de', 'fr', 'es', 'ru']
+    
+    page_path = current_page.lstrip('/')
+    
+    tags = []
+    
+    # hreflang tags only
+    for lang_code in languages:
+        if lang_code == 'en':
+            hreflang_url = f"{base_url}/{page_path}" if page_path else base_url + "/"
+        else:
+            hreflang_url = f"{base_url}/{lang_code}/{page_path}" if page_path else f"{base_url}/{lang_code}/"
+        
+        tags.append(f'<link rel="alternate" hreflang="{lang_code}" href="{hreflang_url}"/>')
+    
+    # x-default
+    x_default = f"{base_url}/{page_path}" if page_path else base_url + "/"
+    tags.append(f'<link rel="alternate" hreflang="x-default" href="{x_default}"/>')
+    
+    return '\n'.join(tags)
 
 
 def process_templates(input_dir, output_dir=None, lang='en'):
@@ -15,15 +42,12 @@ def process_templates(input_dir, output_dir=None, lang='en'):
     
     if output_dir:
         OUTPUT_DIR = Path(output_dir)
-        # Create output directory if it doesn't exist
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         
-        # Copy entire directory structure from source (not output)
         source_dir = ROOT_DIR
         if OUTPUT_DIR.exists() and any(OUTPUT_DIR.iterdir()):
-            pass  # Already copied
+            pass
         else:
-            # Clean and copy
             if OUTPUT_DIR.exists():
                 shutil.rmtree(OUTPUT_DIR)
             shutil.copytree(source_dir, OUTPUT_DIR)
@@ -31,32 +55,49 @@ def process_templates(input_dir, output_dir=None, lang='en'):
     else:
         target_dir = ROOT_DIR
     
-    TEMPLATE_PATH_LIST = [target_dir, "templates/"]
+    # Setup Jinja2
+    TEMPLATE_PATH_LIST = [str(target_dir), "templates/"]
     
     loader = FileSystemLoader(searchpath=TEMPLATE_PATH_LIST)
     environment = Environment(loader=loader, autoescape=True)
     
-    # Add i18n filters and functions
+    # Add i18n functions
     i18n_context = create_i18n_environment(lang)
     for name, value in i18n_context.items():
         environment.globals[name] = value
     
-    # Add to_filter for string translation
-    def to_translate(text):
-        return i18n_context['_'](text)
-    environment.filters['t'] = to_translate
-    
-    file_path_list = target_dir.glob("**/*.html")
+    # Process all HTML files with Jinja2
+    file_path_list = list(target_dir.glob("**/*.html"))
     template_file_list = [os.fspath(p.relative_to(target_dir)) for p in file_path_list]
     
     processed = 0
     for template_file in template_file_list:
         try:
+            current_page = template_file.replace('.html', '').strip('/')
+            if current_page == 'index':
+                current_page = '/'
+            
+            # Render Jinja2 template
             template = environment.get_template(template_file)
-            rendered_template = template.render()
+            content = template.render(current_page=current_page)
+            
+            # Add SEO tags after canonical
+            seo_tags = generate_seo_tags_simple(current_page, lang)
+            if 'rel="canonical"' in content:
+                content = content.replace(
+                    '<link rel="canonical"',
+                    seo_tags + '\n<link rel="canonical"'
+                )
+            elif 'rel=canonical>' in content:
+                content = content.replace(
+                    'rel=canonical>',
+                    'rel=canonical>' + seo_tags + '\n'
+                )
+            
             path = os.path.join(target_dir, template_file)
-            with open(path, mode="w", encoding='utf-8') as f:
-                f.write(rendered_template)
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(content)
+            
             processed += 1
         except Exception as e:
             print(f"Error processing {template_file}: {e}")

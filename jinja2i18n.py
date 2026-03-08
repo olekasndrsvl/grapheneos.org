@@ -184,6 +184,44 @@ def create_i18n_environment(lang=DEFAULT_LANG):
     def get_current_language():
         return {'code': lang, 'name': LANGUAGES.get(lang, lang)}
     
+    def generate_seo_tags(current_page):
+        """Generate canonical URL and hreflang tags for i18n."""
+        base_url = "https://grapheneos.org"
+        languages = ['en', 'de', 'fr', 'es', 'ru']
+        
+        # Determine the page path (without leading slash and lang prefix)
+        page_path = current_page.lstrip('/')
+        
+        tags = []
+        
+        # Canonical URL - always points to base language (en) or current lang version
+        current_lang = lang
+        if current_lang == 'en':
+            canonical_url = f"{base_url}/{page_path}" if page_path else base_url + "/"
+        else:
+            canonical_url = f"{base_url}/{page_path}" if page_path else f"{base_url}/{current_lang}/"
+        
+        tags.append(f'<link rel="canonical" href="{canonical_url}"/>')
+        
+        # hreflang tags for all languages
+        for lang_code in languages:
+            if lang_code == 'en':
+                hreflang_url = f"{base_url}/{page_path}" if page_path else base_url + "/"
+            else:
+                hreflang_url = f"{base_url}/{lang_code}/{page_path}" if page_path else f"{base_url}/{lang_code}/"
+            
+            tags.append(f'<link rel="alternate" hreflang="{lang_code}" href="{hreflang_url}"/>')
+        
+        # x-default
+        x_default = f"{base_url}/{page_path}" if page_path else base_url + "/"
+        tags.append(f'<link rel="alternate" hreflang="x-default" href="{x_default}"/>')
+        
+        return '\n'.join(tags)
+    
+    def get_page_url():
+        """Get the current page URL."""
+        return "https://grapheneos.org"
+    
     return {
         'i18n': i18n,
         '_': _,
@@ -193,6 +231,8 @@ def create_i18n_environment(lang=DEFAULT_LANG):
         'get_lang': get_lang,
         'get_languages': get_languages,
         'get_current_language': get_current_language,
+        'generate_seo_tags': generate_seo_tags,
+        'get_page_url': get_page_url,
     }
 
 
