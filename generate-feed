@@ -1,29 +1,62 @@
 #!/usr/bin/env python3
 
+import os
 from datetime import datetime
 
 import lxml.html
 from lxml import etree
 
-document = lxml.html.parse("static-tmp/releases.html").getroot()
-releases = document.body.cssselect("#changelog article")
+base = "https://grapheneos.org"
 
-updated = None
-entries = []
+LANGUAGES = {
+    'en': '',
+    'de': '/de',
+    'fr': '/fr',
+    'es': '/es',
+    'ru': '/ru',
+}
 
-for release in releases[:20]:
-    title = release.attrib["id"]
+def generate_feed_for_language(lang, lang_prefix):
+    static_dir = "static"
+    
+    releases_path = f"{static_dir}{lang_prefix}/releases.html"
+    if lang_prefix and not os.path.exists(releases_path):
+        releases_path = f"{static_dir}/releases.html"
+    
+    if not os.path.exists(releases_path):
+        print(f"Warning: {releases_path} not found, skipping {lang}")
+        return None
+    
     try:
-        time = datetime.strptime(title, "%Y%m%d%H").isoformat() + "Z"
-    except ValueError:
-        time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
-    if updated is None:
-        updated = time
-    content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
-    entries.append(f"""
+        document = lxml.html.parse(releases_path).getroot()
+    except Exception as e:
+        print(f"Error parsing {releases_path}: {e}")
+        return None
+    
+    releases = document.body.cssselect("#changelog article")
+    
+    if not releases:
+        return None
+    
+    updated = None
+    entries = []
+    
+    for release in releases[:20]:
+        title = release.attrib.get("id", "unknown")
+        try:
+            time = datetime.strptime(title, "%Y%m%d%H").isoformat() + "Z"
+        except ValueError:
+            try:
+                time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
+            except ValueError:
+                time = datetime.now().isoformat() + "Z"
+        if updated is None:
+            updated = time
+        content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
+        entries.append(f"""
     <entry>
-        <id>https://grapheneos.org/releases#{title}</id>
-        <link href="https://grapheneos.org/releases#{title}"/>
+        <id>{base}/releases#{title}</id>
+        <link href="{base}/releases#{title}"/>
         <title>{title}</title>
         <updated>{time}</updated>
         <published>{time}</published>
@@ -33,23 +66,60 @@ for release in releases[:20]:
             </div>
         </content>
     </entry>""")
-
-feed = f"""<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://grapheneos.org/releases#changelog</id>
-    <link href="https://grapheneos.org/releases#changelog"/>
-    <link rel="self" href="https://grapheneos.org/releases.atom"/>
-    <link rel="license" href="https://grapheneos.org/LICENSE.txt"/>
-    <icon>https://grapheneos.org/favicon.ico</icon>
-    <title>GrapheneOS changelog</title>
+    
+    if updated is None:
+        updated = datetime.now().isoformat() + "Z"
+    
+    lang_names = {
+        'en': 'English',
+        'de': 'Deutsch',
+        'fr': 'Français',
+        'es': 'Español',
+        'ru': 'Русский',
+    }
+    
+    title_suffix = f" ({lang_names.get(lang, lang)})" if lang != 'en' else ""
+    
+    feed = f"""<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{lang}">
+    <id>{base}/releases#changelog</id>
+    <link href="{base}{lang_prefix}/releases"/>
+    <link rel="self" href="{base}/releases.atom"/>
+    <link rel="alternate" type="text/html" hreflang="{lang}" href="{base}{lang_prefix}/releases"/>
+    <link rel="license" href="{base}/LICENSE.txt"/>
+    <icon>{base}/favicon.ico</icon>
+    <title>GrapheneOS changelog{title_suffix}</title>
     <updated>{updated}</updated>
     <author>
         <name>GrapheneOS</name>
         <email>contact@grapheneos.org</email>
-        <uri>https://grapheneos.org/</uri>
+        <uri>{base}/</uri>
     </author>{"".join(entries)}
 </feed>
 """
+    return feed
 
-with open("static-tmp/releases.atom", "w") as f:
-    f.write(feed)
+feeds = {}
+
+for lang, lang_prefix in LANGUAGES.items():
+    feed = generate_feed_for_language(lang, lang_prefix)
+    if feed:
+        feeds[lang] = feed
+        print(f"Generated feed for language: {lang}")
+
+output_dir = "static-tmp" if os.path.exists("static-tmp") and os.listdir("static-tmp") else "static"
+
+if 'en' in feeds:
+    with open(f"{output_dir}/releases.atom", "w", encoding="utf-8") as f:
+        f.write(feeds['en'])
+    print(f"Written {output_dir}/releases.atom")
+
+for lang, feed in feeds.items():
+    if lang != 'en':
+        lang_file = f"{output_dir}/{lang}/releases.atom"
+        os.makedirs(os.path.dirname(lang_file), exist_ok=True)
+        with open(lang_file, "w", encoding="utf-8") as f:
+            f.write(feed)
+        print(f"Written {lang_file}")
+
+print("Generated multilingual Atom feeds with hreflang")
