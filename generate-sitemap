@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
 
+import os
 from datetime import datetime, timezone
 from os.path import getmtime
-from pathlib import Path
 
 base = "https://grapheneos.org"
+
+LANGUAGES = {
+    'en': '',
+    'de': '/de',
+    'fr': '/fr',
+    'es': '/es',
+    'ru': '/ru',
+}
 
 pages = [
     ["/", 0.5],
@@ -36,36 +44,70 @@ pages = [
     ["/usage", 1.0]
 ]
 
-base_mtime = getmtime("static-tmp")
+def get_filepath(path, lang):
+    lang_prefix = LANGUAGES[lang]
+    static_dir = "static-tmp" if os.path.exists("static-tmp") else "static"
+    full_path = f"{static_dir}{lang_prefix}{path}"
+    if path.endswith('/'):
+        full_path += "index.html"
+    elif "." not in path:
+        full_path += ".html"
+    return full_path
+
+def format_lastmod(timestamp):
+    dt = datetime.fromtimestamp(timestamp, timezone.utc)
+    return dt.strftime("%Y-%m-%dT%H:%M:%S+00:00")
+
+static_dir = "static-tmp" if os.path.exists("static-tmp") else "static"
+base_mtime = getmtime(static_dir)
 entries = []
 
 for page in pages:
     path = page[0]
-    loc = base + path
-    filepath = "static-production" + path
-    if path[-1] == '/':
-        filepath += "index.html"
-    elif "." not in path:
-        filepath += ".html"
-
-    mtime = getmtime(filepath)
-    if mtime > base_mtime:
-        print(loc)
-    lastmod = datetime.fromtimestamp(mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
     priority = page[1]
+    
+    entry_urls = []
+    lastmod = None
+    
+    for lang, lang_prefix in LANGUAGES.items():
+        loc = f"{base}{lang_prefix}{path}"
+        
+        filepath = get_filepath(path, lang)
+        
+        try:
+            mtime = getmtime(filepath)
+            if mtime > base_mtime:
+                print(loc)
+            lastmod = format_lastmod(mtime)
+        except FileNotFoundError:
+            pass
+        
+        entry_urls.append(f'<xhtml:link rel="alternate" hreflang="{lang}" href="{loc}"/>')
+    
+    entry_urls.append(f'<xhtml:link rel="alternate" hreflang="x-default" href="{base}{path}"/>')
+    
+    if lastmod is None:
+        lastmod = format_lastmod(base_mtime)
+    
+    loc_en = base + path
     entries.append(f"""
     <url>
-        <loc>{loc}</loc>
+        <loc>{loc_en}</loc>
         <lastmod>{lastmod}</lastmod>
         <priority>{priority}</priority>
+        {"".join(entry_urls)}
     </url>""")
 
 sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">{"".join(entries)}
 </urlset>
 """
 
-with open("static-tmp/sitemap.xml", "w") as f:
+output_dir = "static-tmp" if os.path.exists("static-tmp") else "static"
+with open(f"{output_dir}/sitemap.xml", "w") as f:
     f.write(sitemap)
+
+print(f"Generated multilingual sitemap.xml with hreflang in {output_dir}/")
