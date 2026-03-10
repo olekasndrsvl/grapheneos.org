@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Install | GrapheneOS</title>
+        <meta name="description" content="Installation instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="color-scheme" content="dark light"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="GrapheneOS installation"/>
+        <meta property="og:description" content="Installation instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <meta property="og:url" content="https://grapheneos.org/install/"/>
+        <link rel="alternate" hreflang="en" href="https://grapheneos.org/install/index"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/install/index"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/install/index"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/install/index"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/install/index"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/install/index"/>
+<link rel="alternate" hreflang="en" href="https://grapheneos.org/install/index"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/install/index"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/install/index"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/install/index"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/install/index"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/install/index"/>
+<link rel="canonical" href="https://grapheneos.org/install/"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+        [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="license" href="/LICENSE.txt"/>
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        [[js|/js/redirect.js]]
+    </head>
+    <body>
+        
+            <header style="position: relative;">
+    <nav id="site-menu">
+        <ul>
+            <li ><a href="/">GrapheneOS</a></li>
+            <li ><a href="/features">Features</a></li>
+            <li aria-current="page"><a href="/install/">Install</a></li>
+            <li ><a href="/build">Build</a></li>
+            <li ><a href="/usage">Usage</a></li>
+            <li ><a href="/faq">FAQ</a></li>
+            <li ><a href="/releases">Releases</a></li>
+            <li ><a href="/source">Source</a></li>
+            <li ><a href="/history/">History</a></li>
+            <li ><a href="/articles/">Articles</a></li>
+            <li ><a href="/donate">Donate</a></li>
+            <li ><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="language-switcher">
+        <div class="lang-dropdown">
+            <button class="lang-current" type="button">
+                <span class="lang-code">EN</span>
+                <span class="lang-arrow">▼</span>
+            </button>
+            <ul class="lang-menu">
+                <li><a href="/" data-lang="en">EN</a></li>
+                <li><a href="/de/" data-lang="de">DE</a></li>
+                <li><a href="/fr/" data-lang="fr">FR</a></li>
+                <li><a href="/es/" data-lang="es">ES</a></li>
+                <li><a href="/ru/" data-lang="ru">RU</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<style>
+.language-switcher {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.lang-current {
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 50px;
+}
+.lang-current:hover {
+    background: #444;
+}
+.lang-arrow {
+    font-size: 0.5rem;
+    opacity: 0.7;
+}
+.lang-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #222;
+    border: 1px solid #555;
+    border-radius: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.lang-dropdown.open .lang-menu {
+    display: block;
+}
+.lang-menu li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.lang-menu li a:hover {
+    background: #4a90d9;
+}
+.lang-menu li a.active {
+    background: #4a90d9;
+    color: #fff;
+}
+</style>
+<script>
+(function() {
+    const dropdown = document.querySelector('.lang-dropdown');
+    const currentBtn = document.querySelector('.lang-current');
+    const currentCode = document.querySelector('.lang-code');
+    const langLinks = document.querySelectorAll('.lang-menu a');
+    
+    // Get current language from URL
+    const path = window.location.pathname;
+    const langMatch = path.match(/^\/(de|fr|es|ru)\//);
+    const currentLang = langMatch ? langMatch[1] : 'en';
+    
+    // Set current language display
+    currentCode.textContent = currentLang.toUpperCase();
+    
+    // Mark active link
+    langLinks.forEach(link => {
+        if (link.dataset.lang === currentLang) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Toggle dropdown
+    currentBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+    });
+    
+    // Close on outside click
+    document.addEventListener('click', function() {
+        dropdown.classList.remove('open');
+    });
+    
+    // Handle language selection
+    langLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const newLang = this.dataset.lang;
+            let newPath = window.location.pathname;
+            
+            // Remove any existing language prefix
+            newPath = newPath.replace(/^\/(de|fr|es|ru)\//, '/');
+            
+            if (newLang === 'en') {
+                window.location.href = newPath || '/';
+            } else {
+                window.location.href = '/' + newLang + newPath;
+            }
+        });
+    });
+})();
+</script>
+        
+        <main id="install">
+            <h1><a href="#install">Install</a></h1>
+
+            <p>GrapheneOS has two officially supported installation methods. You can either use
+            the <a href="/install/web">WebUSB-based installer</a> recommended for most users or
+            the <a href="/install/cli">command-line installation guide</a> aimed at more technical
+            users.</p>
+
+            <p>We strongly recommend using one of the official installation methods. Third party
+            installation guides tend to be out-of-date and often contain misguided advice and
+            errors.</p>
+
+            <p>If you have trouble with the installation process, ask for help on the
+            <a href="/contact#community">official GrapheneOS chat channel</a>. There are almost
+            always people around willing to help with it. Before asking for help, make an attempt
+            to follow the guide on your own and then ask for help with anything you get stuck
+            on.</p>
+
+            <p>The command-line approach requires being on an OS with proper fastboot and OpenSSH
+            packages, along with understanding the process enough to avoid blindly trusting the
+            instructions from our site. The web-based installation approach avoids needing any
+            software beyond a browser with WebUSB support and you can still avoid trusting our
+            server infrastructure by checking the verified boot key hash.</p>
+        </main>
+        <footer>
+    <a href="/"><img src="[[path|/mask-icon.svg]]" width="512" height="512" alt=""/>GrapheneOS</a>
+    <ul id="social">
+        <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
+        <li><a href="https://discord.com/invite/grapheneos">Discord</a></li>
+        <li><a href="https://matrix.to/#/%23community:grapheneos.org">Matrix</a></li>
+        <li><a href="/hiring">Hiring</a></li>
+        <li><a href="https://x.com/GrapheneOS">X</a></li>
+        <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
+        <li><a href="https://bsky.app/profile/grapheneos.org">Bluesky</a></li>
+        <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+        <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
+        <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
+    </ul>
+</footer>
+    </body>
+</html>

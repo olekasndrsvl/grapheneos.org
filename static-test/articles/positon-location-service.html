@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Positon location service | Articles | GrapheneOS</title>
+        <meta name="description" content="Information about the Positon location service."/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="color-scheme" content="dark light"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="Positon location service"/>
+        <meta property="og:description" content="Information about the Positon location service."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <meta property="og:url" content="https://grapheneos.org/articles/positon-location-service"/>
+        <link rel="alternate" hreflang="en" href="https://grapheneos.org/articles/positon-location-service"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/articles/positon-location-service"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/articles/positon-location-service"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/articles/positon-location-service"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/articles/positon-location-service"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/articles/positon-location-service"/>
+<link rel="alternate" hreflang="en" href="https://grapheneos.org/articles/positon-location-service"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/articles/positon-location-service"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/articles/positon-location-service"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/articles/positon-location-service"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/articles/positon-location-service"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/articles/positon-location-service"/>
+<link rel="canonical" href="https://grapheneos.org/articles/positon-location-service"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+        [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="license" href="/LICENSE.txt"/>
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+    </head>
+    <body>
+        <header style="position: relative;">
+    <nav id="site-menu">
+        <ul>
+            <li ><a href="/">GrapheneOS</a></li>
+            <li ><a href="/features">Features</a></li>
+            <li ><a href="/install/">Install</a></li>
+            <li ><a href="/build">Build</a></li>
+            <li ><a href="/usage">Usage</a></li>
+            <li ><a href="/faq">FAQ</a></li>
+            <li ><a href="/releases">Releases</a></li>
+            <li ><a href="/source">Source</a></li>
+            <li ><a href="/history/">History</a></li>
+            <li ><a href="/articles/">Articles</a></li>
+            <li ><a href="/donate">Donate</a></li>
+            <li ><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="language-switcher">
+        <div class="lang-dropdown">
+            <button class="lang-current" type="button">
+                <span class="lang-code">EN</span>
+                <span class="lang-arrow">▼</span>
+            </button>
+            <ul class="lang-menu">
+                <li><a href="/" data-lang="en">EN</a></li>
+                <li><a href="/de/" data-lang="de">DE</a></li>
+                <li><a href="/fr/" data-lang="fr">FR</a></li>
+                <li><a href="/es/" data-lang="es">ES</a></li>
+                <li><a href="/ru/" data-lang="ru">RU</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<style>
+.language-switcher {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.lang-current {
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 50px;
+}
+.lang-current:hover {
+    background: #444;
+}
+.lang-arrow {
+    font-size: 0.5rem;
+    opacity: 0.7;
+}
+.lang-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #222;
+    border: 1px solid #555;
+    border-radius: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.lang-dropdown.open .lang-menu {
+    display: block;
+}
+.lang-menu li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.lang-menu li a:hover {
+    background: #4a90d9;
+}
+.lang-menu li a.active {
+    background: #4a90d9;
+    color: #fff;
+}
+</style>
+<script>
+(function() {
+    const dropdown = document.querySelector('.lang-dropdown');
+    const currentBtn = document.querySelector('.lang-current');
+    const currentCode = document.querySelector('.lang-code');
+    const langLinks = document.querySelectorAll('.lang-menu a');
+    
+    // Get current language from URL
+    const path = window.location.pathname;
+    const langMatch = path.match(/^\/(de|fr|es|ru)\//);
+    const currentLang = langMatch ? langMatch[1] : 'en';
+    
+    // Set current language display
+    currentCode.textContent = currentLang.toUpperCase();
+    
+    // Mark active link
+    langLinks.forEach(link => {
+        if (link.dataset.lang === currentLang) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Toggle dropdown
+    currentBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+    });
+    
+    // Close on outside click
+    document.addEventListener('click', function() {
+        dropdown.classList.remove('open');
+    });
+    
+    // Handle language selection
+    langLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const newLang = this.dataset.lang;
+            let newPath = window.location.pathname;
+            
+            // Remove any existing language prefix
+            newPath = newPath.replace(/^\/(de|fr|es|ru)\//, '/');
+            
+            if (newLang === 'en') {
+                window.location.href = newPath || '/';
+            } else {
+                window.location.href = '/' + newLang + newPath;
+            }
+        });
+    });
+})();
+</script>
+        <main id="positon-location-service">
+            <h1><a href="#positon-location-service">Positon location service</a></h1>
+
+            <p>The Positon location service is a proprietary and highly privacy invasive service
+            created by developers tied to /e/OS with their funding. There's a deliberate effort to
+            hide that it's tied to them in order to convince other projects to adopt it, as opposed
+            to using the similar service they host for /e/OS itself. Using the service requires
+            uploading sensitive location data to obtain location estimates, similar to the Apple and
+            Google location services. As with the Apple and Google services, it's a centralized
+            proprietary service with fully proprietary data. Unlike those services, the people
+            behind it have a history of publishing notoriously insecure software such as the /e/OS
+            operating system itself which massively rolls back standard security, lags years behind
+            on security updates and covers all of that up. They blatantly scam their users with
+            false privacy/security claims for /e/OS, and nothing different should be expected from a
+            location service from the same group of people. Multiple people involved in it are also
+            actively participating in harassment targeting privacy/security researchers and
+            engineers including but not limited to GrapheneOS team members.</p>
+
+            <p>The people behind the Positon location service have repeatedly talked about the
+            importance they see in centralizing the whole open source community around using their
+            service while locking out alternatives to it through proprietary data. They have spread
+            fear, uncertainty and doubt about making services using open mapping data through
+            claiming that it's a privacy hazard for people to have access to maps of Wi-Fi networks
+            publicly broadcasting their SSID despite that data already being available through many
+            commercial providers including publicly queryable databases such as Wigle. Anyone can
+            drive around building these maps and many companies have already built them, with the
+            data available for sale, as Positon shows with them obtaining access to it. The real
+            privacy hazard is sending your location in real time to a service, particularly a poorly
+            secured one from people known to cover up and downplay vulnerabilities. Positon has been
+            built to grab as much market share as possible early on before actual open options can
+            emerge and gather the necessary data.</p>
+
+            <p>The people involved in Positon have only ever cared about their careers, power and
+            influence. They've consistently been on a side against real privacy and security, but
+            rather focused on monetizing people's demand for it and grabbing as much market share as
+            they can as quickly as they can with endless false marketing and attacks on projects
+            like GrapheneOS. They see GrapheneOS as a huge threat to them due to us striving to
+            bring people real privacy and security at no cost, which is far easier to obtain and
+            use. This invalidates the business model of their companies like Murena. They
+            consistently use their non-profits mainly as a way to earn money and promote their
+            for-profit initiatives.</p>
+
+            <p>The service claims to be free of charge, but a core goal is turning it into a way to
+            get data from users to build their own database that's largely not going to be available
+            for use by others. Using it is helping them build a future business at the expense of
+            user privacy, little different from the Apple and Google services. This is not what the
+            open source community needs from a location service. The claims of no strings attached
+            and the implication that it's open are nonsense. Storing as little data as possible
+            would mean using local database for the region, not a network-based service. They're
+            opposed to doing a local service well rather than it being their long term goal. They
+            explicitly aim to lock out other alternatives and deter local location detection via
+            Wi-Fi.</p>
+        </main>
+        <footer>
+    <a href="/"><img src="[[path|/mask-icon.svg]]" width="512" height="512" alt=""/>GrapheneOS</a>
+    <ul id="social">
+        <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
+        <li><a href="https://discord.com/invite/grapheneos">Discord</a></li>
+        <li><a href="https://matrix.to/#/%23community:grapheneos.org">Matrix</a></li>
+        <li><a href="/hiring">Hiring</a></li>
+        <li><a href="https://x.com/GrapheneOS">X</a></li>
+        <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
+        <li><a href="https://bsky.app/profile/grapheneos.org">Bluesky</a></li>
+        <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+        <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
+        <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
+    </ul>
+</footer>
+    </body>
+</html>
