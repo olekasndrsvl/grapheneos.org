@@ -1,7 +1,12 @@
-{% set page_url = "https://grapheneos.org" + request_path %}
-{% set languages = {'en': 'en', 'de': 'de', 'fr': 'fr', 'es': 'es', 'ru': 'ru'} %}
+{% set base_url = "https://grapheneos.org" %}
+{% set lang_prefix = "" if get_lang() == "en" else "/" + get_lang() %}
+{% set page_url = base_url + lang_prefix + "/" + current_page %}
+{% if page_url endswith "//" %}{% set page_url = base_url + lang_prefix + "/" %}{% endif %}
 <link rel="canonical" href="{{ page_url }}"/>
-{% for lang_code, lang_name in languages.items() %}
-<link rel="alternate" hreflang="{{ lang_code }}" href="https://grapheneos.org/{{ lang_code }}/{{ current_page }}"/>
+{% for lang_code in ['en', 'de', 'fr', 'es', 'ru'] %}
+{% set lp = "" if lang_code == "en" else "/" + lang_code %}
+{% set alt_url = base_url + lp + "/" + current_page %}
+{% if alt_url endswith "//" %}{% set alt_url = base_url + lp + "/" %}{% endif %}
+<link rel="alternate" hreflang="{{ lang_code }}" href="{{ alt_url }}"/>
 {% endfor %}
-<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/{{ current_page }}"/>
+<link rel="alternate" hreflang="x-default" href="{{ base_url }}/{{ current_page }}"/>

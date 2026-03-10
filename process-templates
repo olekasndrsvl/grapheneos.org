@@ -63,12 +63,14 @@ def process_templates(input_dir, output_dir=None, lang='en'):
     
     # Add i18n functions
     i18n_context = create_i18n_environment(lang)
+    print(f"DEBUG: Created i18n environment with lang={lang}, get_lang={i18n_context.get('get_lang')()}")
     for name, value in i18n_context.items():
         environment.globals[name] = value
     
     # Process all HTML files with Jinja2
     file_path_list = list(target_dir.glob("**/*.html"))
-    template_file_list = [os.fspath(p.relative_to(target_dir)) for p in file_path_list]
+    # Convert to forward-slash paths for cross-platform compatibility
+    template_file_list = [str(p.relative_to(target_dir)).replace('\\', '/') for p in file_path_list]
     
     processed = 0
     for template_file in template_file_list:
@@ -100,7 +102,9 @@ def process_templates(input_dir, output_dir=None, lang='en'):
             
             processed += 1
         except Exception as e:
+            import traceback
             print(f"Error processing {template_file}: {e}")
+            traceback.print_exc()
     
     print(f"Processed {processed} templates for language: {lang} ({LANGUAGES.get(lang, lang)})")
     return processed

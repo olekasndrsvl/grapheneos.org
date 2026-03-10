@@ -19,7 +19,19 @@
         <meta property="og:image:alt" content="GrapheneOS logo"/>
         <meta property="og:site_name" content="GrapheneOS"/>
         <meta property="og:url" content="https://grapheneos.org/install/cli"/>
-        <link rel="canonical" href="https://grapheneos.org/install/cli"/>
+        <link rel="alternate" hreflang="en" href="https://grapheneos.org/install/cli"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/install/cli"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/install/cli"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/install/cli"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/install/cli"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/install/cli"/>
+<link rel="alternate" hreflang="en" href="https://grapheneos.org/install/cli"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/install/cli"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/install/cli"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/install/cli"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/install/cli"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/install/cli"/>
+<link rel="canonical" href="https://grapheneos.org/install/cli"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
         <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
@@ -31,7 +43,157 @@
         [[js|/js/redirect.js]]
     </head>
     <body>
-        {% include "header.html" %}
+        <header style="position: relative;">
+    <nav id="site-menu">
+        <ul>
+            <li ><a href="/">GrapheneOS</a></li>
+            <li ><a href="/features">Features</a></li>
+            <li ><a href="/install/">Install</a></li>
+            <li ><a href="/build">Build</a></li>
+            <li ><a href="/usage">Usage</a></li>
+            <li ><a href="/faq">FAQ</a></li>
+            <li ><a href="/releases">Releases</a></li>
+            <li ><a href="/source">Source</a></li>
+            <li ><a href="/history/">History</a></li>
+            <li ><a href="/articles/">Articles</a></li>
+            <li ><a href="/donate">Donate</a></li>
+            <li ><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="language-switcher">
+        <div class="lang-dropdown">
+            <button class="lang-current" type="button">
+                <span class="lang-code">EN</span>
+                <span class="lang-arrow">▼</span>
+            </button>
+            <ul class="lang-menu">
+                <li><a href="/" data-lang="en">EN</a></li>
+                <li><a href="/de/" data-lang="de">DE</a></li>
+                <li><a href="/fr/" data-lang="fr">FR</a></li>
+                <li><a href="/es/" data-lang="es">ES</a></li>
+                <li><a href="/ru/" data-lang="ru">RU</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<style>
+.language-switcher {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.lang-current {
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 50px;
+}
+.lang-current:hover {
+    background: #444;
+}
+.lang-arrow {
+    font-size: 0.5rem;
+    opacity: 0.7;
+}
+.lang-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #222;
+    border: 1px solid #555;
+    border-radius: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.lang-dropdown.open .lang-menu {
+    display: block;
+}
+.lang-menu li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.lang-menu li a:hover {
+    background: #4a90d9;
+}
+.lang-menu li a.active {
+    background: #4a90d9;
+    color: #fff;
+}
+</style>
+<script>
+(function() {
+    const dropdown = document.querySelector('.lang-dropdown');
+    const currentBtn = document.querySelector('.lang-current');
+    const currentCode = document.querySelector('.lang-code');
+    const langLinks = document.querySelectorAll('.lang-menu a');
+    
+    // Get current language from URL
+    const path = window.location.pathname;
+    const langMatch = path.match(/^\/(de|fr|es|ru)\//);
+    const currentLang = langMatch ? langMatch[1] : 'en';
+    
+    // Set current language display
+    currentCode.textContent = currentLang.toUpperCase();
+    
+    // Mark active link
+    langLinks.forEach(link => {
+        if (link.dataset.lang === currentLang) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Toggle dropdown
+    currentBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+    });
+    
+    // Close on outside click
+    document.addEventListener('click', function() {
+        dropdown.classList.remove('open');
+    });
+    
+    // Handle language selection
+    langLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const newLang = this.dataset.lang;
+            let newPath = window.location.pathname;
+            
+            // Remove any existing language prefix
+            newPath = newPath.replace(/^\/(de|fr|es|ru)\//, '/');
+            
+            if (newLang === 'en') {
+                window.location.href = newPath || '/';
+            } else {
+                window.location.href = '/' + newLang + newPath;
+            }
+        });
+    });
+})();
+</script>
         <main id="cli-install">
             <h1><a href="#cli-install">CLI install guide</a></h1>
 
@@ -564,7 +726,49 @@ curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-install-<var>VERS
                     GrapheneOS, a rollback index based on the security patch level is loaded from
                     the secure element to provide rollback protection.</p>
 
-                    {% include "verified_boot_key_hash.html" %}
+                    <section id="verified-boot-key-hash">
+    <h3><a href="#verified-boot-key-hash">Verified boot key hash</a></h3>
+
+    <p>When loading an alternate OS, the device shows a yellow notice on boot
+    with the ID of the alternate OS based on the sha256 of the verified boot
+    public key. 4th and 5th generation Pixels only show the first 32 bits of
+    the hash so you can't use this approach. 6th generation Pixels onwards
+    show the full hash and you can compare it against the official GrapheneOS
+    verified boot key hashes below:</p>
+
+    <ul>
+        <li>Pixel 10 Pro Fold: <code>55a2d44103e56d5ec65496399c417987ba77730e6488fc60ba058d09fc3caee3</code></li>
+        <li>Pixel 10 Pro XL: <code>141d7fc32af7958a416f2661b37cf6f27bfb376fb5ce616aeaa27a82c7a04f74</code></li>
+        <li>Pixel 10 Pro: <code>4e8ee8f717754052198ca6d2d3aaa232e2461b4293c0d6f297e519cc778de093</code></li>
+        <li>Pixel 10: <code>3f7415ea26f5df5b14ea6d153256071a7a1af9ce7b0970b7311cc463c7ea02c7</code></li>
+        <li>Pixel 9a: <code>0508de44ee00bfb49ece32c418af1896391abde0f05b64f41bc9a2dfb589445b</code></li>
+        <li>Pixel 9 Pro Fold: <code>af4d2c6e62be0fec54f0271b9776ff061dd8392d9f51cf6ab1551d346679e24c</code></li>
+        <li>Pixel 9 Pro XL: <code>55d3c2323db91bb91f20d38d015e85112d038f6b6b5738fe352c1a80dba57023</code></li>
+        <li>Pixel 9 Pro: <code>f729cab861da1b83fdfab402fc9480758f2ae78ee0b61c1f2137dd1ab7076e86</code></li>
+        <li>Pixel 9: <code>9e6a8f3e0d761a780179f93acd5721ba1ab7c8c537c7761073c0a754b0e932de</code></li>
+        <li>Pixel 8a: <code>096b8bd6d44527a24ac1564b308839f67e78202185cbff9cfdcb10e63250bc5e</code></li>
+        <li>Pixel 8 Pro: <code>896db2d09d84e1d6bb747002b8a114950b946e5825772a9d48ba7eb01d118c1c</code></li>
+        <li>Pixel 8: <code>cd7479653aa88208f9f03034810ef9b7b0af8a9d41e2000e458ac403a2acb233</code></li>
+        <li>Pixel Fold: <code>ee0c9dfef6f55a878538b0dbf7e78e3bc3f1a13c8c44839b095fe26dd5fe2842</code></li>
+        <li>Pixel Tablet: <code>94df136e6c6aa08dc26580af46f36419b5f9baf46039db076f5295b91aaff230</code></li>
+        <li>Pixel 7a: <code>508d75dea10c5cbc3e7632260fc0b59f6055a8a49dd84e693b6d8899edbb01e4</code></li>
+        <li>Pixel 7 Pro: <code>bc1c0dd95664604382bb888412026422742eb333071ea0b2d19036217d49182f</code></li>
+        <li>Pixel 7: <code>3efe5392be3ac38afb894d13de639e521675e62571a8a9b3ef9fc8c44fd17fa1</code></li>
+        <li>Pixel 6a: <code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code></li>
+        <li>Pixel 6 Pro: <code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code></li>
+        <li>Pixel 6: <code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code></li>
+    </ul>
+
+    <p>Checking this is useful after installation, but you don't need to check
+    it manually for verified boot to work. The verified boot public key
+    flashed to the secure element can only be changed when the device is
+    unlocked. Unlocking the device performs the same wiping of the secure
+    element as a factory reset and prevents data from being recovered even if
+    the SSD was cloned and your passphrase(s) are obtained because the
+    encryption keys can no longer be derived anymore. The verified boot key is
+    also one of the inputs for deriving the encryption keys in addition to the
+    user's lock method(s) and random token(s) on the secure element.</p>
+</section>
 
                     <section id="hardware-based-attestation">
                         <h3><a href="#hardware-based-attestation">Hardware-based attestation</a></h3>
@@ -623,6 +827,20 @@ curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-install-<var>VERS
                 </section>
             </section>
         </main>
-        {% include "footer.html" %}
+        <footer>
+    <a href="/"><img src="[[path|/mask-icon.svg]]" width="512" height="512" alt=""/>GrapheneOS</a>
+    <ul id="social">
+        <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
+        <li><a href="https://discord.com/invite/grapheneos">Discord</a></li>
+        <li><a href="https://matrix.to/#/%23community:grapheneos.org">Matrix</a></li>
+        <li><a href="/hiring">Hiring</a></li>
+        <li><a href="https://x.com/GrapheneOS">X</a></li>
+        <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
+        <li><a href="https://bsky.app/profile/grapheneos.org">Bluesky</a></li>
+        <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+        <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
+        <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
+    </ul>
+</footer>
     </body>
 </html>

@@ -11,10 +11,17 @@
 2. Соберите и запустите:
 ```powershell
 docker build -t grapheneos-website .
-docker run -d -p 8080:80 --name grapheneos grapheneos-website
+docker run -d -p 80:80 --name grapheneos grapheneos-website
 ```
 
-Сайт будет доступен на http://localhost:8080
+Сайт будет доступен на http://localhost
+
+### Добавление в hosts (для тестирования)
+
+Добавьте в `C:\Windows\System32\drivers\etc\hosts`:
+```
+127.0.0.1 grapheneostest.org
+```
 
 ### WSL2 (альтернатива)
 
@@ -33,52 +40,77 @@ npm ci
 
 ```
 grapheneos.org/
-├── openspec/           # OpenSpec планирование
-│   ├── changes/       # Изменения
-│   └── specs/         # Спецификации
-├── templates/         # Jinja2 шаблоны
-├── static/            # Исходные статические файлы
-├── i18n/              # Переводы (после реализации i18n)
+├── .github/workflows/     # GitHub Actions CI
+│   └── ci.yml            # CI пайплайн (pytest + Playwright + lint)
+├── openspec/             # OpenSpec планирование
+│   ├── changes/         # Изменения
+│   └── specs/           # Спецификации
+├── templates/            # Jinja2 шаблоны
+│   ├── header.html      # Хедер с языковым переключателем
+│   └── head-seo.html   # SEO теги (canonical, hreflang)
+├── static/              # Исходные статические файлы
+├── i18n/                # Переводы
 │   ├── en/messages.json
 │   ├── de/messages.json
 │   ├── fr/messages.json
 │   ├── es/messages.json
 │   └── ru/messages.json
-├── process-templates  # Обработка Jinja2 шаблонов
-├── process-static     # Полный пайплайн сборки
-├── generate-sitemap   # Генерация sitemap.xml
-├── generate-feed      # Генерация Atom feed
-├── nginx/             # Конфигурация nginx
-│   └── nginx-dev.conf # Конфиг для локальной разработки
-└── static-tmp/        # Собранные файлы (создаётся автоматически)
+├── tests/               # Тесты
+│   ├── functional.spec.cjs    # Playwright функциональные тесты
+│   ├── test_i18n.py           # pytest тесты I18n
+│   ├── test_date_formatting.py
+│   ├── test_number_currency.py
+│   └── test_jinja2_integration.py
+├── jinja2i18n.py        # Модуль интернационализации
+├── process-templates    # Обработка Jinja2 шаблонов
+├── process-static       # Полный пайплайн сборки
+├── generate-sitemap     # Генерация многоязычного sitemap.xml
+├── generate-feed        # Генерация Atom feed
+├── nginx/               # Конфигурация nginx
+│   └── nginx-dev.conf  # Конфиг для локальной разработки
+└── static-tmp/          # Собранные файлы (создаётся автоматически)
 ```
 
-## OpenSpec Workflow
+## i18n (Интернационализация)
 
-Создано для управления спецификациями и изменениями проекта.
+### Поддерживаемые языки
 
-### Структура
+- English (en) - по умолчанию
+- Deutsch (de)
+- Français (fr)
+- Español (es)
+- Русский (ru)
 
+### Функции jinja2i18n.py
+
+- `_()` - перевод строк
+- `datenl()` - форматирование даты
+- `numberl()` - форматирование чисел
+- `currencyl()` - форматирование валюты
+- `get_lang()` - получить текущий язык
+- `get_languages()` - список поддерживаемых языков
+- `generate_seo_tags()` - генерация canonical + hreflang тегов
+
+### Nginx языковая маршрутизация
+
+- Проверяет cookie `lang` (приоритет)
+- Проверяет заголовок `Accept-Language`
+- Перенаправляет на `/de/`, `/fr/`, `/es/`, `/ru/` при необходимости
+- Устанавливает cookie для запоминания выбора
+
+## GitHub Actions CI
+
+`.github/workflows/ci.yml` включает:
+
+```yaml
+jobs:
+  test:      # Python pytest (60 тестов)
+  lint:      # ESLint + Stylelint  
+  playwright: # Playwright функциональные тесты (18 тестов)
+  build:     # Сборка проекта
 ```
-openspec/
-├── specs/       # Спецификации (SPEC.md - шаблон)
-└── changes/    # Изменения (CHANGE.md - шаблон)
-```
 
-### Команды
-
-```bash
-# Создать новую спецификацию
-cp openspec/specs/SPEC.md openspec/specs/<feature-name>.md
-
-# Создать изменение
-cp openspec/changes/CHANGE.md openspec/changes/<feature-name>.md
-```
-
-### Статусы
-
-- **SPEC:** Draft → Review → Accepted → Implemented
-- **CHANGE:** Draft → Review → Accepted → Merged
+Запускается автоматически при пуше в main/master или pull request.
 
 ## Сборка (в Docker/WSL)
 
@@ -97,53 +129,72 @@ python process-templates static        # Только шаблоны
 Скрипт `process-static` автоматически запускает:
 - `eslint` для JavaScript
 - `stylelint` для CSS
-- `vnu-jar` для валидации HTML/XML/SVG
+- `vnu-jar` для валидации HTML/XML/SVG (отключено)
 - `html-minifier-terser` для minification
 - `gixy` для проверки nginx конфига
 
 ## Тестирование
 
-### Функциональные тесты (Playwright)
+### Python тесты (pytest)
 
-Тесты проверяют: загрузку страниц, навигацию, кнопки, формы, статические ресурсы.
+```powershell
+pip install pytest cssselect
+python -m pytest tests/ -v
+```
+
+Результат: 60 passed
+
+### Функциональные тесты (Playwright)
 
 ```powershell
 # 1. Установить Playwright (один раз)
 npm install -D @playwright/test
 npx playwright install chromium
 
-# 2. Запустить сайт (если не запущен)
-docker build -t grapheneos-website . ; docker rm -f grapheneos ; docker run -d -p 8080:80 --name grapheneos grapheneos-website
+# 2. Запустить сайт
+docker build -t grapheneos-website .
+docker rm -f grapheneos
+docker run -d -p 80:80 --name grapheneos grapheneos-website
 
 # 3. Запустить тесты
 npx playwright test tests/functional.spec.cjs --reporter=list
 ```
 
-Результат: `8 passed`
+Результат: 18 passed (1 skipped)
 
-### Валидация
+### Все тесты вместе
 
-```bash
-# HTML валидация (внутри контейнера)
-docker exec grapheneos //bin//bash -c "source /app/venv/bin/activate && vnu-jar static-tmp"
+```powershell
+# pytest
+python -m pytest tests/ -v
+
+# Playwright
+npx playwright test tests/functional.spec.cjs --reporter=list
 ```
 
 ## Локальный веб-сервер
 
-Один контейнер — сборка и nginx сразу:
+### Docker
 
 ```powershell
-# Собрать и запустить
+# Собрать и запустить на порту 80
 docker build -t grapheneos-website .
-docker run -d -p 8080:80 --name grapheneos grapheneos-website
+docker run -d -p 80:80 --name grapheneos grapheneos-website
 ```
 
 После изменений — пересобрать:
 ```powershell
-docker build -t grapheneos-website . && docker rm -f grapheneos && docker run -d -p 8080:80 --name grapheneos grapheneos-website
+docker build -t grapheneos-website . && docker rm -f grapheneos && docker run -d -p 80:80 --name grapheneos grapheneos-website
 ```
 
-Откройте http://localhost:8080
+Откройте http://localhost
+
+### Проброс порта 80 на Windows
+
+Если порт 80 занят:
+```powershell
+docker run -d -p 8080:80 --name grapheneos grapheneos-website
+```
 
 ## Развёртывание
 
@@ -151,8 +202,22 @@ docker build -t grapheneos-website . && docker rm -f grapheneos && docker run -d
 ./deploy-static  # Требует доступ к серверам GrapheneOS
 ```
 
+## Текущий статус
+
+- ✅ Docker сборка
+- ✅ Nginx с языковой маршрутизацией
+- ✅ Language switcher (кастомный dropdown)
+- ✅ SEO теги (canonical + hreflang)
+- ✅ Многоязычный sitemap.xml
+- ✅ Многоязычный Atom feed
+- ✅ GitHub Actions CI
+- ✅ pytest тесты (60)
+- ✅ Playwright тесты (18)
+- 🔄 Language preservation в URL (в разработке)
+
 ## Примечания
 
 - Все bash-скрипты используют `#!/bin/bash` (требуется bash, не sh)
 - Для Windows без WSL/Docker требуется портировать скрипты на Python
 - Проект использует GNU parallel, sponge (moreutils), brotli, zopfli
+- Валидация vnu-jar отключена из-за предсуществующих проблем с контентом

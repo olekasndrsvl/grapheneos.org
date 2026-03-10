@@ -1,28 +1,41 @@
 <header style="position: relative;">
     <nav id="site-menu">
         <ul>
-            <li {% if current_page == "/" %}aria-current="page"{% endif %}><a href="/">GrapheneOS</a></li>
-            <li {% if current_page == "features" %}aria-current="page"{% endif %}><a href="/features">Features</a></li>
-            <li {% if current_page == "install" %}aria-current="page"{% endif %}><a href="/install/">Install</a></li>
-            <li {% if current_page == "build" %}aria-current="page"{% endif %}><a href="/build">Build</a></li>
-            <li {% if current_page == "usage" %}aria-current="page"{% endif %}><a href="/usage">Usage</a></li>
-            <li {% if current_page == "faq" %}aria-current="page"{% endif %}><a href="/faq">FAQ</a></li>
-            <li {% if current_page == "releases" %}aria-current="page"{% endif %}><a href="/releases">Releases</a></li>
-            <li {% if current_page == "source" %}aria-current="page"{% endif %}><a href="/source">Source</a></li>
-            <li {% if current_page == "history" %}aria-current="page"{% endif %}><a href="/history/">History</a></li>
-            <li {% if current_page == "articles" %}aria-current="page"{% endif %}><a href="/articles/">Articles</a></li>
-            <li {% if current_page == "donate" %}aria-current="page"{% endif %}><a href="/donate">Donate</a></li>
-            <li {% if current_page == "contact" %}aria-current="page"{% endif %}><a href="/contact">Contact</a></li>
+            {% set lang_prefix = "" if get_lang() == "en" else "/" + get_lang() %}
+            <li {% if current_page == "/" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/">GrapheneOS</a></li>
+            <li {% if current_page == "features" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/features">Features</a></li>
+            <li {% if current_page == "install" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/install/">Install</a></li>
+            <li {% if current_page == "build" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/build">Build</a></li>
+            <li {% if current_page == "usage" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/usage">Usage</a></li>
+            <li {% if current_page == "faq" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/faq">FAQ</a></li>
+            <li {% if current_page == "releases" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/releases">Releases</a></li>
+            <li {% if current_page == "source" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/source">Source</a></li>
+            <li {% if current_page == "history" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/history/">History</a></li>
+            <li {% if current_page == "articles" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/articles/">Articles</a></li>
+            <li {% if current_page == "donate" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/donate">Donate</a></li>
+            <li {% if current_page == "contact" %}aria-current="page"{% endif %}><a href="{{ lang_prefix }}/contact">Contact</a></li>
         </ul>
     </nav>
     <div class="language-switcher">
-        <select id="lang-select" onchange="switchLanguage(this.value)">
-            <option value="en" {% if get_lang() == 'en' %}selected="selected"{% endif %}>EN</option>
-            <option value="de" {% if get_lang() == 'de' %}selected="selected"{% endif %}>DE</option>
-            <option value="fr" {% if get_lang() == 'fr' %}selected="selected"{% endif %}>FR</option>
-            <option value="es" {% if get_lang() == 'es' %}selected="selected"{% endif %}>ES</option>
-            <option value="ru" {% if get_lang() == 'ru' %}selected="selected"{% endif %}>RU</option>
-        </select>
+        <div class="lang-dropdown">
+            <button class="lang-current" type="button">
+                <span class="lang-code">{{ get_lang()|upper }}</span>
+                <span class="lang-arrow">▼</span>
+            </button>
+            <ul class="lang-menu">
+                {% set page = current_page.lstrip("/") %}
+                {% set en_prefix = "" if page == "" else "/" + page %}
+                {% set de_prefix = "/de/" + page %}
+                {% set fr_prefix = "/fr/" + page %}
+                {% set es_prefix = "/es/" + page %}
+                {% set ru_prefix = "/ru/" + page %}
+                <li><a href="{{ en_prefix }}" data-lang="en" {% if get_lang() == "en" %}class="active"{% endif %}>EN</a></li>
+                <li><a href="{{ de_prefix }}" data-lang="de" {% if get_lang() == "de" %}class="active"{% endif %}>DE</a></li>
+                <li><a href="{{ fr_prefix }}" data-lang="fr" {% if get_lang() == "fr" %}class="active"{% endif %}>FR</a></li>
+                <li><a href="{{ es_prefix }}" data-lang="es" {% if get_lang() == "es" %}class="active"{% endif %}>ES</a></li>
+                <li><a href="{{ ru_prefix }}" data-lang="ru" {% if get_lang() == "ru" %}class="active"{% endif %}>RU</a></li>
+            </ul>
+        </div>
     </div>
 </header>
 <style>
@@ -31,8 +44,13 @@
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 1000;
 }
-.language-switcher select {
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.lang-current {
     background: #333;
     color: #fff;
     border: 1px solid #555;
@@ -41,48 +59,65 @@
     cursor: pointer;
     font-size: 0.75rem;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 50px;
+}
+.lang-current:hover {
+    background: #444;
+}
+.lang-arrow {
+    font-size: 0.5rem;
+    opacity: 0.7;
+}
+.lang-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #222;
+    border: 1px solid #555;
+    border-radius: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.lang-dropdown.open .lang-menu {
+    display: block;
+}
+.lang-menu li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.lang-menu li a:hover {
+    background: #4a90d9;
+}
+.lang-menu li a.active {
+    background: #4a90d9;
+    color: #fff;
 }
 </style>
 <script>
 (function() {
-    const langSelect = document.getElementById('lang-select');
-    const currentLang = (window.location.pathname.match(/^\/(de|fr|es|ru)\//) || ['en'])[1];
+    const dropdown = document.querySelector('.lang-dropdown');
+    const currentBtn = document.querySelector('.lang-current');
     
-    if (langSelect.value !== currentLang) {
-        langSelect.value = currentLang;
-    }
-    
-    langSelect.addEventListener('change', function() {
-        const newLang = this.value;
-        localStorage.setItem('preferred-lang', newLang);
-        
-        let newPath = window.location.pathname;
-        // Remove any existing language prefix
-        newPath = newPath.replace(/^\/(de|fr|es|ru)\//, '/');
-        
-        if (newLang === 'en') {
-            // Go to root (remove language prefix)
-            window.location.href = newPath || '/';
-        } else {
-            // Add new language prefix
-            window.location.href = '/' + newLang + newPath;
-        }
+    // Toggle dropdown
+    currentBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
     });
     
-    document.addEventListener('click', function(e) {
-        const link = e.target.closest('a[href^="/"]');
-        if (link && !link.hasAttribute('download')) {
-            const preferredLang = localStorage.getItem('preferred-lang');
-            if (preferredLang && preferredLang !== 'en') {
-                let href = link.getAttribute('href');
-                // Remove any existing language prefix from the target href
-                href = href.replace(/^\/(de|fr|es|ru)\//, '/');
-                if (!href.match(/^\/(de|fr|es|ru)\//)) {
-                    e.preventDefault();
-                    window.location.href = '/' + preferredLang + href;
-                }
-            }
-        }
-    }, true);
+    // Close on outside click
+    document.addEventListener('click', function() {
+        dropdown.classList.remove('open');
+    });
 })();
 </script>

@@ -19,7 +19,43 @@
         <meta property="og:image:alt" content="GrapheneOS logo"/>
         <meta property="og:site_name" content="GrapheneOS"/>
         <meta property="og:url" content="https://grapheneos.org/releases"/>
-        <link rel="canonical" href="https://grapheneos.org/releases"/>
+        <link rel="alternate" hreflang="en" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/releases"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/releases"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/releases"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/releases"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="en" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/releases"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/releases"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/releases"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/releases"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="en" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/releases"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/releases"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/releases"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/releases"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="en" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/releases"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/releases"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/releases"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/releases"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="en" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/releases"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/releases"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/releases"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/releases"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="en" href="https://grapheneos.org/releases"/>
+<link rel="alternate" hreflang="de" href="https://grapheneos.org/de/releases"/>
+<link rel="alternate" hreflang="fr" href="https://grapheneos.org/fr/releases"/>
+<link rel="alternate" hreflang="es" href="https://grapheneos.org/es/releases"/>
+<link rel="alternate" hreflang="ru" href="https://grapheneos.org/ru/releases"/>
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org/releases"/>
+<link rel="canonical" href="https://grapheneos.org/releases"/>
         <link rel="alternate" type="application/atom+xml" href="/releases.atom"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
@@ -33,9 +69,159 @@
         [[js|/js/redirect.js]]
     </head>
     <body>
-        {% with current_page="releases" %}
-            {% include "header.html" %}
-        {% endwith %}
+        
+            <header style="position: relative;">
+    <nav id="site-menu">
+        <ul>
+            <li ><a href="/">GrapheneOS</a></li>
+            <li ><a href="/features">Features</a></li>
+            <li ><a href="/install/">Install</a></li>
+            <li ><a href="/build">Build</a></li>
+            <li ><a href="/usage">Usage</a></li>
+            <li ><a href="/faq">FAQ</a></li>
+            <li aria-current="page"><a href="/releases">Releases</a></li>
+            <li ><a href="/source">Source</a></li>
+            <li ><a href="/history/">History</a></li>
+            <li ><a href="/articles/">Articles</a></li>
+            <li ><a href="/donate">Donate</a></li>
+            <li ><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="language-switcher">
+        <div class="lang-dropdown">
+            <button class="lang-current" type="button">
+                <span class="lang-code">EN</span>
+                <span class="lang-arrow">▼</span>
+            </button>
+            <ul class="lang-menu">
+                <li><a href="/" data-lang="en">EN</a></li>
+                <li><a href="/de/" data-lang="de">DE</a></li>
+                <li><a href="/fr/" data-lang="fr">FR</a></li>
+                <li><a href="/es/" data-lang="es">ES</a></li>
+                <li><a href="/ru/" data-lang="ru">RU</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<style>
+.language-switcher {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.lang-current {
+    background: #333;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 50px;
+}
+.lang-current:hover {
+    background: #444;
+}
+.lang-arrow {
+    font-size: 0.5rem;
+    opacity: 0.7;
+}
+.lang-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #222;
+    border: 1px solid #555;
+    border-radius: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.lang-dropdown.open .lang-menu {
+    display: block;
+}
+.lang-menu li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+.lang-menu li a:hover {
+    background: #4a90d9;
+}
+.lang-menu li a.active {
+    background: #4a90d9;
+    color: #fff;
+}
+</style>
+<script>
+(function() {
+    const dropdown = document.querySelector('.lang-dropdown');
+    const currentBtn = document.querySelector('.lang-current');
+    const currentCode = document.querySelector('.lang-code');
+    const langLinks = document.querySelectorAll('.lang-menu a');
+    
+    // Get current language from URL
+    const path = window.location.pathname;
+    const langMatch = path.match(/^\/(de|fr|es|ru)\//);
+    const currentLang = langMatch ? langMatch[1] : 'en';
+    
+    // Set current language display
+    currentCode.textContent = currentLang.toUpperCase();
+    
+    // Mark active link
+    langLinks.forEach(link => {
+        if (link.dataset.lang === currentLang) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Toggle dropdown
+    currentBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+    });
+    
+    // Close on outside click
+    document.addEventListener('click', function() {
+        dropdown.classList.remove('open');
+    });
+    
+    // Handle language selection
+    langLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const newLang = this.dataset.lang;
+            let newPath = window.location.pathname;
+            
+            // Remove any existing language prefix
+            newPath = newPath.replace(/^\/(de|fr|es|ru)\//, '/');
+            
+            if (newLang === 'en') {
+                window.location.href = newPath || '/';
+            } else {
+                window.location.href = '/' + newLang + newPath;
+            }
+        });
+    });
+})();
+</script>
+        
         <main id="releases">
             <h1><a href="#releases">Releases</a></h1>
 
@@ -554,66 +740,1026 @@
             <section id="devices">
                 <h2><a href="#devices">Devices</a></h2>
 
-                {% with codename="rango", name="Pixel 10 Pro Fold" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="mustang", name="Pixel 10 Pro XL" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="blazer", name="Pixel 10 Pro" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="frankel", name="Pixel 10"  %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="tegu", name="Pixel 9a" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="comet", name="Pixel 9 Pro Fold" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="komodo", name="Pixel 9 Pro XL" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="caiman", name="Pixel 9 Pro" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="tokay", name="Pixel 9" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="akita", name="Pixel 8a" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="husky", name="Pixel 8 Pro" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="shiba", name="Pixel 8" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="felix", name="Pixel Fold" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="tangorpro", name="Pixel Tablet" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="lynx", name="Pixel 7a" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="cheetah", name="Pixel 7 Pro" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="panther", name="Pixel 7" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="bluejay", name="Pixel 6a" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="raven", name="Pixel 6 Pro" %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="oriole", name="Pixel 6" %}
-                    {% include "device.html" %}
-                {% endwith %}
+                
+                    <section id="rango">
+    <h3><a href="#rango">Pixel 10 Pro Fold</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="rango-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[rango-stable-BUILD_NUMBER]]">[[rango-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/rango-install-[[rango-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/rango-install-[[rango-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/rango-ota_update-[[rango-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="rango-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[rango-beta-BUILD_NUMBER]]">[[rango-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/rango-install-[[rango-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/rango-install-[[rango-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/rango-ota_update-[[rango-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="rango-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[rango-alpha-BUILD_NUMBER]]">[[rango-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/rango-install-[[rango-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/rango-install-[[rango-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/rango-ota_update-[[rango-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="mustang">
+    <h3><a href="#mustang">Pixel 10 Pro XL</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="mustang-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[mustang-stable-BUILD_NUMBER]]">[[mustang-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/mustang-install-[[mustang-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/mustang-install-[[mustang-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/mustang-ota_update-[[mustang-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="mustang-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[mustang-beta-BUILD_NUMBER]]">[[mustang-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/mustang-install-[[mustang-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/mustang-install-[[mustang-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/mustang-ota_update-[[mustang-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="mustang-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[mustang-alpha-BUILD_NUMBER]]">[[mustang-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/mustang-install-[[mustang-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/mustang-install-[[mustang-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/mustang-ota_update-[[mustang-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="blazer">
+    <h3><a href="#blazer">Pixel 10 Pro</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="blazer-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[blazer-stable-BUILD_NUMBER]]">[[blazer-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/blazer-install-[[blazer-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/blazer-install-[[blazer-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/blazer-ota_update-[[blazer-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="blazer-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[blazer-beta-BUILD_NUMBER]]">[[blazer-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/blazer-install-[[blazer-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/blazer-install-[[blazer-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/blazer-ota_update-[[blazer-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="blazer-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[blazer-alpha-BUILD_NUMBER]]">[[blazer-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/blazer-install-[[blazer-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/blazer-install-[[blazer-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/blazer-ota_update-[[blazer-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="frankel">
+    <h3><a href="#frankel">Pixel 10</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="frankel-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[frankel-stable-BUILD_NUMBER]]">[[frankel-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/frankel-install-[[frankel-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/frankel-install-[[frankel-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/frankel-ota_update-[[frankel-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="frankel-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[frankel-beta-BUILD_NUMBER]]">[[frankel-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/frankel-install-[[frankel-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/frankel-install-[[frankel-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/frankel-ota_update-[[frankel-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="frankel-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[frankel-alpha-BUILD_NUMBER]]">[[frankel-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/frankel-install-[[frankel-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/frankel-install-[[frankel-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/frankel-ota_update-[[frankel-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="tegu">
+    <h3><a href="#tegu">Pixel 9a</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="tegu-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[tegu-stable-BUILD_NUMBER]]">[[tegu-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/tegu-install-[[tegu-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/tegu-install-[[tegu-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/tegu-ota_update-[[tegu-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="tegu-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[tegu-beta-BUILD_NUMBER]]">[[tegu-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/tegu-install-[[tegu-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/tegu-install-[[tegu-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/tegu-ota_update-[[tegu-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="tegu-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[tegu-alpha-BUILD_NUMBER]]">[[tegu-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/tegu-install-[[tegu-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/tegu-install-[[tegu-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/tegu-ota_update-[[tegu-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="comet">
+    <h3><a href="#comet">Pixel 9 Pro Fold</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="comet-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[comet-stable-BUILD_NUMBER]]">[[comet-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/comet-install-[[comet-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/comet-install-[[comet-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/comet-ota_update-[[comet-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="comet-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[comet-beta-BUILD_NUMBER]]">[[comet-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/comet-install-[[comet-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/comet-install-[[comet-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/comet-ota_update-[[comet-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="comet-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[comet-alpha-BUILD_NUMBER]]">[[comet-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/comet-install-[[comet-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/comet-install-[[comet-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/comet-ota_update-[[comet-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="komodo">
+    <h3><a href="#komodo">Pixel 9 Pro XL</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="komodo-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[komodo-stable-BUILD_NUMBER]]">[[komodo-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/komodo-install-[[komodo-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/komodo-install-[[komodo-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/komodo-ota_update-[[komodo-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="komodo-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[komodo-beta-BUILD_NUMBER]]">[[komodo-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/komodo-install-[[komodo-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/komodo-install-[[komodo-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/komodo-ota_update-[[komodo-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="komodo-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[komodo-alpha-BUILD_NUMBER]]">[[komodo-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/komodo-install-[[komodo-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/komodo-install-[[komodo-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/komodo-ota_update-[[komodo-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="caiman">
+    <h3><a href="#caiman">Pixel 9 Pro</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="caiman-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[caiman-stable-BUILD_NUMBER]]">[[caiman-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/caiman-install-[[caiman-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/caiman-install-[[caiman-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/caiman-ota_update-[[caiman-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="caiman-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[caiman-beta-BUILD_NUMBER]]">[[caiman-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/caiman-install-[[caiman-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/caiman-install-[[caiman-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/caiman-ota_update-[[caiman-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="caiman-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[caiman-alpha-BUILD_NUMBER]]">[[caiman-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/caiman-install-[[caiman-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/caiman-install-[[caiman-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/caiman-ota_update-[[caiman-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="tokay">
+    <h3><a href="#tokay">Pixel 9</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="tokay-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[tokay-stable-BUILD_NUMBER]]">[[tokay-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/tokay-install-[[tokay-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/tokay-install-[[tokay-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/tokay-ota_update-[[tokay-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="tokay-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[tokay-beta-BUILD_NUMBER]]">[[tokay-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/tokay-install-[[tokay-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/tokay-install-[[tokay-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/tokay-ota_update-[[tokay-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="tokay-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[tokay-alpha-BUILD_NUMBER]]">[[tokay-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/tokay-install-[[tokay-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/tokay-install-[[tokay-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/tokay-ota_update-[[tokay-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="akita">
+    <h3><a href="#akita">Pixel 8a</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="akita-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[akita-stable-BUILD_NUMBER]]">[[akita-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/akita-install-[[akita-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/akita-install-[[akita-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/akita-ota_update-[[akita-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="akita-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[akita-beta-BUILD_NUMBER]]">[[akita-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/akita-install-[[akita-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/akita-install-[[akita-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/akita-ota_update-[[akita-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="akita-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[akita-alpha-BUILD_NUMBER]]">[[akita-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/akita-install-[[akita-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/akita-install-[[akita-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/akita-ota_update-[[akita-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="husky">
+    <h3><a href="#husky">Pixel 8 Pro</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="husky-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[husky-stable-BUILD_NUMBER]]">[[husky-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/husky-install-[[husky-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/husky-install-[[husky-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/husky-ota_update-[[husky-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="husky-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[husky-beta-BUILD_NUMBER]]">[[husky-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/husky-install-[[husky-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/husky-install-[[husky-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/husky-ota_update-[[husky-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="husky-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[husky-alpha-BUILD_NUMBER]]">[[husky-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/husky-install-[[husky-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/husky-install-[[husky-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/husky-ota_update-[[husky-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="shiba">
+    <h3><a href="#shiba">Pixel 8</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="shiba-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[shiba-stable-BUILD_NUMBER]]">[[shiba-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/shiba-install-[[shiba-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/shiba-install-[[shiba-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/shiba-ota_update-[[shiba-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="shiba-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[shiba-beta-BUILD_NUMBER]]">[[shiba-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/shiba-install-[[shiba-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/shiba-install-[[shiba-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/shiba-ota_update-[[shiba-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="shiba-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[shiba-alpha-BUILD_NUMBER]]">[[shiba-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/shiba-install-[[shiba-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/shiba-install-[[shiba-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/shiba-ota_update-[[shiba-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="felix">
+    <h3><a href="#felix">Pixel Fold</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="felix-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[felix-stable-BUILD_NUMBER]]">[[felix-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/felix-install-[[felix-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/felix-install-[[felix-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/felix-ota_update-[[felix-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="felix-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[felix-beta-BUILD_NUMBER]]">[[felix-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/felix-install-[[felix-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/felix-install-[[felix-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/felix-ota_update-[[felix-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="felix-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[felix-alpha-BUILD_NUMBER]]">[[felix-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/felix-install-[[felix-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/felix-install-[[felix-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/felix-ota_update-[[felix-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="tangorpro">
+    <h3><a href="#tangorpro">Pixel Tablet</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="tangorpro-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[tangorpro-stable-BUILD_NUMBER]]">[[tangorpro-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/tangorpro-install-[[tangorpro-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/tangorpro-install-[[tangorpro-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/tangorpro-ota_update-[[tangorpro-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="tangorpro-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[tangorpro-beta-BUILD_NUMBER]]">[[tangorpro-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/tangorpro-install-[[tangorpro-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/tangorpro-install-[[tangorpro-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/tangorpro-ota_update-[[tangorpro-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="tangorpro-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[tangorpro-alpha-BUILD_NUMBER]]">[[tangorpro-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/tangorpro-install-[[tangorpro-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/tangorpro-install-[[tangorpro-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/tangorpro-ota_update-[[tangorpro-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="lynx">
+    <h3><a href="#lynx">Pixel 7a</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="lynx-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[lynx-stable-BUILD_NUMBER]]">[[lynx-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/lynx-install-[[lynx-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/lynx-install-[[lynx-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/lynx-ota_update-[[lynx-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="lynx-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[lynx-beta-BUILD_NUMBER]]">[[lynx-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/lynx-install-[[lynx-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/lynx-install-[[lynx-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/lynx-ota_update-[[lynx-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="lynx-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[lynx-alpha-BUILD_NUMBER]]">[[lynx-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/lynx-install-[[lynx-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/lynx-install-[[lynx-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/lynx-ota_update-[[lynx-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="cheetah">
+    <h3><a href="#cheetah">Pixel 7 Pro</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="cheetah-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[cheetah-stable-BUILD_NUMBER]]">[[cheetah-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/cheetah-install-[[cheetah-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/cheetah-install-[[cheetah-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/cheetah-ota_update-[[cheetah-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="cheetah-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[cheetah-beta-BUILD_NUMBER]]">[[cheetah-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/cheetah-install-[[cheetah-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/cheetah-install-[[cheetah-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/cheetah-ota_update-[[cheetah-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="cheetah-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[cheetah-alpha-BUILD_NUMBER]]">[[cheetah-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/cheetah-install-[[cheetah-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/cheetah-install-[[cheetah-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/cheetah-ota_update-[[cheetah-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="panther">
+    <h3><a href="#panther">Pixel 7</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="panther-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[panther-stable-BUILD_NUMBER]]">[[panther-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/panther-install-[[panther-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/panther-install-[[panther-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/panther-ota_update-[[panther-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="panther-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[panther-beta-BUILD_NUMBER]]">[[panther-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/panther-install-[[panther-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/panther-install-[[panther-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/panther-ota_update-[[panther-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="panther-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[panther-alpha-BUILD_NUMBER]]">[[panther-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/panther-install-[[panther-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/panther-install-[[panther-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/panther-ota_update-[[panther-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="bluejay">
+    <h3><a href="#bluejay">Pixel 6a</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="bluejay-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[bluejay-stable-BUILD_NUMBER]]">[[bluejay-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/bluejay-install-[[bluejay-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/bluejay-install-[[bluejay-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/bluejay-ota_update-[[bluejay-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="bluejay-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[bluejay-beta-BUILD_NUMBER]]">[[bluejay-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/bluejay-install-[[bluejay-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/bluejay-install-[[bluejay-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/bluejay-ota_update-[[bluejay-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="bluejay-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[bluejay-alpha-BUILD_NUMBER]]">[[bluejay-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/bluejay-install-[[bluejay-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/bluejay-install-[[bluejay-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/bluejay-ota_update-[[bluejay-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="raven">
+    <h3><a href="#raven">Pixel 6 Pro</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="raven-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[raven-stable-BUILD_NUMBER]]">[[raven-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/raven-install-[[raven-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/raven-install-[[raven-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/raven-ota_update-[[raven-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="raven-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[raven-beta-BUILD_NUMBER]]">[[raven-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/raven-install-[[raven-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/raven-install-[[raven-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/raven-ota_update-[[raven-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="raven-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[raven-alpha-BUILD_NUMBER]]">[[raven-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/raven-install-[[raven-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/raven-install-[[raven-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/raven-ota_update-[[raven-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
+                
+                    <section id="oriole">
+    <h3><a href="#oriole">Pixel 6</a></h3>
+    <table>
+        <tr>
+            <th>Channel</th>
+            <th>Version</th>
+            <th>Downloads</th>
+        </tr>
+        <tr id="oriole-stable">
+            <td>Stable</td>
+
+            <td><a href="#[[oriole-stable-BUILD_NUMBER]]">[[oriole-stable-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/oriole-install-[[oriole-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/oriole-install-[[oriole-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/oriole-ota_update-[[oriole-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="oriole-beta">
+            <td>Beta</td>
+
+            <td><a href="#[[oriole-beta-BUILD_NUMBER]]">[[oriole-beta-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/oriole-install-[[oriole-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/oriole-install-[[oriole-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/oriole-ota_update-[[oriole-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr id="oriole-alpha">
+            <td>Alpha</td>
+
+            <td><a href="#[[oriole-alpha-BUILD_NUMBER]]">[[oriole-alpha-BUILD_NUMBER]]</a></td>
+
+            <td>
+                <ul>
+                    <li><a href="https://releases.grapheneos.org/oriole-install-[[oriole-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/oriole-install-[[oriole-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a href="https://releases.grapheneos.org/oriole-ota_update-[[oriole-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</section>
+                
             </section>
 
             <section id="changelog">
@@ -11833,6 +12979,20 @@
                 </article>
             </section>
         </main>
-        {% include "footer.html" %}
+        <footer>
+    <a href="/"><img src="[[path|/mask-icon.svg]]" width="512" height="512" alt=""/>GrapheneOS</a>
+    <ul id="social">
+        <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
+        <li><a href="https://discord.com/invite/grapheneos">Discord</a></li>
+        <li><a href="https://matrix.to/#/%23community:grapheneos.org">Matrix</a></li>
+        <li><a href="/hiring">Hiring</a></li>
+        <li><a href="https://x.com/GrapheneOS">X</a></li>
+        <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
+        <li><a href="https://bsky.app/profile/grapheneos.org">Bluesky</a></li>
+        <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+        <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
+        <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
+    </ul>
+</footer>
     </body>
 </html>

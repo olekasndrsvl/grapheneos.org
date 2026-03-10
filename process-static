@@ -68,16 +68,16 @@ done
 #     json_reformat -m < "$file" | sponge "$file"
 # done
 
-# Validate CSS with stylelint
+# Validate CSS with stylelint (shared across languages)
 stylelint static-tmp/**/*.css
 
-# Minify CSS
+# Minify CSS (shared across languages)
 find static-tmp -name '*.css' -exec csso {} -o {} \;
 
-# Validate JS with eslint
+# Validate JS with eslint (shared across languages)
 eslint static-tmp/**/!(fastboot.min.mjs|z-worker-pako.mjs|pako_inflate.min.mjs)
 
-# Minify JS
+# Minify JS (shared across languages)
 find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \;
 
 replace=
@@ -130,6 +130,7 @@ find static-tmp -name '*.html' -exec html-minifier-terser --collapse-whitespace 
     --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \;
 
 ./generate-feed
+./generate-sitemap
 
 for file in static-tmp/**/*.@(atom|xml); do
     xmllint --noblanks "$file" --output "$file"
