@@ -215,6 +215,64 @@ docker run -d -p 8080:80 --name grapheneos grapheneos-website
 - ✅ Playwright тесты (18)
 - 🔄 Language preservation в URL (в разработке)
 
+## Известные проблемы и решения
+
+### 1. Пустые страницы build.html и donate.html в Docker
+
+**Проблема**: После сборки Docker образа файлы `build.html` и `donate.html` имели размер 0 байт.
+
+**Причина**: Использование устаревшего образа Docker. Первый билд создал образ с неполными данными.
+
+**Решение**:
+```powershell
+# Удалить старый контейнер и образ
+docker stop grapheneos
+docker rm grapheneos
+docker rmi grapheneos-website
+
+# Пересобрать
+docker build -t grapheneos-website .
+docker run -d -p 80:80 --name grapheneos grapheneos-website
+```
+
+### 2. Page Not Found для /features, /build, /usage и других страниц
+
+**Проблема**: Страницы без расширения `.html` возвращали 404.
+
+**Причина**: nginx `try_files` не проверял вариант `$uri.html`.
+
+**Решение**: Изменён `nginx/nginx-dev.conf`:
+```nginx
+location / {
+    try_files $uri $uri.html $uri/ $uri/index.html =404;
+}
+```
+
+**Важно**: После изменения конфига необходимо пересобрать Docker образ.
+
+### 3. Команды Docker в Windows Git Bash
+
+**Проблема**: Пути Windows (C:/Program Files/Git/...) в выводах ошибок.
+
+**Решение**: Использовать `sh -c` для команд внутри контейнера:
+```bash
+docker exec grapheneos sh -c "ls -la /usr/share/nginx/html/"
+```
+
+### 4. Проверка файлов в контейнере
+
+**Команды для диагностики**:
+```bash
+# Размеры файлов
+docker exec grapheneos sh -c "ls -la /usr/share/nginx/html/*.html"
+
+# Проверка nginx конфига
+docker exec grapheneos sh -c "cat /etc/nginx/conf.d/default.conf"
+
+# Тестирование HTTP
+curl -s -o /dev/null -w "%{http_code}" http://localhost/features
+```
+
 ## Примечания
 
 - Все bash-скрипты используют `#!/bin/bash` (требуется bash, не sh)

@@ -10,6 +10,57 @@ import re
 
 from jinja2i18n import create_i18n_environment, get_supported_languages, LANGUAGES
 
+TRANSLATABLE_ELEMENTS = {
+    'nav': [
+        ('GrapheneOS', 'nav.home'),
+        ('Features', 'nav.features'),
+        ('Install', 'nav.install'),
+        ('Build', 'nav.build'),
+        ('Usage', 'nav.usage'),
+        ('FAQ', 'nav.faq'),
+        ('Releases', 'nav.releases'),
+        ('Source', 'nav.source'),
+        ('History', 'nav.history'),
+        ('Articles', 'nav.articles'),
+        ('Donate', 'nav.donate'),
+        ('Contact', 'nav.contact'),
+    ],
+    'footer': [
+        ('© GrapheneOS', 'footer.copyright'),
+    ],
+}
+
+NAV_PAGES = ['features', 'install', 'build', 'usage', 'faq', 'releases', 'source', 'donate', 'contact']
+
+
+def apply_url_translations(content, lang):
+    """Add language prefix to internal links for non-English languages."""
+    if lang == 'en':
+        return content
+    
+    lang_prefix = f'/{lang}'
+    
+    content = content.replace('href="/"', f'href="{lang_prefix}/"')
+    content = content.replace("href='/'", f"href='{lang_prefix}/'")
+    
+    for page in NAV_PAGES:
+        content = content.replace(f'href="/{page}"', f'href="{lang_prefix}/{page}"')
+        content = content.replace(f"href='/{page}'", f"href='{lang_prefix}/{page}'")
+        content = content.replace(f'href="/{page}/"', f'href="{lang_prefix}/{page}/"')
+        content = content.replace(f"href='/{page}/'", f"href='{lang_prefix}/{page}/'")
+    
+    return content
+
+
+def apply_translations(content, i18n):
+    """Apply translations to hardcoded English strings in HTML content."""
+    for section, items in TRANSLATABLE_ELEMENTS.items():
+        for english_text, translation_key in items:
+            translated = i18n._(translation_key)
+            content = content.replace(f'>{english_text}<', f'>{translated}<')
+            content = content.replace(f'>{english_text}</a>', f'>{translated}</a>')
+    return content
+
 
 # SEO tags template (simple version)
 def generate_seo_tags_simple(current_page, lang):
@@ -40,6 +91,10 @@ def generate_seo_tags_simple(current_page, lang):
 def process_templates(input_dir, output_dir=None, lang='en'):
     ROOT_DIR = Path(input_dir)
     
+    # Clear Jinja2 bytecode cache to avoid stale cached templates
+    from jinja2 import Environment
+    Environment.cache = {}
+    
     if output_dir:
         OUTPUT_DIR = Path(output_dir)
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -63,7 +118,6 @@ def process_templates(input_dir, output_dir=None, lang='en'):
     
     # Add i18n functions
     i18n_context = create_i18n_environment(lang)
-    print(f"DEBUG: Created i18n environment with lang={lang}, get_lang={i18n_context.get('get_lang')()}")
     for name, value in i18n_context.items():
         environment.globals[name] = value
     
@@ -82,6 +136,12 @@ def process_templates(input_dir, output_dir=None, lang='en'):
             # Render Jinja2 template
             template = environment.get_template(template_file)
             content = template.render(current_page=current_page)
+            
+            # Apply translations to hardcoded English strings
+            content = apply_translations(content, i18n_context['i18n'])
+            
+            # Add language prefix to URLs for non-English languages
+            content = apply_url_translations(content, lang)
             
             # Add SEO tags after canonical
             seo_tags = generate_seo_tags_simple(current_page, lang)
