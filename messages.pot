@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GrapheneOS 1.0\n"
 "Report-Msgid-Bugs-To: contact@grapheneos.org\n"
-"POT-Creation-Date: 2026-03-29 23:33+0300\n"
+"POT-Creation-Date: 2026-04-05 21:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 #: static/history/index.html:84 static/history/index.html:86
 #: static/index.html:58 static/index.html:61 static/index.html:70
 #: static/install/cli.html:292 static/install/cli.html:322
-#: static/install/cli.html:374 static/install/web.html:250
+#: static/install/cli.html:374 static/install/web.html:257
 #: static/releases.html:534 static/releases.html:672 static/releases.html:693
 #: static/releases.html:715 static/releases.html:732 static/releases.html:766
 #: static/releases.html:793 static/releases.html:813 static/releases.html:839
@@ -93,7 +93,7 @@ msgstr ""
 #: static/articles/grapheneos-servers.html:43 static/build.html:42
 #: static/contact.html:40 static/donate.html:42 static/faq.html:48
 #: static/features.html:68 static/history/legacy-changelog.html:53
-#: static/install/cli.html:56 static/install/web.html:81
+#: static/install/cli.html:56 static/install/web.html:88
 #: static/releases.html:43 static/source.html:47 static/usage.html:43
 msgid "Table of contents"
 msgstr ""
@@ -2531,11 +2531,11 @@ msgstr ""
 #: static/donate.html:315
 #, python-brace-format, python-format
 msgid ""
-"PayPal charges a base fee of {base_fee} and {percent}% of the donation "
-"amount within Canada. There's an additional {extra_us}% fee for donations"
-" from the US and {extra_other}% for other countries. Currency conversion "
-"adds an additional {conversion}% fee as opposed to the usual PayPal "
-"conversion fee of 3%."
+"PayPal charges a base fee of {base_fee} and {percent}%% of the donation "
+"amount within Canada. There's an additional {extra_us}%% fee for "
+"donations from the US and {extra_other}%% fee for other countries. "
+"Currency conversion adds an additional {conversion}%% fee as opposed to "
+"the usual PayPal conversion fee of 3%%."
 msgstr ""
 
 #: static/donate.html:326
@@ -4329,7 +4329,7 @@ msgstr ""
 
 #: static/faq.html:777 static/faq.html:816 static/faq.html:1523
 #: static/features.html:537 static/install/cli.html:446
-#: static/install/web.html:359 static/pdfviewer-privacy-policy.html:39
+#: static/install/web.html:366 static/pdfviewer-privacy-policy.html:39
 #: static/usage.html:354
 msgid "See the "
 msgstr ""
@@ -6596,7 +6596,7 @@ msgid ""
 "                users or the "
 msgstr ""
 
-#: static/faq.html:1632 static/install/index.html:42 static/install/web.html:73
+#: static/faq.html:1632 static/install/index.html:42 static/install/web.html:80
 msgid "command-line installation guide"
 msgstr ""
 
@@ -7179,7 +7179,7 @@ msgid ""
 msgstr ""
 
 #: static/features.html:71 static/features.html:147 static/index.html:41
-#: static/install/web.html:144 static/source.html:49 static/source.html:57
+#: static/install/web.html:151 static/source.html:49 static/source.html:57
 #: templates/footer.html:2 templates/header.html:5
 msgid "GrapheneOS"
 msgstr ""
@@ -9411,7 +9411,7 @@ msgstr ""
 
 #: static/features.html:969
 #, python-format
-msgid "Battery API always shows the battery as charging and at 100% capacity"
+msgid "Battery API always shows the battery as charging and at 100%% capacity"
 msgstr ""
 
 #: static/features.html:970
@@ -9661,7 +9661,7 @@ msgid "About"
 msgstr ""
 
 #: static/features.html:1062 static/features.html:1311
-#: static/install/cli.html:463 static/install/web.html:376
+#: static/install/cli.html:463 static/install/web.html:383
 msgid ""
 " and\n"
 "                    "
@@ -42232,7 +42232,7 @@ msgid ""
 "updates will\n"
 "                    only be performed when the battery is above the level"
 " where the warning message is\n"
-"                    shown. The standard value is at 15% capacity."
+"                    shown. The standard value is at 15%% capacity."
 msgstr ""
 
 #: static/usage.html:397
@@ -45213,7 +45213,7 @@ msgstr ""
 
 #: static/articles/grapheneos-servers.html:81
 #, python-format
-msgid "Misaka.io S3N-1C2G (at 50% discount due to S3N-1C2G shortage)"
+msgid "Misaka.io S3N-1C2G (at 50%% discount due to S3N-1C2G shortage)"
 msgstr ""
 
 #: static/articles/grapheneos-servers.html:83
@@ -45237,7 +45237,7 @@ msgstr ""
 
 #: static/articles/grapheneos-servers.html:93
 #, python-format
-msgid "Misaka.io S2N-1C2G (at 50% discount due to S2N-1C1G shortage)"
+msgid "Misaka.io S2N-1C2G (at 50%% discount due to S2N-1C1G shortage)"
 msgstr ""
 
 #: static/articles/grapheneos-servers.html:99
@@ -47212,18 +47212,18 @@ msgstr ""
 msgid ""
 "For a server with 2000mbit of bandwidth provisioned, you could start by "
 "trying\n"
-"                it with 99.75% of the provisioned bandwidth:"
+"                it with 99.75%% of the provisioned bandwidth:"
 msgstr ""
 
 #: static/articles/server-traffic-shaping.html:128
 #, python-format
 msgid ""
-"On a server, setting it to use 100% of the provisioned bandwidth may work"
-" fine\n"
+"On a server, setting it to use 100%% of the provisioned bandwidth may "
+"work fine\n"
 "                in practice. Unlike a local network connected to a "
 "consumer ISP, you shouldn't\n"
 "                need to sacrifice anywhere close to the typically "
-"recommended 5-10% of your\n"
+"recommended 5-10%% of your\n"
 "                bandwidth for traffic shaping."
 msgstr ""
 
@@ -53714,19 +53714,19 @@ msgid ""
 msgstr ""
 
 #: static/install/cli.html:50 static/install/index.html:47
-#: static/install/web.html:75
+#: static/install/web.html:82
 msgid ""
 "If you have trouble with the installation process, ask for help on the\n"
 "            "
 msgstr ""
 
 #: static/install/cli.html:51 static/install/index.html:48
-#: static/install/web.html:76
+#: static/install/web.html:83
 msgid "official GrapheneOS chat channel"
 msgstr ""
 
 #: static/install/cli.html:51 static/install/index.html:48
-#: static/install/web.html:76
+#: static/install/web.html:83
 msgid ""
 ". There are almost\n"
 "            always people around willing to help with it. Before asking "
@@ -53737,12 +53737,12 @@ msgid ""
 msgstr ""
 
 #: static/install/cli.html:58 static/install/cli.html:101
-#: static/install/web.html:83 static/install/web.html:112
+#: static/install/web.html:90 static/install/web.html:119
 msgid "Prerequisites"
 msgstr ""
 
 #: static/install/cli.html:59 static/install/cli.html:155
-#: static/install/web.html:84 static/install/web.html:186
+#: static/install/web.html:91 static/install/web.html:193
 msgid "Enabling OEM unlocking"
 msgstr ""
 
@@ -53763,27 +53763,27 @@ msgid "Checking fastboot version"
 msgstr ""
 
 #: static/install/cli.html:68 static/install/cli.html:239
-#: static/install/web.html:85 static/install/web.html:202
+#: static/install/web.html:92 static/install/web.html:209
 msgid "Flashing as non-root"
 msgstr ""
 
 #: static/install/cli.html:69 static/install/cli.html:252
-#: static/install/web.html:86 static/install/web.html:210
+#: static/install/web.html:93 static/install/web.html:217
 msgid "Working around fwupd bugs on Linux distributions"
 msgstr ""
 
 #: static/install/cli.html:70 static/install/cli.html:263
-#: static/install/web.html:87 static/install/web.html:221
+#: static/install/web.html:94 static/install/web.html:228
 msgid "Booting into the bootloader interface"
 msgstr ""
 
 #: static/install/cli.html:71 static/install/cli.html:277
-#: static/install/web.html:88 static/install/web.html:235
+#: static/install/web.html:95 static/install/web.html:242
 msgid "Connecting the device"
 msgstr ""
 
 #: static/install/cli.html:72 static/install/cli.html:298
-#: static/install/web.html:89 static/install/web.html:256
+#: static/install/web.html:96 static/install/web.html:263
 msgid "Unlocking the bootloader"
 msgstr ""
 
@@ -53792,12 +53792,12 @@ msgid "Obtaining OpenSSH"
 msgstr ""
 
 #: static/install/cli.html:74 static/install/cli.html:316
-#: static/install/web.html:90 static/install/web.html:265
+#: static/install/web.html:97 static/install/web.html:272
 msgid "Obtaining factory images"
 msgstr ""
 
 #: static/install/cli.html:76 static/install/cli.html:349
-#: static/install/web.html:91 static/install/web.html:279
+#: static/install/web.html:98 static/install/web.html:286
 msgid "Flashing factory images"
 msgstr ""
 
@@ -53806,47 +53806,47 @@ msgid "Troubleshooting"
 msgstr ""
 
 #: static/install/cli.html:81 static/install/cli.html:385
-#: static/install/web.html:92 static/install/web.html:297
+#: static/install/web.html:99 static/install/web.html:304
 msgid "Locking the bootloader"
 msgstr ""
 
 #: static/install/cli.html:83 static/install/cli.html:399
-#: static/install/web.html:94 static/install/web.html:312
+#: static/install/web.html:101 static/install/web.html:319
 msgid "Post-installation"
 msgstr ""
 
 #: static/install/cli.html:85 static/install/cli.html:401
-#: static/install/web.html:96 static/install/web.html:314
+#: static/install/web.html:103 static/install/web.html:321
 msgid "Booting"
 msgstr ""
 
 #: static/install/cli.html:86 static/install/cli.html:407
-#: static/install/web.html:97 static/install/web.html:320
+#: static/install/web.html:104 static/install/web.html:327
 msgid "Disabling OEM unlocking"
 msgstr ""
 
 #: static/install/cli.html:88 static/install/cli.html:415
-#: static/install/web.html:99 static/install/web.html:328
+#: static/install/web.html:106 static/install/web.html:335
 msgid "Verifying installation"
 msgstr ""
 
-#: static/install/cli.html:90 static/install/web.html:101
+#: static/install/cli.html:90 static/install/web.html:108
 #: templates/verified_boot_key_hash.html:2
 msgid "Verified boot key hash"
 msgstr ""
 
 #: static/install/cli.html:91 static/install/cli.html:435
-#: static/install/web.html:102 static/install/web.html:348
+#: static/install/web.html:109 static/install/web.html:355
 msgid "Hardware-based attestation"
 msgstr ""
 
 #: static/install/cli.html:94 static/install/cli.html:462
-#: static/install/web.html:105 static/install/web.html:375
+#: static/install/web.html:112 static/install/web.html:382
 msgid "Further information"
 msgstr ""
 
 #: static/install/cli.html:95 static/install/cli.html:469
-#: static/install/web.html:106 static/install/web.html:382
+#: static/install/web.html:113 static/install/web.html:389
 msgid "Replacing GrapheneOS with the stock OS"
 msgstr ""
 
@@ -53860,7 +53860,7 @@ msgid ""
 "installation."
 msgstr ""
 
-#: static/install/cli.html:105 static/install/web.html:116
+#: static/install/cli.html:105 static/install/web.html:123
 msgid ""
 "You need a USB cable for attaching the device to the computer performing "
 "the\n"
@@ -53878,7 +53878,7 @@ msgid ""
 "installing GrapheneOS."
 msgstr ""
 
-#: static/install/cli.html:112 static/install/web.html:123
+#: static/install/cli.html:112 static/install/web.html:130
 msgid ""
 "Installing from an OS in a virtual machine is not recommended. USB "
 "passthrough\n"
@@ -53893,70 +53893,70 @@ msgstr ""
 msgid "Officially supported operating systems for the CLI install method:"
 msgstr ""
 
-#: static/install/cli.html:118 static/install/web.html:129
+#: static/install/cli.html:118 static/install/web.html:136
 msgid "Windows 10"
 msgstr ""
 
-#: static/install/cli.html:119 static/install/web.html:130
+#: static/install/cli.html:119 static/install/web.html:137
 msgid "Windows 11"
 msgstr ""
 
-#: static/install/cli.html:120 static/install/web.html:131
+#: static/install/cli.html:120 static/install/web.html:138
 msgid "macOS Sonoma (14)"
 msgstr ""
 
-#: static/install/cli.html:121 static/install/web.html:132
+#: static/install/cli.html:121 static/install/web.html:139
 msgid "macOS Sequoia (15)"
 msgstr ""
 
-#: static/install/cli.html:122 static/install/web.html:133
+#: static/install/cli.html:122 static/install/web.html:140
 msgid "macOS Tahoe (26)"
 msgstr ""
 
-#: static/install/cli.html:123 static/install/web.html:134
+#: static/install/cli.html:123 static/install/web.html:141
 msgid "Arch Linux"
 msgstr ""
 
-#: static/install/cli.html:124 static/install/web.html:135
+#: static/install/cli.html:124 static/install/web.html:142
 msgid "Debian 12 (bookworm)"
 msgstr ""
 
-#: static/install/cli.html:125 static/install/web.html:136
+#: static/install/cli.html:125 static/install/web.html:143
 msgid "Debian 13 (trixie)"
 msgstr ""
 
-#: static/install/cli.html:126 static/install/web.html:137
+#: static/install/cli.html:126 static/install/web.html:144
 msgid "Ubuntu 22.04 LTS"
 msgstr ""
 
-#: static/install/cli.html:127 static/install/web.html:138
+#: static/install/cli.html:127 static/install/web.html:145
 msgid "Ubuntu 24.04 LTS"
 msgstr ""
 
-#: static/install/cli.html:128 static/install/web.html:139
+#: static/install/cli.html:128 static/install/web.html:146
 msgid "Ubuntu 25.04"
 msgstr ""
 
-#: static/install/cli.html:129 static/install/web.html:140
+#: static/install/cli.html:129 static/install/web.html:147
 msgid "Linux Mint 21 (follow Ubuntu 22.04 LTS instructions)"
 msgstr ""
 
-#: static/install/cli.html:130 static/install/web.html:141
+#: static/install/cli.html:130 static/install/web.html:148
 msgid "Linux Mint 22 (follow Ubuntu 24.04 LTS instructions)"
 msgstr ""
 
-#: static/install/cli.html:131 static/install/web.html:142
+#: static/install/cli.html:131 static/install/web.html:149
 msgid "Linux Mint Debian Edition 6 (follow Debian 12 instructions)"
 msgstr ""
 
-#: static/install/cli.html:133 static/install/web.html:150
+#: static/install/cli.html:133 static/install/web.html:157
 msgid ""
 "Older end-of-life versions of these platforms can also be used but are "
 "not\n"
 "                officially supported."
 msgstr ""
 
-#: static/install/cli.html:135 static/install/web.html:152
+#: static/install/cli.html:135 static/install/web.html:159
 msgid "Make sure your operating system is up-to-date before proceeding."
 msgstr ""
 
@@ -53968,17 +53968,17 @@ msgid ""
 "                browser with working WebUSB support."
 msgstr ""
 
-#: static/install/cli.html:139 static/install/web.html:170
+#: static/install/cli.html:139 static/install/web.html:177
 msgid "You need one of the "
 msgstr ""
 
-#: static/install/cli.html:139 static/install/web.html:170
+#: static/install/cli.html:139 static/install/web.html:177
 msgid ""
 "officially supported\n"
 "                devices"
 msgstr ""
 
-#: static/install/cli.html:140 static/install/web.html:171
+#: static/install/cli.html:140 static/install/web.html:178
 msgid ""
 ". To make sure that the device can be unlocked to install GrapheneOS,\n"
 "                avoid carrier variants of the devices. Carrier variants "
@@ -53999,7 +53999,7 @@ msgid ""
 "hardware is the same."
 msgstr ""
 
-#: static/install/cli.html:149 static/install/web.html:180
+#: static/install/cli.html:149 static/install/web.html:187
 msgid ""
 "It's best practice to update the device before installing GrapheneOS to "
 "have\n"
@@ -54010,61 +54010,61 @@ msgid ""
 "                in the installation process."
 msgstr ""
 
-#: static/install/cli.html:156 static/install/web.html:187
+#: static/install/cli.html:156 static/install/web.html:194
 msgid "OEM unlocking needs to be enabled from within the operating system."
 msgstr ""
 
-#: static/install/cli.html:157 static/install/web.html:188
+#: static/install/cli.html:157 static/install/web.html:195
 msgid "Enable the developer options menu by going to "
 msgstr ""
 
-#: static/install/cli.html:157 static/install/web.html:188
+#: static/install/cli.html:157 static/install/web.html:195
 msgid "Settings &gt; About phone/tablet"
 msgstr ""
 
-#: static/install/cli.html:157 static/install/web.html:188
+#: static/install/cli.html:157 static/install/web.html:195
 msgid ""
 " and repeatedly\n"
 "                pressing the "
 msgstr ""
 
-#: static/install/cli.html:158 static/install/web.html:189
+#: static/install/cli.html:158 static/install/web.html:196
 msgid "Build number"
 msgstr ""
 
-#: static/install/cli.html:158 static/install/web.html:189
+#: static/install/cli.html:158 static/install/web.html:196
 msgid " menu entry until developer mode is enabled."
 msgstr ""
 
-#: static/install/cli.html:159 static/install/web.html:190
+#: static/install/cli.html:159 static/install/web.html:197
 msgid "Next, go to "
 msgstr ""
 
-#: static/install/cli.html:159 static/install/web.html:190
+#: static/install/cli.html:159 static/install/web.html:197
 msgid ""
 "Settings &gt;\n"
 "                System &gt; Developer options"
 msgstr ""
 
-#: static/install/cli.html:160 static/install/web.html:191
+#: static/install/cli.html:160 static/install/web.html:198
 msgid ""
 " and\n"
 "                toggle on the "
 msgstr ""
 
 #: static/install/cli.html:161 static/install/cli.html:162
-#: static/install/web.html:192 static/install/web.html:193
+#: static/install/web.html:199 static/install/web.html:200
 msgid "OEM unlocking"
 msgstr ""
 
-#: static/install/cli.html:161 static/install/web.html:192
+#: static/install/cli.html:161 static/install/web.html:199
 msgid ""
 " setting. On device model variants (SKUs) which\n"
 "                support being sold as locked devices by carriers, "
 "enabling "
 msgstr ""
 
-#: static/install/cli.html:162 static/install/web.html:193
+#: static/install/cli.html:162 static/install/web.html:200
 msgid ""
 "\n"
 "                requires internet access so that the stock OS can check "
@@ -54072,7 +54072,7 @@ msgid ""
 "                locked by a carrier."
 msgstr ""
 
-#: static/install/cli.html:165 static/install/web.html:196
+#: static/install/cli.html:165 static/install/web.html:203
 msgid ""
 "For the Pixel 6a, OEM unlocking won't work with the version of the stock "
 "OS\n"
@@ -54239,7 +54239,7 @@ msgid ""
 "                standalone platform-tools:"
 msgstr ""
 
-#: static/install/cli.html:240 static/install/web.html:203
+#: static/install/cli.html:240 static/install/web.html:210
 msgid ""
 "On traditional Linux distributions, USB devices cannot be used as non-"
 "root\n"
@@ -54265,7 +54265,7 @@ msgid ""
 "                years."
 msgstr ""
 
-#: static/install/cli.html:253 static/install/web.html:211
+#: static/install/cli.html:253 static/install/web.html:218
 msgid ""
 "The fwupd software often used on Linux distributions for updating "
 "firmware is\n"
@@ -54278,29 +54278,29 @@ msgid ""
 "                it for the intended purpose."
 msgstr ""
 
-#: static/install/cli.html:258 static/install/web.html:216
+#: static/install/cli.html:258 static/install/web.html:223
 msgid "You can stop fwupd with the following command:"
 msgstr ""
 
-#: static/install/cli.html:260 static/install/web.html:218
+#: static/install/cli.html:260 static/install/web.html:225
 msgid "This doesn't disable the service and it will start again on reboot."
 msgstr ""
 
-#: static/install/cli.html:264 static/install/web.html:222
+#: static/install/cli.html:264 static/install/web.html:229
 msgid ""
 "You need to boot your device into the bootloader interface. To do this, "
 "you need\n"
 "                to hold the volume down button while the device boots."
 msgstr ""
 
-#: static/install/cli.html:266 static/install/web.html:224
+#: static/install/cli.html:266 static/install/web.html:231
 msgid ""
 "The easiest approach is to reboot the device and begin holding the volume"
 " down\n"
 "                button until it boots up into the bootloader interface."
 msgstr ""
 
-#: static/install/cli.html:268 static/install/web.html:226
+#: static/install/cli.html:268 static/install/web.html:233
 msgid ""
 "Alternatively, turn off the device, then boot it up while holding the "
 "volume\n"
@@ -54324,7 +54324,7 @@ msgstr ""
 msgid " command to connect to it."
 msgstr ""
 
-#: static/install/cli.html:278 static/install/web.html:236
+#: static/install/cli.html:278 static/install/web.html:243
 msgid ""
 "Connect the device to the computer. On Linux, you'll need to do this "
 "again if\n"
@@ -54332,7 +54332,7 @@ msgid ""
 "it."
 msgstr ""
 
-#: static/install/cli.html:280 static/install/web.html:238
+#: static/install/cli.html:280 static/install/web.html:245
 msgid ""
 "Current Windows 10 and Windows 11 include a generic driver usable for "
 "fastboot\n"
@@ -54358,23 +54358,23 @@ msgid ""
 "driver is to obtain the "
 msgstr ""
 
-#: static/install/cli.html:290 static/install/web.html:248
+#: static/install/cli.html:290 static/install/web.html:255
 msgid ""
 "latest driver for\n"
 "                Pixels"
 msgstr ""
 
-#: static/install/cli.html:291 static/install/web.html:249
+#: static/install/cli.html:291 static/install/web.html:256
 msgid " from Google and then "
 msgstr ""
 
-#: static/install/cli.html:291 static/install/web.html:249
+#: static/install/cli.html:291 static/install/web.html:256
 msgid ""
 "manually\n"
 "                install it with the Windows Device Manager"
 msgstr ""
 
-#: static/install/cli.html:293 static/install/web.html:251
+#: static/install/cli.html:293 static/install/web.html:258
 msgid ""
 "For the Pixel Tablet, disconnect it from the stand before continuing. The"
 " stand\n"
@@ -54383,12 +54383,12 @@ msgid ""
 "                using both the stand and USB port at the same time."
 msgstr ""
 
-#: static/install/cli.html:299 static/install/web.html:257
+#: static/install/cli.html:299 static/install/web.html:264
 msgid "Unlock the bootloader to allow flashing the OS and firmware:"
 msgstr ""
 
 #: static/install/cli.html:301 static/install/cli.html:394
-#: static/install/web.html:306
+#: static/install/web.html:313
 msgid ""
 "The command needs to be confirmed on the device and will wipe all data. "
 "Use one\n"
@@ -54414,7 +54414,7 @@ msgid ""
 "needed."
 msgstr ""
 
-#: static/install/cli.html:317 static/install/web.html:266
+#: static/install/cli.html:317 static/install/web.html:273
 msgid ""
 "You need to obtain the GrapheneOS factory images for your device to "
 "proceed with\n"
@@ -54508,7 +54508,7 @@ msgstr ""
 msgid "This will produce the following output when successful:"
 msgstr ""
 
-#: static/install/cli.html:350 static/install/web.html:280
+#: static/install/cli.html:350 static/install/web.html:287
 msgid ""
 "The initial install will be performed by flashing the factory images. "
 "This will\n"
@@ -54536,7 +54536,7 @@ msgstr ""
 msgid "Flash the images with the flash-all script in the directory."
 msgstr ""
 
-#: static/install/cli.html:364 static/install/web.html:283
+#: static/install/cli.html:364 static/install/web.html:290
 msgid ""
 "Wait for the flashing process to complete. It will automatically handle\n"
 "                flashing the firmware, rebooting into the bootloader "
@@ -54546,11 +54546,11 @@ msgid ""
 "                proceed to "
 msgstr ""
 
-#: static/install/cli.html:367 static/install/web.html:286
+#: static/install/cli.html:367 static/install/web.html:293
 msgid "locking the bootloader"
 msgstr ""
 
-#: static/install/cli.html:367 static/install/web.html:286
+#: static/install/cli.html:367 static/install/web.html:293
 msgid ""
 " before using\n"
 "                the device as locking wipes the data again."
@@ -54578,7 +54578,7 @@ msgstr ""
 msgid ""
 " as tmpfs which results in it being backed by memory and\n"
 "                    swap rather than persistent storage. By default, the "
-"size is 50% of the available\n"
+"size is 50%% of the available\n"
 "                    virtual memory. This is often not enough for the "
 "flashing process, especially since\n"
 "                    "
@@ -54594,7 +54594,7 @@ msgstr ""
 msgid " doesn't have enough space available:"
 msgstr ""
 
-#: static/install/cli.html:386 static/install/web.html:298
+#: static/install/cli.html:386 static/install/web.html:305
 msgid ""
 "Locking the bootloader is important as it enables full verified boot. It "
 "also\n"
@@ -54609,11 +54609,11 @@ msgid ""
 "                makes verified boot robust to non-malicious corruption."
 msgstr ""
 
-#: static/install/cli.html:392 static/install/web.html:304
+#: static/install/cli.html:392 static/install/web.html:311
 msgid "In the bootloader interface, set it to locked:"
 msgstr ""
 
-#: static/install/cli.html:402 static/install/web.html:315
+#: static/install/cli.html:402 static/install/web.html:322
 msgid ""
 "You've now successfully installed GrapheneOS and can boot it. Pressing "
 "the\n"
@@ -54622,7 +54622,7 @@ msgid ""
 "                    interface will boot the OS."
 msgstr ""
 
-#: static/install/cli.html:408 static/install/web.html:321
+#: static/install/cli.html:408 static/install/web.html:328
 msgid ""
 "During first setup, the final screen will contain a toggle regarding OEM\n"
 "                    unlocking which is checked by default. This will "
@@ -54630,7 +54630,7 @@ msgid ""
 "                    recommended."
 msgstr ""
 
-#: static/install/cli.html:411 static/install/web.html:324
+#: static/install/cli.html:411 static/install/web.html:331
 msgid ""
 "If you need to enable or disable OEM unlocking in the future, it can be "
 "done\n"
@@ -54638,7 +54638,7 @@ msgid ""
 "system."
 msgstr ""
 
-#: static/install/cli.html:416 static/install/web.html:329
+#: static/install/cli.html:416 static/install/web.html:336
 msgid ""
 "The verified boot and attestation features provided by the supported\n"
 "                    devices can be used to verify that the hardware, "
@@ -54650,7 +54650,7 @@ msgid ""
 "                    OS, it can be detected with these features."
 msgstr ""
 
-#: static/install/cli.html:421 static/install/web.html:334
+#: static/install/cli.html:421 static/install/web.html:341
 msgid ""
 "Verified boot verifies the entirety of the firmware and OS images on "
 "every\n"
@@ -54661,7 +54661,7 @@ msgid ""
 "                    into fuses to provide rollback protection."
 msgstr ""
 
-#: static/install/cli.html:425 static/install/web.html:338
+#: static/install/cli.html:425 static/install/web.html:345
 msgid ""
 "The final firmware boot stage before the OS is responsible for verifying\n"
 "                    it. For the stock OS, it uses a hard-wired public "
@@ -54675,7 +54675,7 @@ msgid ""
 "                    the secure element to provide rollback protection."
 msgstr ""
 
-#: static/install/cli.html:436 static/install/web.html:349
+#: static/install/cli.html:436 static/install/web.html:356
 msgid ""
 "GrapheneOS provides our Auditor app for using a combination of the\n"
 "                        verified boot and attestation features to verify "
@@ -54686,7 +54686,7 @@ msgid ""
 "system."
 msgstr ""
 
-#: static/install/cli.html:440 static/install/web.html:353
+#: static/install/cli.html:440 static/install/web.html:360
 msgid ""
 "Since the purpose of Auditor is to obtain information about the device\n"
 "                        without trusting it to be honest, results aren't "
@@ -54700,17 +54700,17 @@ msgid ""
 "                        email alerts."
 msgstr ""
 
-#: static/install/cli.html:446 static/install/web.html:359
+#: static/install/cli.html:446 static/install/web.html:366
 msgid "Auditor tutorial"
 msgstr ""
 
-#: static/install/cli.html:446 static/install/web.html:359
+#: static/install/cli.html:446 static/install/web.html:366
 msgid ""
 "\n"
 "                        for a guide."
 msgstr ""
 
-#: static/install/cli.html:448 static/install/web.html:361
+#: static/install/cli.html:448 static/install/web.html:368
 msgid ""
 "Auditor is primarily based on a pairing model where it generates a\n"
 "                        hardware backed signing key and hardware backed "
@@ -54734,32 +54734,32 @@ msgid ""
 "                        feature."
 msgstr ""
 
-#: static/install/cli.html:463 static/install/web.html:376
+#: static/install/cli.html:463 static/install/web.html:383
 msgid "Please look through the "
 msgstr ""
 
-#: static/install/cli.html:463 static/install/web.html:376
+#: static/install/cli.html:463 static/install/web.html:383
 msgid "usage guide"
 msgstr ""
 
-#: static/install/cli.html:464 static/install/web.html:377
+#: static/install/cli.html:464 static/install/web.html:384
 #: templates/header.html:10
 msgid "FAQ"
 msgstr ""
 
-#: static/install/cli.html:464 static/install/web.html:377
+#: static/install/cli.html:464 static/install/web.html:384
 msgid ""
 " for more information. If you have further questions not\n"
 "                    covered by the site, join the "
 msgstr ""
 
-#: static/install/cli.html:465 static/install/web.html:378
+#: static/install/cli.html:465 static/install/web.html:385
 msgid ""
 "official GrapheneOS\n"
 "                    chat channels"
 msgstr ""
 
-#: static/install/cli.html:466 static/install/web.html:379
+#: static/install/cli.html:466 static/install/web.html:386
 msgid " and ask the questions in the appropriate channel."
 msgstr ""
 
@@ -54772,7 +54772,7 @@ msgid ""
 "                    to fully revert the device to a clean factory state."
 msgstr ""
 
-#: static/install/cli.html:473 static/install/web.html:388
+#: static/install/cli.html:473 static/install/web.html:395
 msgid ""
 "The GrapheneOS factory images flash a non-stock Android Verified Boot key"
 " which\n"
@@ -54939,40 +54939,68 @@ msgid "Bootloader locking triggered successfully."
 msgstr ""
 
 #: static/install/web.html:59
+msgid "No device selected."
+msgstr ""
+
+#: static/install/web.html:60
+msgid "Access to the USB device was denied."
+msgstr ""
+
+#: static/install/web.html:61
+msgid "The USB operation was aborted."
+msgstr ""
+
+#: static/install/web.html:62
+msgid "The device is in an invalid state for this operation."
+msgstr ""
+
+#: static/install/web.html:63
+msgid "A communication error occurred while talking to the device."
+msgstr ""
+
+#: static/install/web.html:64
+msgid "This operation is not supported by your browser or device."
+msgstr ""
+
+#: static/install/web.html:65
+msgid "This action was blocked by your browser security settings."
+msgstr ""
+
+#: static/install/web.html:66
 msgid ""
 "storage quota has been exceeded, you might not have enough space on your "
 "drive, or you're using incognito mode"
 msgstr ""
 
-#: static/install/web.html:60
+#: static/install/web.html:67
 #, python-brace-format
 msgid "Error: {message}"
 msgstr ""
 
-#: static/install/web.html:61
+#: static/install/web.html:68
 msgid ""
 "Unavailable, as your browser doesn't support WebUSB. Please read the <a "
 "href=\"#prerequisites\">prerequisites</a>."
 msgstr ""
 
-#: static/install/web.html:71
+#: static/install/web.html:78
 msgid "Web installer"
 msgstr ""
 
-#: static/install/web.html:72
+#: static/install/web.html:79
 msgid ""
 "This is the WebUSB-based installer for GrapheneOS and is the recommended "
 "approach\n"
 "            for most users. The "
 msgstr ""
 
-#: static/install/web.html:73
+#: static/install/web.html:80
 msgid ""
 " is the\n"
 "            more traditional approach to installing GrapheneOS."
 msgstr ""
 
-#: static/install/web.html:113
+#: static/install/web.html:120
 msgid ""
 "You need a computer for running the web installer with at least 2GB of "
 "free\n"
@@ -54982,59 +55010,59 @@ msgid ""
 "installation."
 msgstr ""
 
-#: static/install/web.html:127
+#: static/install/web.html:134
 msgid "Officially supported operating systems for the web install method:"
 msgstr ""
 
-#: static/install/web.html:143
+#: static/install/web.html:150
 msgid "ChromeOS"
 msgstr ""
 
-#: static/install/web.html:145
+#: static/install/web.html:152
 msgid "Android 13 with Play Protect certification"
 msgstr ""
 
-#: static/install/web.html:146
+#: static/install/web.html:153
 msgid "Android 14 with Play Protect certification"
 msgstr ""
 
-#: static/install/web.html:147
+#: static/install/web.html:154
 msgid "Android 15 with Play Protect certification"
 msgstr ""
 
-#: static/install/web.html:148
+#: static/install/web.html:155
 msgid "Android 16 with Play Protect certification"
 msgstr ""
 
-#: static/install/web.html:153
+#: static/install/web.html:160
 msgid "Officially supported browsers for the web install method:"
 msgstr ""
 
-#: static/install/web.html:155
+#: static/install/web.html:162
 msgid ""
 "Chromium (outside Ubuntu, since they ship a broken Snap package without "
 "working WebUSB)"
 msgstr ""
 
-#: static/install/web.html:156
+#: static/install/web.html:163
 msgid "Vanadium (GrapheneOS)"
 msgstr ""
 
-#: static/install/web.html:157
+#: static/install/web.html:164
 msgid "Google Chrome"
 msgstr ""
 
-#: static/install/web.html:158
+#: static/install/web.html:165
 msgid "Microsoft Edge"
 msgstr ""
 
-#: static/install/web.html:159
+#: static/install/web.html:166
 msgid ""
 "Brave (with Brave Shields disabled, since it caps storage usage at a low "
 "value to avoid fingerprinting available storage)"
 msgstr ""
 
-#: static/install/web.html:161
+#: static/install/web.html:168
 msgid ""
 "On Android, disable desktop mode for the browser since it currently "
 "prevents our\n"
@@ -55046,17 +55074,17 @@ msgid ""
 "Tablet."
 msgstr ""
 
-#: static/install/web.html:165
+#: static/install/web.html:172
 msgid ""
 "You should avoid Flatpak and Snap versions of browsers, as they're known "
 "to cause issues during the installation process."
 msgstr ""
 
-#: static/install/web.html:166
+#: static/install/web.html:173
 msgid "Make sure your browser is up-to-date before proceeding."
 msgstr ""
 
-#: static/install/web.html:167
+#: static/install/web.html:174
 msgid ""
 "Do not use Incognito or other private browsing modes. These modes usually"
 "\n"
@@ -55065,21 +55093,21 @@ msgid ""
 "                downloaded release."
 msgstr ""
 
-#: static/install/web.html:206
+#: static/install/web.html:213
 msgid "On Arch Linux, install the "
 msgstr ""
 
-#: static/install/web.html:206
+#: static/install/web.html:213
 msgid ""
 " package. On Debian and\n"
 "                Ubuntu, install the "
 msgstr ""
 
-#: static/install/web.html:207
+#: static/install/web.html:214
 msgid " package."
 msgstr ""
 
-#: static/install/web.html:229
+#: static/install/web.html:236
 msgid ""
 "This step is not complete until your device displays a red warning "
 "triangle\n"
@@ -55090,11 +55118,11 @@ msgid ""
 "                Fastboot mode for the installer to connect to it."
 msgstr ""
 
-#: static/install/web.html:258
+#: static/install/web.html:265
 msgid "Unlock bootloader"
 msgstr ""
 
-#: static/install/web.html:259
+#: static/install/web.html:266
 msgid ""
 "The command needs to be confirmed on the device and will wipe all data. "
 "Use one\n"
@@ -55103,34 +55131,34 @@ msgid ""
 "                confirm."
 msgstr ""
 
-#: static/install/web.html:268
+#: static/install/web.html:275
 msgid "Press the button below to start the download:"
 msgstr ""
 
-#: static/install/web.html:269
+#: static/install/web.html:276
 msgid ""
 "Warning: browser\n"
 "                is reporting a low storage quota, there might not be "
 "enough space for the image"
 msgstr ""
 
-#: static/install/web.html:271
+#: static/install/web.html:278
 msgid "Download release"
 msgstr ""
 
-#: static/install/web.html:282
+#: static/install/web.html:289
 msgid "Flash release"
 msgstr ""
 
-#: static/install/web.html:293
+#: static/install/web.html:300
 msgid "Reconnect device"
 msgstr ""
 
-#: static/install/web.html:305
+#: static/install/web.html:312
 msgid "Lock bootloader"
 msgstr ""
 
-#: static/install/web.html:383
+#: static/install/web.html:390
 msgid ""
 "Installation of the stock OS via the stock factory images is similar to "
 "the\n"
@@ -55138,19 +55166,19 @@ msgid ""
 "                    "
 msgstr ""
 
-#: static/install/web.html:385
+#: static/install/web.html:392
 msgid ""
 "Google's web flashing\n"
 "                    tool"
 msgstr ""
 
-#: static/install/web.html:386
+#: static/install/web.html:393
 msgid ""
 ". However, before flashing and locking, there's an additional step to\n"
 "                    fully revert the device to a clean factory state."
 msgstr ""
 
-#: static/install/web.html:392
+#: static/install/web.html:399
 msgid "Remove non-stock key"
 msgstr ""
 

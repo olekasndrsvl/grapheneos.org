@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Jinja2 extensions for date, number, and currency localization.
 """
@@ -112,7 +112,7 @@ class I18nExtensions:
                 size = size / 1024
                 unit_index += 1
 
-            # Простое форматирование без Babel
+            # Simple formatting without Babel
             format_string = f"{{:.{decimal_places}f}}"
             formatted_size = format_string.format(size)
             return f"{formatted_size} {units[unit_index]}"

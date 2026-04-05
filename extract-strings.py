@@ -1,6 +1,6 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
-Извлекает строки для перевода из шаблонов и генерирует .pot файлы.
+Extract translatable strings from templates and generate .pot files.
 """
 
 import os
@@ -11,7 +11,7 @@ from pathlib import Path
 from datetime import datetime
 
 def check_babel():
-    """Проверяет наличие pybabel."""
+    """Check whether pybabel is available."""
     try:
         result = subprocess.run(['pybabel', '--version'],
                                 capture_output=True,
@@ -21,9 +21,9 @@ def check_babel():
         return False
 
 def extract_from_templates():
-    """Извлекает строки из шаблонов Jinja2."""
+    """Extract strings from Jinja2 templates."""
 
-    # Используем pybabel для извлечения
+    # Use pybabel for extraction
     cmd = [
         'pybabel', 'extract',
         '-F', 'babel.cfg',
@@ -40,7 +40,7 @@ def extract_from_templates():
     print("✓ messages.pot created")
 
 def create_json_from_pot(pot_file='messages.pot'):
-    """Создает JSON файлы из .pot для удобного редактирования."""
+    """Create JSON files from .pot data for easier editing."""
 
     import polib
 
@@ -50,7 +50,7 @@ def create_json_from_pot(pot_file='messages.pot'):
 
     pot = polib.pofile(pot_file)
 
-    # Создаем структуру для JSON
+    # Build the JSON structure
     strings = {}
     for entry in pot:
         if entry.msgid and not entry.msgid.startswith('_'):
@@ -61,7 +61,7 @@ def create_json_from_pot(pot_file='messages.pot'):
                 'occurrences': [f"{occ[0]}:{occ[1]}" for occ in entry.occurrences]
             }
 
-    # Сохраняем как JSON
+    # Save as JSON
     output_file = 'i18n/strings.json'
     Path('i18n').mkdir(exist_ok=True)
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -70,7 +70,7 @@ def create_json_from_pot(pot_file='messages.pot'):
     print(f"✓ Created {output_file} with {len(strings)} strings")
 
 def init_language(lang):
-    """Инициализирует перевод для нового языка."""
+    """Initialize translations for a new language."""
 
     cmd = [
         'pybabel', 'init',
@@ -83,7 +83,7 @@ def init_language(lang):
     print(f"Initializing {lang} translation...")
     subprocess.run(cmd, check=True)
 
-    # Также создаем JSON шаблон
+    # Also create an empty JSON template
     lang_dir = Path(f'locale/{lang}/LC_MESSAGES')
     json_file = lang_dir / 'common.json'
 
@@ -93,7 +93,7 @@ def init_language(lang):
         print(f"✓ Created {json_file}")
 
 def update_translations():
-    """Обновляет существующие переводы."""
+    """Update existing translations."""
 
     if not check_babel():
         return False
@@ -102,15 +102,15 @@ def update_translations():
         print("✗ messages.pot not found. Run extract first.")
         return False
 
-    # Создаем директорию если нет
+    # Create the directory if it does not exist
     Path('locale').mkdir(exist_ok=True)
 
-    # Проверяем, есть ли уже .po файлы
+    # Check whether .po files already exist
     po_files = list(Path('locale').glob('**/*.po'))
 
     if not po_files:
         print("No .po files found. Run init first.")
-        return True  # Не ошибка, просто нет файлов
+        return True  # Not an error, there are simply no files yet
 
     print(f"\n🔄 Updating {len(po_files)} translation files...")
 
@@ -120,17 +120,17 @@ def update_translations():
 
         if result.returncode != 0:
             print(f"⚠️  Warning: {result.stderr}")
-            return True  # Не прерываем сборку
+            return True  # Do not interrupt the build
 
         print("✓ Updated .po files")
         return True
 
     except Exception as e:
         print(f"⚠️  Error: {e}")
-        return True  # Не прерываем сборку
+        return True  # Do not interrupt the build
 
 def compile_translations():
-    """Компилирует .po в .mo."""
+    """Compile .po files into .mo files."""
 
     cmd = ['pybabel', 'compile', '-d', 'locale', '--domain=grapheneos']
     subprocess.run(cmd, check=True)

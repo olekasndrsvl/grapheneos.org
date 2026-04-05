@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
 """
 process-templates with i18n support
-Создает отдельные папки для каждого языка
+Creates separate output directories for each language.
 """
 
-import os
 import sys
 import gettext
 import shutil
 import re
 import traceback
 from pathlib import Path
-from jinja2 import FileSystemLoader, Environment, TemplateError
+from jinja2 import FileSystemLoader, Environment
 from jinja2_i18n_extras import create_i18n_environment
+
+
 def create_translator(lang='en'):
-    """Создает функцию перевода с fallback на английский."""
+    """Create a translation function with an English fallback."""
 
     def fallback(text):
         return text
@@ -27,25 +28,26 @@ def create_translator(lang='en'):
             fallback=True
         )
         return translations.gettext
-    except Exception as e:
+    except Exception:
         print(f"  Info: No translations for {lang}, using English fallback")
         return fallback
 
+
 def local_url(path, lang):
-    """Генерирует URL с префиксом текущего языка."""
+    """Generate a URL prefixed with the current language."""
     if path == '/':
         return f'/{lang}/'
-    elif path.startswith('/'):
+    if path.startswith('/'):
         return f'/{lang}{path}'
-    else:
-        return f'/{lang}/{path}'
+    return f'/{lang}/{path}'
+
 
 def process_html_content(content, lang, env):
-    """Обрабатывает HTML контент, заменяя ссылки на локализованные."""
-    # Находим все href атрибуты, которые не являются якорями и не начинаются с http
+    """Post-process HTML content and rewrite links to localized equivalents."""
+    # Find href attributes that are not anchors and do not start with http
     def replace_href(match):
         href = match.group(1)
-        # Пропускаем якоря, внешние ссылки, mailto, javascript
+        # Skip anchors, external links, mailto, and javascript URLs
         if (href.startswith('#') or
                 href.startswith('http://') or
                 href.startswith('https://') or
@@ -55,14 +57,14 @@ def process_html_content(content, lang, env):
                 href.startswith('data:')):
             return f'href="{href}"'
 
-        # Пропускаем ссылки на файлы с расширениями (кроме .html)
+        # Skip links to files with extensions other than .html
         file_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico',
                            '.woff', '.woff2', '.ttf', '.eot', '.css', '.js',
                            '.json', '.xml', '.txt', '.atom', '.zip', '.sig']
         if any(href.endswith(ext) for ext in file_extensions):
             return f'href="{href}"'
 
-        # Преобразуем относительные пути
+        # Rewrite relative paths
         if href.startswith('/'):
             new_href = local_url(href, lang)
         else:
@@ -70,10 +72,10 @@ def process_html_content(content, lang, env):
 
         return f'href="{new_href}"'
 
-    # Заменяем href атрибуты
+    # Rewrite href attributes
     content = re.sub(r'href="([^"]+)"', replace_href, content)
 
-    # Заменяем src атрибуты (для изображений, скриптов)
+    # Rewrite src attributes for images and scripts
     def replace_src(match):
         src = match.group(1)
         if src.startswith('/') and not src.startswith('//'):
@@ -85,39 +87,40 @@ def process_html_content(content, lang, env):
 
     return content
 
+
 if len(sys.argv) != 2:
     print(f"Usage: {sys.argv[0]} <path>")
     sys.exit(1)
 
 ROOT_DIR = Path(sys.argv[1])
 
-# Создаем окружение
+# Create the Jinja environment
 env = Environment(
     loader=FileSystemLoader([str(ROOT_DIR), 'templates']),
     autoescape=True
 )
 
-# Список поддерживаемых языков
+# Supported languages
 LANGUAGES = ['en', 'de', 'fr', 'es', 'ru']
 
-# Статистика
+# Statistics
 total_files = 0
 translated_files = 0
 error_files = []
 
-# Сначала создаем папки для языков и копируем туда НЕ-HTML файлы
+# First create per-language directories and copy non-HTML assets into them
 print("=== Copying static assets ===")
 for lang in LANGUAGES:
     lang_dir = ROOT_DIR / lang
     lang_dir.mkdir(exist_ok=True)
     print(f"  Created directory: {lang_dir}")
 
-    # Копируем все файлы и папки, КРОМЕ HTML и КРОМЕ языковых папок
+    # Copy everything except HTML files and existing language directories
     for item in ROOT_DIR.iterdir():
-        # Пропускаем языковые папки
+        # Skip language directories
         if item.name in LANGUAGES:
             continue
-        # Пропускаем HTML файлы (будем обрабатывать отдельно)
+        # Skip HTML files, they are handled separately
         if item.is_file() and item.suffix == '.html':
             continue
 
@@ -133,11 +136,11 @@ for lang in LANGUAGES:
 
     print(f"✓ Copied assets for {lang}")
 
-# Собираем список HTML файлов ДО обработки
+# Collect the list of HTML files before processing
 print("\n=== Collecting HTML files ===")
 html_files = []
 for html_file in ROOT_DIR.rglob('*.html'):
-    # Пропускаем файлы в языковых папках
+    # Skip files inside language directories
     if any(part in LANGUAGES for part in html_file.parts):
         print(f"  Skipping (in lang dir): {html_file}")
         continue
@@ -146,13 +149,13 @@ for html_file in ROOT_DIR.rglob('*.html'):
 
 print(f"Found {len(html_files)} HTML files to process")
 
-# Теперь обрабатываем HTML файлы для каждого языка
+# Process HTML files for each language
 print("\n=== Processing HTML templates ===")
 for lang in LANGUAGES:
     lang_dir = ROOT_DIR / lang
     print(f"\n--- Processing {lang} ---")
 
-    # Создаем функцию перевода для этого языка
+    # Create the translation function for this language
     _ = create_translator(lang)
     env.globals['_'] = _
     env.globals['lang'] = lang
@@ -169,19 +172,19 @@ for lang in LANGUAGES:
     for name, filter_func in i18n_extras['filters'].items():
         env.filters[name] = filter_func
 
-    # Обрабатываем каждый HTML файл
+    # Process each HTML file
     for html_file in html_files:
         total_files += 1
 
-        # Получаем относительный путь
+        # Get the relative path
         rel_path = html_file.relative_to(ROOT_DIR)
 
-        # Формируем request_path для canonical URL
+        # Build request_path for canonical URL generation
         page_path = str(rel_path)
         if page_path.endswith('.html'):
-            page_path = page_path[:-5]  # Убираем .html
+            page_path = page_path[:-5]  # Strip the .html suffix
 
-        # Для index.html путь должен быть '/'
+        # index.html should map to /
         if page_path == 'index' or page_path == '':
             page_path = '/'
         else:
@@ -191,7 +194,7 @@ for lang in LANGUAGES:
 
         print(f"  Processing: {rel_path} -> {output_file}")
 
-        # Создаем поддиректории
+        # Create parent directories
         try:
             output_file.parent.mkdir(parents=True, exist_ok=True)
             print(f"    Created parent dirs: {output_file.parent}")
@@ -201,20 +204,20 @@ for lang in LANGUAGES:
             continue
 
         try:
-            # Загружаем и рендерим шаблон
+            # Load and render the template
             print(f"    Loading template: {rel_path}")
             template = env.get_template(str(rel_path))
 
-            print(f"    Rendering template...")
-            # Рендерим с добавлением request_path
+            print("    Rendering template...")
+            # Render with request_path added to the context
             rendered = template.render(
                 _=_,
                 lang=lang,
                 local_url=lambda path: local_url(path, lang),
-                request_path=page_path  # Добавляем текущий путь
+                request_path=page_path  # Provide the current page path
             )
 
-            # Дополнительная обработка ссылок (для тех, что не были обработаны Jinja2)
+            # Perform an extra pass over links not handled by Jinja2
             rendered = process_html_content(rendered, lang, env)
 
             print(f"    Writing to: {output_file}")
@@ -224,15 +227,15 @@ for lang in LANGUAGES:
             translated_files += 1
             print(f"    ✓ Success! File size: {len(rendered)} bytes")
 
-            # Проверяем, что файл действительно создан
+            # Confirm that the output file was actually created
             if output_file.exists():
                 print(f"    ✓ Confirmed file exists: {output_file}")
             else:
-                print(f"    ✗ WARNING: File was not created!")
+                print("    ✗ WARNING: File was not created!")
 
         except Exception as e:
             print(f"    ✗ ERROR: {e}")
-            print(f"    Traceback:")
+            print("    Traceback:")
             traceback.print_exc()
             error_files.append((html_file, lang, e))
 

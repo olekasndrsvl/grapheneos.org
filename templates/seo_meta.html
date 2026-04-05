@@ -1,6 +1,6 @@
-{# templates/seo_meta.html - SEO мета-теги #}
+{# templates/seo_meta.html - SEO meta tags #}
 
-{# Canonical URL - всегда без слеша в конце #}
+{# Canonical URL - always without a trailing slash #}
 {% if request_path %}
 {% if lang == 'en' %}
 <link rel="canonical" href="https://grapheneos.org{{ request_path }}">
@@ -9,7 +9,7 @@
 {% endif %}
 {% endif %}
 
-{# hreflang для всех языковых версий #}
+{# hreflang links for all localized versions #}
 {% if request_path %}
 {% set languages = {'en': '', 'ru': 'ru', 'de': 'de', 'fr': 'fr', 'es': 'es'} %}
 {% for lang_code, lang_prefix in languages.items() %}

@@ -123,11 +123,11 @@
 <section id="implementation">
 <h2><a href="#implementation">{{ _("Implementation") }}</a></h2>
 <p>{{ _("For a server with 2000mbit of bandwidth provisioned, you could start by trying
-                it with 99.75% of the provisioned bandwidth:") }}</p>
+                it with 99.75%% of the provisioned bandwidth:") }}</p>
 <pre>tc qdisc replace dev eth0 root cake bandwidth 1995mbit besteffort dual-dsthost</pre>
-<p>{{ _("On a server, setting it to use 100% of the provisioned bandwidth may work fine
+<p>{{ _("On a server, setting it to use 100%% of the provisioned bandwidth may work fine
                 in practice. Unlike a local network connected to a consumer ISP, you shouldn't
-                need to sacrifice anywhere close to the typically recommended 5-10% of your
+                need to sacrifice anywhere close to the typically recommended 5-10%% of your
                 bandwidth for traffic shaping.") }}</p>
 <p>{{ _("The flow isolation mode is set to ") }}<code>dual-dsthost</code>{{ _(" for fairness over
                 destination addresses and then over individual flows. The default of

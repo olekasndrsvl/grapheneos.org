@@ -80,7 +80,7 @@
       "static/install/cli.html:292",
       "static/install/cli.html:322",
       "static/install/cli.html:374",
-      "static/install/web.html:250",
+      "static/install/web.html:257",
       "static/releases.html:534",
       "static/releases.html:672",
       "static/releases.html:693",
@@ -173,7 +173,7 @@
       "static/features.html:68",
       "static/history/legacy-changelog.html:53",
       "static/install/cli.html:56",
-      "static/install/web.html:81",
+      "static/install/web.html:88",
       "static/releases.html:43",
       "static/source.html:47",
       "static/usage.html:43"
@@ -4207,8 +4207,8 @@
       "static/donate.html:314"
     ]
   },
-  "PayPal charges a base fee of {base_fee} and {percent}% of the donation amount within Canada. There's an additional {extra_us}% fee for donations from the US and {extra_other}% for other countries. Currency conversion adds an additional {conversion}% fee as opposed to the usual PayPal conversion fee of 3%.": {
-    "msgid": "PayPal charges a base fee of {base_fee} and {percent}% of the donation amount within Canada. There's an additional {extra_us}% fee for donations from the US and {extra_other}% for other countries. Currency conversion adds an additional {conversion}% fee as opposed to the usual PayPal conversion fee of 3%.",
+  "PayPal charges a base fee of {base_fee} and {percent}%% of the donation amount within Canada. There's an additional {extra_us}%% fee for donations from the US and {extra_other}%% fee for other countries. Currency conversion adds an additional {conversion}%% fee as opposed to the usual PayPal conversion fee of 3%%.": {
+    "msgid": "PayPal charges a base fee of {base_fee} and {percent}%% of the donation amount within Canada. There's an additional {extra_us}%% fee for donations from the US and {extra_other}%% fee for other countries. Currency conversion adds an additional {conversion}%% fee as opposed to the usual PayPal conversion fee of 3%%.",
     "msgstr": "",
     "comments": "",
     "occurrences": [
@@ -6305,7 +6305,7 @@
       "static/faq.html:1523",
       "static/features.html:537",
       "static/install/cli.html:446",
-      "static/install/web.html:359",
+      "static/install/web.html:366",
       "static/pdfviewer-privacy-policy.html:39",
       "static/usage.html:354"
     ]
@@ -8293,7 +8293,7 @@
     "occurrences": [
       "static/faq.html:1632",
       "static/install/index.html:42",
-      "static/install/web.html:73"
+      "static/install/web.html:80"
     ]
   },
   " aimed at\n                more technical users.": {
@@ -8792,7 +8792,7 @@
       "static/features.html:71",
       "static/features.html:147",
       "static/index.html:41",
-      "static/install/web.html:144",
+      "static/install/web.html:151",
       "static/source.html:49",
       "static/source.html:57",
       "templates/footer.html:2",
@@ -10926,8 +10926,8 @@
       "static/features.html:964"
     ]
   },
-  "Battery API always shows the battery as charging and at 100% capacity": {
-    "msgid": "Battery API always shows the battery as charging and at 100% capacity",
+  "Battery API always shows the battery as charging and at 100%% capacity": {
+    "msgid": "Battery API always shows the battery as charging and at 100%% capacity",
     "msgstr": "",
     "comments": "",
     "occurrences": [
@@ -11175,7 +11175,7 @@
       "static/features.html:1062",
       "static/features.html:1311",
       "static/install/cli.html:463",
-      "static/install/web.html:376"
+      "static/install/web.html:383"
     ]
   },
   "Tutorial": {
@@ -61490,8 +61490,8 @@
       "static/usage.html:390"
     ]
   },
-  "The \"Require battery above warning level\" setting controls whether updates will\n                    only be performed when the battery is above the level where the warning message is\n                    shown. The standard value is at 15% capacity.": {
-    "msgid": "The \"Require battery above warning level\" setting controls whether updates will\n                    only be performed when the battery is above the level where the warning message is\n                    shown. The standard value is at 15% capacity.",
+  "The \"Require battery above warning level\" setting controls whether updates will\n                    only be performed when the battery is above the level where the warning message is\n                    shown. The standard value is at 15%% capacity.": {
+    "msgid": "The \"Require battery above warning level\" setting controls whether updates will\n                    only be performed when the battery is above the level where the warning message is\n                    shown. The standard value is at 15%% capacity.",
     "msgstr": "",
     "comments": "",
     "occurrences": [
@@ -64306,8 +64306,8 @@
       "static/articles/grapheneos-servers.html:433"
     ]
   },
-  "Misaka.io S3N-1C2G (at 50% discount due to S3N-1C2G shortage)": {
-    "msgid": "Misaka.io S3N-1C2G (at 50% discount due to S3N-1C2G shortage)",
+  "Misaka.io S3N-1C2G (at 50%% discount due to S3N-1C2G shortage)": {
+    "msgid": "Misaka.io S3N-1C2G (at 50%% discount due to S3N-1C2G shortage)",
     "msgstr": "",
     "comments": "",
     "occurrences": [
@@ -64349,8 +64349,8 @@
       "static/articles/grapheneos-servers.html:102"
     ]
   },
-  "Misaka.io S2N-1C2G (at 50% discount due to S2N-1C1G shortage)": {
-    "msgid": "Misaka.io S2N-1C2G (at 50% discount due to S2N-1C1G shortage)",
+  "Misaka.io S2N-1C2G (at 50%% discount due to S2N-1C1G shortage)": {
+    "msgid": "Misaka.io S2N-1C2G (at 50%% discount due to S2N-1C1G shortage)",
     "msgstr": "",
     "comments": "",
     "occurrences": [
@@ -67574,16 +67574,16 @@
       "static/articles/server-traffic-shaping.html:124"
     ]
   },
-  "For a server with 2000mbit of bandwidth provisioned, you could start by trying\n                it with 99.75% of the provisioned bandwidth:": {
-    "msgid": "For a server with 2000mbit of bandwidth provisioned, you could start by trying\n                it with 99.75% of the provisioned bandwidth:",
+  "For a server with 2000mbit of bandwidth provisioned, you could start by trying\n                it with 99.75%% of the provisioned bandwidth:": {
+    "msgid": "For a server with 2000mbit of bandwidth provisioned, you could start by trying\n                it with 99.75%% of the provisioned bandwidth:",
     "msgstr": "",
     "comments": "",
     "occurrences": [
       "static/articles/server-traffic-shaping.html:125"
     ]
   },
-  "On a server, setting it to use 100% of the provisioned bandwidth may work fine\n                in practice. Unlike a local network connected to a consumer ISP, you shouldn't\n                need to sacrifice anywhere close to the typically recommended 5-10% of your\n                bandwidth for traffic shaping.": {
-    "msgid": "On a server, setting it to use 100% of the provisioned bandwidth may work fine\n                in practice. Unlike a local network connected to a consumer ISP, you shouldn't\n                need to sacrifice anywhere close to the typically recommended 5-10% of your\n                bandwidth for traffic shaping.",
+  "On a server, setting it to use 100%% of the provisioned bandwidth may work fine\n                in practice. Unlike a local network connected to a consumer ISP, you shouldn't\n                need to sacrifice anywhere close to the typically recommended 5-10%% of your\n                bandwidth for traffic shaping.": {
+    "msgid": "On a server, setting it to use 100%% of the provisioned bandwidth may work fine\n                in practice. Unlike a local network connected to a consumer ISP, you shouldn't\n                need to sacrifice anywhere close to the typically recommended 5-10%% of your\n                bandwidth for traffic shaping.",
     "msgstr": "",
     "comments": "",
     "occurrences": [
@@ -77914,7 +77914,7 @@
     "occurrences": [
       "static/install/cli.html:50",
       "static/install/index.html:47",
-      "static/install/web.html:75"
+      "static/install/web.html:82"
     ]
   },
   "official GrapheneOS chat channel": {
@@ -77924,7 +77924,7 @@
     "occurrences": [
       "static/install/cli.html:51",
       "static/install/index.html:48",
-      "static/install/web.html:76"
+      "static/install/web.html:83"
     ]
   },
   ". There are almost\n            always people around willing to help with it. Before asking for help, make an attempt\n            to follow the guide on your own and then ask for help with anything you get stuck\n            on.": {
@@ -77934,7 +77934,7 @@
     "occurrences": [
       "static/install/cli.html:51",
       "static/install/index.html:48",
-      "static/install/web.html:76"
+      "static/install/web.html:83"
     ]
   },
   "Prerequisites": {
@@ -77944,8 +77944,8 @@
     "occurrences": [
       "static/install/cli.html:58",
       "static/install/cli.html:101",
-      "static/install/web.html:83",
-      "static/install/web.html:112"
+      "static/install/web.html:90",
+      "static/install/web.html:119"
     ]
   },
   "Enabling OEM unlocking": {
@@ -77955,8 +77955,8 @@
     "occurrences": [
       "static/install/cli.html:59",
       "static/install/cli.html:155",
-      "static/install/web.html:84",
-      "static/install/web.html:186"
+      "static/install/web.html:91",
+      "static/install/web.html:193"
     ]
   },
   "Opening terminal": {
@@ -78002,8 +78002,8 @@
     "occurrences": [
       "static/install/cli.html:68",
       "static/install/cli.html:239",
-      "static/install/web.html:85",
-      "static/install/web.html:202"
+      "static/install/web.html:92",
+      "static/install/web.html:209"
     ]
   },
   "Working around fwupd bugs on Linux distributions": {
@@ -78013,8 +78013,8 @@
     "occurrences": [
       "static/install/cli.html:69",
       "static/install/cli.html:252",
-      "static/install/web.html:86",
-      "static/install/web.html:210"
+      "static/install/web.html:93",
+      "static/install/web.html:217"
     ]
   },
   "Booting into the bootloader interface": {
@@ -78024,8 +78024,8 @@
     "occurrences": [
       "static/install/cli.html:70",
       "static/install/cli.html:263",
-      "static/install/web.html:87",
-      "static/install/web.html:221"
+      "static/install/web.html:94",
+      "static/install/web.html:228"
     ]
   },
   "Connecting the device": {
@@ -78035,8 +78035,8 @@
     "occurrences": [
       "static/install/cli.html:71",
       "static/install/cli.html:277",
-      "static/install/web.html:88",
-      "static/install/web.html:235"
+      "static/install/web.html:95",
+      "static/install/web.html:242"
     ]
   },
   "Unlocking the bootloader": {
@@ -78046,8 +78046,8 @@
     "occurrences": [
       "static/install/cli.html:72",
       "static/install/cli.html:298",
-      "static/install/web.html:89",
-      "static/install/web.html:256"
+      "static/install/web.html:96",
+      "static/install/web.html:263"
     ]
   },
   "Obtaining OpenSSH": {
@@ -78065,8 +78065,8 @@
     "occurrences": [
       "static/install/cli.html:74",
       "static/install/cli.html:316",
-      "static/install/web.html:90",
-      "static/install/web.html:265"
+      "static/install/web.html:97",
+      "static/install/web.html:272"
     ]
   },
   "Flashing factory images": {
@@ -78076,8 +78076,8 @@
     "occurrences": [
       "static/install/cli.html:76",
       "static/install/cli.html:349",
-      "static/install/web.html:91",
-      "static/install/web.html:279"
+      "static/install/web.html:98",
+      "static/install/web.html:286"
     ]
   },
   "Troubleshooting": {
@@ -78096,8 +78096,8 @@
     "occurrences": [
       "static/install/cli.html:81",
       "static/install/cli.html:385",
-      "static/install/web.html:92",
-      "static/install/web.html:297"
+      "static/install/web.html:99",
+      "static/install/web.html:304"
     ]
   },
   "Post-installation": {
@@ -78107,8 +78107,8 @@
     "occurrences": [
       "static/install/cli.html:83",
       "static/install/cli.html:399",
-      "static/install/web.html:94",
-      "static/install/web.html:312"
+      "static/install/web.html:101",
+      "static/install/web.html:319"
     ]
   },
   "Booting": {
@@ -78118,8 +78118,8 @@
     "occurrences": [
       "static/install/cli.html:85",
       "static/install/cli.html:401",
-      "static/install/web.html:96",
-      "static/install/web.html:314"
+      "static/install/web.html:103",
+      "static/install/web.html:321"
     ]
   },
   "Disabling OEM unlocking": {
@@ -78129,8 +78129,8 @@
     "occurrences": [
       "static/install/cli.html:86",
       "static/install/cli.html:407",
-      "static/install/web.html:97",
-      "static/install/web.html:320"
+      "static/install/web.html:104",
+      "static/install/web.html:327"
     ]
   },
   "Verifying installation": {
@@ -78140,8 +78140,8 @@
     "occurrences": [
       "static/install/cli.html:88",
       "static/install/cli.html:415",
-      "static/install/web.html:99",
-      "static/install/web.html:328"
+      "static/install/web.html:106",
+      "static/install/web.html:335"
     ]
   },
   "Verified boot key hash": {
@@ -78150,7 +78150,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:90",
-      "static/install/web.html:101",
+      "static/install/web.html:108",
       "templates/verified_boot_key_hash.html:2"
     ]
   },
@@ -78161,8 +78161,8 @@
     "occurrences": [
       "static/install/cli.html:91",
       "static/install/cli.html:435",
-      "static/install/web.html:102",
-      "static/install/web.html:348"
+      "static/install/web.html:109",
+      "static/install/web.html:355"
     ]
   },
   "Further information": {
@@ -78172,8 +78172,8 @@
     "occurrences": [
       "static/install/cli.html:94",
       "static/install/cli.html:462",
-      "static/install/web.html:105",
-      "static/install/web.html:375"
+      "static/install/web.html:112",
+      "static/install/web.html:382"
     ]
   },
   "Replacing GrapheneOS with the stock OS": {
@@ -78183,8 +78183,8 @@
     "occurrences": [
       "static/install/cli.html:95",
       "static/install/cli.html:469",
-      "static/install/web.html:106",
-      "static/install/web.html:382"
+      "static/install/web.html:113",
+      "static/install/web.html:389"
     ]
   },
   "You need a computer for running the CLI install process with at least 2GB of free\n                memory available and 32GB of free storage space. The web installer can be run on an\n                Android phone or tablet, unlike the command-line installation.": {
@@ -78201,7 +78201,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:105",
-      "static/install/web.html:116"
+      "static/install/web.html:123"
     ]
   },
   "Installing from an OS in a virtual machine is not recommended. USB passthrough\n                is often not reliable. To rule out these problems, install from an OS running on\n                bare metal. Virtual machines are also often configured to have overly limited\n                memory and storage space.": {
@@ -78210,7 +78210,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:112",
-      "static/install/web.html:123"
+      "static/install/web.html:130"
     ]
   },
   "Officially supported operating systems for the CLI install method:": {
@@ -78227,7 +78227,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:118",
-      "static/install/web.html:129"
+      "static/install/web.html:136"
     ]
   },
   "Windows 11": {
@@ -78236,7 +78236,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:119",
-      "static/install/web.html:130"
+      "static/install/web.html:137"
     ]
   },
   "macOS Sonoma (14)": {
@@ -78245,7 +78245,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:120",
-      "static/install/web.html:131"
+      "static/install/web.html:138"
     ]
   },
   "macOS Sequoia (15)": {
@@ -78254,7 +78254,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:121",
-      "static/install/web.html:132"
+      "static/install/web.html:139"
     ]
   },
   "macOS Tahoe (26)": {
@@ -78263,7 +78263,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:122",
-      "static/install/web.html:133"
+      "static/install/web.html:140"
     ]
   },
   "Arch Linux": {
@@ -78272,7 +78272,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:123",
-      "static/install/web.html:134"
+      "static/install/web.html:141"
     ]
   },
   "Debian 12 (bookworm)": {
@@ -78281,7 +78281,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:124",
-      "static/install/web.html:135"
+      "static/install/web.html:142"
     ]
   },
   "Debian 13 (trixie)": {
@@ -78290,7 +78290,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:125",
-      "static/install/web.html:136"
+      "static/install/web.html:143"
     ]
   },
   "Ubuntu 22.04 LTS": {
@@ -78299,7 +78299,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:126",
-      "static/install/web.html:137"
+      "static/install/web.html:144"
     ]
   },
   "Ubuntu 24.04 LTS": {
@@ -78308,7 +78308,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:127",
-      "static/install/web.html:138"
+      "static/install/web.html:145"
     ]
   },
   "Ubuntu 25.04": {
@@ -78317,7 +78317,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:128",
-      "static/install/web.html:139"
+      "static/install/web.html:146"
     ]
   },
   "Linux Mint 21 (follow Ubuntu 22.04 LTS instructions)": {
@@ -78326,7 +78326,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:129",
-      "static/install/web.html:140"
+      "static/install/web.html:147"
     ]
   },
   "Linux Mint 22 (follow Ubuntu 24.04 LTS instructions)": {
@@ -78335,7 +78335,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:130",
-      "static/install/web.html:141"
+      "static/install/web.html:148"
     ]
   },
   "Linux Mint Debian Edition 6 (follow Debian 12 instructions)": {
@@ -78344,7 +78344,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:131",
-      "static/install/web.html:142"
+      "static/install/web.html:149"
     ]
   },
   "Older end-of-life versions of these platforms can also be used but are not\n                officially supported.": {
@@ -78353,7 +78353,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:133",
-      "static/install/web.html:150"
+      "static/install/web.html:157"
     ]
   },
   "Make sure your operating system is up-to-date before proceeding.": {
@@ -78362,7 +78362,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:135",
-      "static/install/web.html:152"
+      "static/install/web.html:159"
     ]
   },
   " is more portable and can be used\n                from Android, ChromeOS and GrapheneOS itself since it can run anywhere with a\n                browser with working WebUSB support.": {
@@ -78379,7 +78379,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:139",
-      "static/install/web.html:170"
+      "static/install/web.html:177"
     ]
   },
   "officially supported\n                devices": {
@@ -78388,7 +78388,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:139",
-      "static/install/web.html:170"
+      "static/install/web.html:177"
     ]
   },
   ". To make sure that the device can be unlocked to install GrapheneOS,\n                avoid carrier variants of the devices. Carrier variants of Pixels use the same stock\n                OS and firmware with a non-zero carrier id flashed onto the persist partition in the\n                factory. The carrier id activates carrier-specific configuration in the stock OS\n                including disabling carrier and bootloader unlocking. The carrier may be able to\n                remotely disable this, but their support staff may not be aware and they probably\n                won't do it. Get a carrier agnostic device to avoid the risk and potential hassle.\n                If you CAN figure out a way to unlock a carrier device, it isn't a problem as\n                GrapheneOS can just ignore the carrier id and the hardware is the same.": {
@@ -78397,7 +78397,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:140",
-      "static/install/web.html:171"
+      "static/install/web.html:178"
     ]
   },
   "It's best practice to update the device before installing GrapheneOS to have\n                the latest firmware for connecting the device to the computer and performing the\n                early flashing process. Either way, GrapheneOS flashes the latest firmware early\n                in the installation process.": {
@@ -78406,7 +78406,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:149",
-      "static/install/web.html:180"
+      "static/install/web.html:187"
     ]
   },
   "OEM unlocking needs to be enabled from within the operating system.": {
@@ -78415,7 +78415,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:156",
-      "static/install/web.html:187"
+      "static/install/web.html:194"
     ]
   },
   "Enable the developer options menu by going to ": {
@@ -78424,7 +78424,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:157",
-      "static/install/web.html:188"
+      "static/install/web.html:195"
     ]
   },
   "Settings &gt; About phone/tablet": {
@@ -78433,7 +78433,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:157",
-      "static/install/web.html:188"
+      "static/install/web.html:195"
     ]
   },
   " and repeatedly\n                pressing the ": {
@@ -78442,7 +78442,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:157",
-      "static/install/web.html:188"
+      "static/install/web.html:195"
     ]
   },
   "Build number": {
@@ -78451,7 +78451,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:158",
-      "static/install/web.html:189"
+      "static/install/web.html:196"
     ]
   },
   " menu entry until developer mode is enabled.": {
@@ -78460,7 +78460,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:158",
-      "static/install/web.html:189"
+      "static/install/web.html:196"
     ]
   },
   "Next, go to ": {
@@ -78469,7 +78469,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:159",
-      "static/install/web.html:190"
+      "static/install/web.html:197"
     ]
   },
   "Settings &gt;\n                System &gt; Developer options": {
@@ -78478,7 +78478,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:159",
-      "static/install/web.html:190"
+      "static/install/web.html:197"
     ]
   },
   " and\n                toggle on the ": {
@@ -78487,7 +78487,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:160",
-      "static/install/web.html:191"
+      "static/install/web.html:198"
     ]
   },
   "OEM unlocking": {
@@ -78497,8 +78497,8 @@
     "occurrences": [
       "static/install/cli.html:161",
       "static/install/cli.html:162",
-      "static/install/web.html:192",
-      "static/install/web.html:193"
+      "static/install/web.html:199",
+      "static/install/web.html:200"
     ]
   },
   " setting. On device model variants (SKUs) which\n                support being sold as locked devices by carriers, enabling ": {
@@ -78507,7 +78507,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:161",
-      "static/install/web.html:192"
+      "static/install/web.html:199"
     ]
   },
   "\n                requires internet access so that the stock OS can check if the device was sold as\n                locked by a carrier.": {
@@ -78516,7 +78516,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:162",
-      "static/install/web.html:193"
+      "static/install/web.html:200"
     ]
   },
   "For the Pixel 6a, OEM unlocking won't work with the version of the stock OS\n                from the factory. You need to update it to the June 2022 release or later via an\n                over-the-air update. After you've updated it you'll also need to factory reset\n                the device to fix OEM unlocking.": {
@@ -78525,7 +78525,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:165",
-      "static/install/web.html:196"
+      "static/install/web.html:203"
     ]
   },
   "These instructions use command-line tools. Launch the terminal as you would any\n                other application. On Windows, launch a regular non-administrator instance of the\n                PowerShell terminal. Do not use the legacy Command Prompt or administrator variant\n                of PowerShell.": {
@@ -78736,7 +78736,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:240",
-      "static/install/web.html:203"
+      "static/install/web.html:210"
     ]
   },
   "On Arch Linux:": {
@@ -78771,7 +78771,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:253",
-      "static/install/web.html:211"
+      "static/install/web.html:218"
     ]
   },
   "You can stop fwupd with the following command:": {
@@ -78780,7 +78780,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:258",
-      "static/install/web.html:216"
+      "static/install/web.html:223"
     ]
   },
   "This doesn't disable the service and it will start again on reboot.": {
@@ -78789,7 +78789,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:260",
-      "static/install/web.html:218"
+      "static/install/web.html:225"
     ]
   },
   "You need to boot your device into the bootloader interface. To do this, you need\n                to hold the volume down button while the device boots.": {
@@ -78798,7 +78798,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:264",
-      "static/install/web.html:222"
+      "static/install/web.html:229"
     ]
   },
   "The easiest approach is to reboot the device and begin holding the volume down\n                button until it boots up into the bootloader interface.": {
@@ -78807,7 +78807,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:266",
-      "static/install/web.html:224"
+      "static/install/web.html:231"
     ]
   },
   "Alternatively, turn off the device, then boot it up while holding the volume\n                down button during the boot process. You can either boot it with the power button\n                or by plugging it in as required in the next section.": {
@@ -78816,7 +78816,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:268",
-      "static/install/web.html:226"
+      "static/install/web.html:233"
     ]
   },
   "This step is not complete until your device displays a red warning triangle\n                and the words \"Fastboot Mode\".  You must not press the device's power button\n                to activate the \"Start\" menu item, because the device must remain paused in\n                Fastboot mode for the ": {
@@ -78841,7 +78841,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:278",
-      "static/install/web.html:236"
+      "static/install/web.html:243"
     ]
   },
   "Current Windows 10 and Windows 11 include a generic driver usable for fastboot\n                and no longer require installing a driver for installation on the Pixel 4a (5G) or\n                later. It isn't enough for legacy 4th generation Pixels due to the driver not\n                handling fastbootd, so you still need the driver for those. Outdated Windows\n                versions will still need the driver for non-obsolete devices too. You can obtain the\n                driver from Windows Update which will detect it as an optional update when the\n                device is booted into the bootloader interface and connected to the computer. Open\n                Windows Update, run a check for updates and then open the \"View optional updates\"\n                interface. Install the driver for the Android bootloader interface as an optional\n                update, which will show up as \"LeMobile Android Device\" due to USB ID overlap. An\n                alternative approach to obtaining the Windows fastboot driver is to obtain the ": {
@@ -78850,7 +78850,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:280",
-      "static/install/web.html:238"
+      "static/install/web.html:245"
     ]
   },
   "latest driver for\n                Pixels": {
@@ -78859,7 +78859,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:290",
-      "static/install/web.html:248"
+      "static/install/web.html:255"
     ]
   },
   " from Google and then ": {
@@ -78868,7 +78868,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:291",
-      "static/install/web.html:249"
+      "static/install/web.html:256"
     ]
   },
   "manually\n                install it with the Windows Device Manager": {
@@ -78877,7 +78877,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:291",
-      "static/install/web.html:249"
+      "static/install/web.html:256"
     ]
   },
   "For the Pixel Tablet, disconnect it from the stand before continuing. The stand\n                uses USB to provide charging and audio output, but the tablet lacks support for\n                using both the stand and USB port at the same time.": {
@@ -78886,7 +78886,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:293",
-      "static/install/web.html:251"
+      "static/install/web.html:258"
     ]
   },
   "Unlock the bootloader to allow flashing the OS and firmware:": {
@@ -78895,7 +78895,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:299",
-      "static/install/web.html:257"
+      "static/install/web.html:264"
     ]
   },
   "The command needs to be confirmed on the device and will wipe all data. Use one\n                of the volume buttons to switch the selection to accepting it and the power button\n                to confirm.": {
@@ -78905,7 +78905,7 @@
     "occurrences": [
       "static/install/cli.html:301",
       "static/install/cli.html:394",
-      "static/install/web.html:306"
+      "static/install/web.html:313"
     ]
   },
   "Obtaining openssh": {
@@ -78938,7 +78938,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:317",
-      "static/install/web.html:266"
+      "static/install/web.html:273"
     ]
   },
   "You can either download the files with your browser or using a command like\n                ": {
@@ -79095,7 +79095,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:350",
-      "static/install/web.html:280"
+      "static/install/web.html:287"
     ]
   },
   "Next, extract the factory images.": {
@@ -79144,7 +79144,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:364",
-      "static/install/web.html:283"
+      "static/install/web.html:290"
     ]
   },
   "locking the bootloader": {
@@ -79153,7 +79153,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:367",
-      "static/install/web.html:286"
+      "static/install/web.html:293"
     ]
   },
   " before using\n                the device as locking wipes the data again.": {
@@ -79162,7 +79162,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:367",
-      "static/install/web.html:286"
+      "static/install/web.html:293"
     ]
   },
   "The text output from a failed attempt at flashing will contain valuable\n                    diagnostic information which is essential in knowing where and how the process\n                    went wrong. Please provide this information when asking for help on the\n                    ": {
@@ -79181,8 +79181,8 @@
       "static/install/cli.html:375"
     ]
   },
-  " as tmpfs which results in it being backed by memory and\n                    swap rather than persistent storage. By default, the size is 50% of the available\n                    virtual memory. This is often not enough for the flashing process, especially since\n                    ": {
-    "msgid": " as tmpfs which results in it being backed by memory and\n                    swap rather than persistent storage. By default, the size is 50% of the available\n                    virtual memory. This is often not enough for the flashing process, especially since\n                    ",
+  " as tmpfs which results in it being backed by memory and\n                    swap rather than persistent storage. By default, the size is 50%% of the available\n                    virtual memory. This is often not enough for the flashing process, especially since\n                    ": {
+    "msgid": " as tmpfs which results in it being backed by memory and\n                    swap rather than persistent storage. By default, the size is 50%% of the available\n                    virtual memory. This is often not enough for the flashing process, especially since\n                    ",
     "msgstr": "",
     "comments": "",
     "occurrences": [
@@ -79211,7 +79211,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:386",
-      "static/install/web.html:298"
+      "static/install/web.html:305"
     ]
   },
   "In the bootloader interface, set it to locked:": {
@@ -79220,7 +79220,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:392",
-      "static/install/web.html:304"
+      "static/install/web.html:311"
     ]
   },
   "You've now successfully installed GrapheneOS and can boot it. Pressing the\n                    power button with the default Start option selected in the bootloader\n                    interface will boot the OS.": {
@@ -79229,7 +79229,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:402",
-      "static/install/web.html:315"
+      "static/install/web.html:322"
     ]
   },
   "During first setup, the final screen will contain a toggle regarding OEM\n                    unlocking which is checked by default. This will disable OEM unlocking, which is\n                    recommended.": {
@@ -79238,7 +79238,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:408",
-      "static/install/web.html:321"
+      "static/install/web.html:328"
     ]
   },
   "If you need to enable or disable OEM unlocking in the future, it can be done\n                    in the developer settings menu within the operating system.": {
@@ -79247,7 +79247,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:411",
-      "static/install/web.html:324"
+      "static/install/web.html:331"
     ]
   },
   "The verified boot and attestation features provided by the supported\n                    devices can be used to verify that the hardware, firmware and GrapheneOS\n                    installation are genuine. Even if the computer you used to flash GrapheneOS\n                    was compromised and an attacker replaced GrapheneOS with their own malicious\n                    OS, it can be detected with these features.": {
@@ -79256,7 +79256,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:416",
-      "static/install/web.html:329"
+      "static/install/web.html:336"
     ]
   },
   "Verified boot verifies the entirety of the firmware and OS images on every\n                    boot. The public key for the firmware images is burned into fuses in the SoC at\n                    the factory. Firmware security updates also update the rollback index burned\n                    into fuses to provide rollback protection.": {
@@ -79265,7 +79265,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:421",
-      "static/install/web.html:334"
+      "static/install/web.html:341"
     ]
   },
   "The final firmware boot stage before the OS is responsible for verifying\n                    it. For the stock OS, it uses a hard-wired public key. Installing GrapheneOS\n                    flashes the GrapheneOS verified boot public key to the secure element. Each\n                    boot, this key is loaded and used to verify the OS. For both the stock OS and\n                    GrapheneOS, a rollback index based on the security patch level is loaded from\n                    the secure element to provide rollback protection.": {
@@ -79274,7 +79274,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:425",
-      "static/install/web.html:338"
+      "static/install/web.html:345"
     ]
   },
   "GrapheneOS provides our Auditor app for using a combination of the\n                        verified boot and attestation features to verify that the hardware,\n                        firmware and operating system are genuine along with providing other\n                        useful data from the hardware and operating system.": {
@@ -79283,7 +79283,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:436",
-      "static/install/web.html:349"
+      "static/install/web.html:356"
     ]
   },
   "Since the purpose of Auditor is to obtain information about the device\n                        without trusting it to be honest, results aren't shown on the device being\n                        verified. You need a 2nd Android device running Auditor for local QR code\n                        based verification. You can also use our optional device integrity\n                        monitoring service for automatic scheduled verifications with support for\n                        email alerts.": {
@@ -79292,7 +79292,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:440",
-      "static/install/web.html:353"
+      "static/install/web.html:360"
     ]
   },
   "Auditor tutorial": {
@@ -79301,7 +79301,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:446",
-      "static/install/web.html:359"
+      "static/install/web.html:366"
     ]
   },
   "\n                        for a guide.": {
@@ -79310,7 +79310,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:446",
-      "static/install/web.html:359"
+      "static/install/web.html:366"
     ]
   },
   "Auditor is primarily based on a pairing model where it generates a\n                        hardware backed signing key and hardware backed attestation signing key\n                        and pins them as part of the initial verification. The first verification\n                        is bootstrapped based on chaining trust to one of the Android attestation\n                        roots. After the first verification, it provides a highly secure system\n                        for obtaining information about the device going forward. An attacker\n                        could bypass the initial verification with a leaked attestation key or by\n                        proxying to another device with the device model, OS and patch level that\n                        the user is expecting. Proxying to another device will be addressed in the\n                        future with optional support for the hardware serial number attestation\n                        feature.": {
@@ -79319,7 +79319,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:448",
-      "static/install/web.html:361"
+      "static/install/web.html:368"
     ]
   },
   "Please look through the ": {
@@ -79328,7 +79328,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:463",
-      "static/install/web.html:376"
+      "static/install/web.html:383"
     ]
   },
   "usage guide": {
@@ -79337,7 +79337,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:463",
-      "static/install/web.html:376"
+      "static/install/web.html:383"
     ]
   },
   "FAQ": {
@@ -79346,7 +79346,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:464",
-      "static/install/web.html:377",
+      "static/install/web.html:384",
       "templates/header.html:10"
     ]
   },
@@ -79356,7 +79356,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:464",
-      "static/install/web.html:377"
+      "static/install/web.html:384"
     ]
   },
   "official GrapheneOS\n                    chat channels": {
@@ -79365,7 +79365,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:465",
-      "static/install/web.html:378"
+      "static/install/web.html:385"
     ]
   },
   " and ask the questions in the appropriate channel.": {
@@ -79374,7 +79374,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:466",
-      "static/install/web.html:379"
+      "static/install/web.html:386"
     ]
   },
   "Installation of the stock OS via the stock factory images is the same process\n                    described above. However, before flashing and locking, there's an additional step\n                    to fully revert the device to a clean factory state.": {
@@ -79391,7 +79391,7 @@
     "comments": "",
     "occurrences": [
       "static/install/cli.html:473",
-      "static/install/web.html:388"
+      "static/install/web.html:395"
     ]
   },
   "Install | GrapheneOS": {
@@ -79650,12 +79650,68 @@
       "static/install/web.html:58"
     ]
   },
+  "No device selected.": {
+    "msgid": "No device selected.",
+    "msgstr": "",
+    "comments": "",
+    "occurrences": [
+      "static/install/web.html:59"
+    ]
+  },
+  "Access to the USB device was denied.": {
+    "msgid": "Access to the USB device was denied.",
+    "msgstr": "",
+    "comments": "",
+    "occurrences": [
+      "static/install/web.html:60"
+    ]
+  },
+  "The USB operation was aborted.": {
+    "msgid": "The USB operation was aborted.",
+    "msgstr": "",
+    "comments": "",
+    "occurrences": [
+      "static/install/web.html:61"
+    ]
+  },
+  "The device is in an invalid state for this operation.": {
+    "msgid": "The device is in an invalid state for this operation.",
+    "msgstr": "",
+    "comments": "",
+    "occurrences": [
+      "static/install/web.html:62"
+    ]
+  },
+  "A communication error occurred while talking to the device.": {
+    "msgid": "A communication error occurred while talking to the device.",
+    "msgstr": "",
+    "comments": "",
+    "occurrences": [
+      "static/install/web.html:63"
+    ]
+  },
+  "This operation is not supported by your browser or device.": {
+    "msgid": "This operation is not supported by your browser or device.",
+    "msgstr": "",
+    "comments": "",
+    "occurrences": [
+      "static/install/web.html:64"
+    ]
+  },
+  "This action was blocked by your browser security settings.": {
+    "msgid": "This action was blocked by your browser security settings.",
+    "msgstr": "",
+    "comments": "",
+    "occurrences": [
+      "static/install/web.html:65"
+    ]
+  },
   "storage quota has been exceeded, you might not have enough space on your drive, or you're using incognito mode": {
     "msgid": "storage quota has been exceeded, you might not have enough space on your drive, or you're using incognito mode",
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:59"
+      "static/install/web.html:66"
     ]
   },
   "Error: {message}": {
@@ -79663,7 +79719,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:60"
+      "static/install/web.html:67"
     ]
   },
   "Unavailable, as your browser doesn't support WebUSB. Please read the <a href=\"#prerequisites\">prerequisites</a>.": {
@@ -79671,7 +79727,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:61"
+      "static/install/web.html:68"
     ]
   },
   "Web installer": {
@@ -79679,7 +79735,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:71"
+      "static/install/web.html:78"
     ]
   },
   "This is the WebUSB-based installer for GrapheneOS and is the recommended approach\n            for most users. The ": {
@@ -79687,7 +79743,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:72"
+      "static/install/web.html:79"
     ]
   },
   " is the\n            more traditional approach to installing GrapheneOS.": {
@@ -79695,7 +79751,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:73"
+      "static/install/web.html:80"
     ]
   },
   "You need a computer for running the web installer with at least 2GB of free\n                memory available and 32GB of free storage space. The web installer can be run on an\n                Android phone or tablet, unlike the command-line installation.": {
@@ -79703,7 +79759,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:113"
+      "static/install/web.html:120"
     ]
   },
   "Officially supported operating systems for the web install method:": {
@@ -79711,7 +79767,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:127"
+      "static/install/web.html:134"
     ]
   },
   "ChromeOS": {
@@ -79719,7 +79775,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:143"
+      "static/install/web.html:150"
     ]
   },
   "Android 13 with Play Protect certification": {
@@ -79727,7 +79783,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:145"
+      "static/install/web.html:152"
     ]
   },
   "Android 14 with Play Protect certification": {
@@ -79735,7 +79791,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:146"
+      "static/install/web.html:153"
     ]
   },
   "Android 15 with Play Protect certification": {
@@ -79743,7 +79799,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:147"
+      "static/install/web.html:154"
     ]
   },
   "Android 16 with Play Protect certification": {
@@ -79751,7 +79807,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:148"
+      "static/install/web.html:155"
     ]
   },
   "Officially supported browsers for the web install method:": {
@@ -79759,7 +79815,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:153"
+      "static/install/web.html:160"
     ]
   },
   "Chromium (outside Ubuntu, since they ship a broken Snap package without working WebUSB)": {
@@ -79767,7 +79823,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:155"
+      "static/install/web.html:162"
     ]
   },
   "Vanadium (GrapheneOS)": {
@@ -79775,7 +79831,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:156"
+      "static/install/web.html:163"
     ]
   },
   "Google Chrome": {
@@ -79783,7 +79839,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:157"
+      "static/install/web.html:164"
     ]
   },
   "Microsoft Edge": {
@@ -79791,7 +79847,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:158"
+      "static/install/web.html:165"
     ]
   },
   "Brave (with Brave Shields disabled, since it caps storage usage at a low value to avoid fingerprinting available storage)": {
@@ -79799,7 +79855,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:159"
+      "static/install/web.html:166"
     ]
   },
   "On Android, disable desktop mode for the browser since it currently prevents our\n                web installer from detecting Android and handling needing to request permission to\n                reconnect to the device after each reboot. Desktop mode is enabled by default on\n                large tablets with at least 8GB of RAM such as the Pixel Tablet.": {
@@ -79807,7 +79863,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:161"
+      "static/install/web.html:168"
     ]
   },
   "You should avoid Flatpak and Snap versions of browsers, as they're known to cause issues during the installation process.": {
@@ -79815,7 +79871,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:165"
+      "static/install/web.html:172"
     ]
   },
   "Make sure your browser is up-to-date before proceeding.": {
@@ -79823,7 +79879,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:166"
+      "static/install/web.html:173"
     ]
   },
   "Do not use Incognito or other private browsing modes. These modes usually\n                prevent the web installer from having enough storage space to extract the\n                downloaded release.": {
@@ -79831,7 +79887,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:167"
+      "static/install/web.html:174"
     ]
   },
   "On Arch Linux, install the ": {
@@ -79839,7 +79895,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:206"
+      "static/install/web.html:213"
     ]
   },
   " package. On Debian and\n                Ubuntu, install the ": {
@@ -79847,7 +79903,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:206"
+      "static/install/web.html:213"
     ]
   },
   " package.": {
@@ -79855,7 +79911,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:207"
+      "static/install/web.html:214"
     ]
   },
   "This step is not complete until your device displays a red warning triangle\n                and the words \"Fastboot Mode\".  You must not press the device's power button\n                to activate the \"Start\" menu item, because the device must remain paused in\n                Fastboot mode for the installer to connect to it.": {
@@ -79863,7 +79919,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:229"
+      "static/install/web.html:236"
     ]
   },
   "Unlock bootloader": {
@@ -79871,7 +79927,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:258"
+      "static/install/web.html:265"
     ]
   },
   "The command needs to be confirmed on the device and will wipe all data. Use one\n                of the volume buttons to switch the selection to accepting it and the power button to\n                confirm.": {
@@ -79879,7 +79935,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:259"
+      "static/install/web.html:266"
     ]
   },
   "Press the button below to start the download:": {
@@ -79887,7 +79943,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:268"
+      "static/install/web.html:275"
     ]
   },
   "Warning: browser\n                is reporting a low storage quota, there might not be enough space for the image": {
@@ -79895,7 +79951,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:269"
+      "static/install/web.html:276"
     ]
   },
   "Download release": {
@@ -79903,7 +79959,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:271"
+      "static/install/web.html:278"
     ]
   },
   "Flash release": {
@@ -79911,7 +79967,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:282"
+      "static/install/web.html:289"
     ]
   },
   "Reconnect device": {
@@ -79919,7 +79975,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:293"
+      "static/install/web.html:300"
     ]
   },
   "Lock bootloader": {
@@ -79927,7 +79983,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:305"
+      "static/install/web.html:312"
     ]
   },
   "Installation of the stock OS via the stock factory images is similar to the\n                    process described above but with\n                    ": {
@@ -79935,7 +79991,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:383"
+      "static/install/web.html:390"
     ]
   },
   "Google's web flashing\n                    tool": {
@@ -79943,7 +79999,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:385"
+      "static/install/web.html:392"
     ]
   },
   ". However, before flashing and locking, there's an additional step to\n                    fully revert the device to a clean factory state.": {
@@ -79951,7 +80007,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:386"
+      "static/install/web.html:393"
     ]
   },
   "Remove non-stock key": {
@@ -79959,7 +80015,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "static/install/web.html:392"
+      "static/install/web.html:399"
     ]
   },
   "Channel": {

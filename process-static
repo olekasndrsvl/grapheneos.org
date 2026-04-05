@@ -144,34 +144,34 @@ find static-tmp -name '*.html' -type f -exec html-minifier-terser --collapse-whi
 
 
 echo "=== Processing assets with hashes ==="
-replace_script=$(mktemp)  # временный файл для всех замен
+replace_script=$(mktemp)  # temporary file containing all replacements
 
 for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon).svg; do
     [ -f "$file" ] || continue
 
-    # 1. Сохраняем оригинальный путь ДО любых изменений
+    # 1. Save the original path before making any changes
     original_path="/${file#static-tmp/}"
 
-    # 2. Считаем хеши от существующего файла
+    # 2. Calculate hashes for the current file
     hash=$(sha256sum "$file" | head -c 8)
     sri_hash="sha256-$(openssl dgst -sha256 -binary "$file" | base64 -w 0)"
 
-    # 3. Формируем новое имя
+    # 3. Build the new filename
     dest="$(dirname "$file")/$hash.$(basename "$file")"
     echo "DEBUG: $file" >&2
     echo "  hash: $hash" >&2
     echo "  sri: $sri_hash" >&2
     echo "  Processing: $original_path -> /${dest#static-tmp/}"
 
-    # 4. Переименовываем файл
+    # 4. Rename the file
     mv "$file" "$dest"
 
-    # 5. Экранируем пути для sed
+    # 5. Escape paths for sed
     orig_esc=$(printf '%s\n' "$original_path" | sed 's/[.[\/*^$]/\\&/g')
     dest_esc=$(printf '%s\n' "/${dest#static-tmp/}" | sed 's/[.[\/*^$]/\\&/g')
     sri_esc=$(printf '%s\n' "$sri_hash" | sed 's/[&/\]/\\&/g')
 
-    # 6. Добавляем замены в скрипт
+    # 6. Append replacements to the script
     echo "s@\\[\\[path|${orig_esc}\\]\\]@${dest_esc}@g" >> "$replace_script"
     echo "s@\\[\\[integrity|${orig_esc}\\]\\]@${sri_esc}@g" >> "$replace_script"
 
@@ -182,7 +182,7 @@ for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon)
     fi
 done
 
-# 7. Применяем все замены
+# 7. Apply all replacements
 if [ -s "$replace_script" ]; then
     find static-tmp -name "*.html" -type f -exec sed -i -f "$replace_script" {} \;
     sed -i -f "$replace_script" nginx-tmp/nginx.conf nginx-tmp/preload.conf 2>/dev/null || true

@@ -29,18 +29,18 @@ WORKDIR /app
 
 COPY . .
 
-# Удаляем \r из всех файлов
+# Remove Windows carriage returns from all files
 RUN find . -type f -exec sed -i 's/\r$//' {} \; && \
     chmod +x process-static dev-deploy-static generate-* indexnow *.sh
 
-# Устанавливаем зависимости
+# Install dependencies
 RUN python3 -m venv /app/venv && \
     . /app/venv/bin/activate && \
     pip install --upgrade pip && \
     pip install -r requirements.txt && \
     npm ci
 
-# Запускаем сборку
+# Run the build
 RUN . /app/venv/bin/activate && ./dev-deploy-static
 
 FROM nginx:alpine
